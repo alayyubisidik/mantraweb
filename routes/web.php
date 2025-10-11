@@ -1,0 +1,53 @@
+<?php
+
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::middleware("auth")->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    });
+    Route::get('/signout', [AuthController::class, "signout"]);
+
+    Route::get('/dashboard/client', [ClientController::class, "index"]);
+    Route::match(['GET', 'POST'], '/dashboard/client/create', [ClientController::class, "create"]);
+    Route::get('/dashboard/client/delete/{clientId}', [ClientController::class, "delete"]);
+    Route::match(['GET', 'POST'], '/dashboard/client/update/{clientId}', [ClientController::class, "update"]);
+
+    Route::get('/dashboard/service', [ServiceController::class, "index"]);
+    Route::match(['GET', 'POST'], '/dashboard/service/create', [ServiceController::class, "create"]);
+    Route::get('/dashboard/service/delete/{serviceId}', [ServiceController::class, "delete"]);
+    Route::match(['GET', 'POST'], '/dashboard/service/update/{serviceId}', [ServiceController::class, "update"]);
+
+    Route::get('/dashboard/testimonial', [TestimonialController::class, "index"]);
+    Route::match(['GET', 'POST'], '/dashboard/testimonial/create', [TestimonialController::class, "create"]);
+    Route::get('/dashboard/testimonial/delete/{testimonialId}', [TestimonialController::class, "delete"]);
+    Route::match(['GET', 'POST'], '/dashboard/testimonial/update/{testimonialId}', [TestimonialController::class, "update"]);
+    
+    Route::get('/dashboard/project', [ProjectController::class, "index"]);
+    Route::match(['GET', 'POST'], '/dashboard/project/create', [ProjectController::class, "create"]);
+    Route::get('/dashboard/project/delete/{projectId}', [ProjectController::class, "delete"]);
+    Route::match(['GET', 'POST'], '/dashboard/project/update/{projectId}', [ProjectController::class, "update"]);
+
+
+});
+
+Route::middleware(["admin"])->group(function () {
+    Route::get('/dashboard/user', [UserController::class, "index"]);
+    Route::match(['GET', 'POST'], '/dashboard/user/create', [UserController::class, "create"]);
+    Route::match(['GET', 'POST'], '/dashboard/user/update/{userId}', [UserController::class, "update"]);
+    Route::get('/dashboard/user/delete/{userId}', [UserController::class, "delete"]);
+});
+
+Route::middleware("guest")->group(function () {
+    Route::match(['GET', 'POST'], '/signin', [AuthController::class, "signIn"]);
+});
