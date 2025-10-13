@@ -2,14 +2,19 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
+Route::controller(LandingController::class)->group(function () {
+    Route::get('/', 'index')->name('pages.home');
+    Route::get('/about', 'about')->name('pages.about');
+    Route::get('/team', 'team')->name('pages.team');
+    Route::get('/project', 'project')->name('pages.project');
+    Route::get('/contact', 'contact')->name('pages.contact');
 });
 
 Route::middleware("auth")->group(function () {
