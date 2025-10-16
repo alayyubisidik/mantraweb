@@ -9,7 +9,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <!-- Place favicon.ico in the root directory -->
-   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('landing/img/favicon.png') }}">
+   {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('landing/img/favicon.png') }}"> --}}
 
    <!-- CSS here -->
    <link rel="stylesheet" href="{{ asset('landing/css/bootstrap.min.css') }}">
@@ -50,7 +50,8 @@
                <div class="row align-items-center">
                   <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
                      <div class="header-bottom__logo">
-                        <a href="index.html"><img src="{{ asset('landing/img/logo/logo-black.png') }}" alt=""></a>
+                        {{-- <a href="index.html"><img src="{{ asset('landing/img/logo/logo-black.png') }}" alt=""></a> --}}
+                        <h2>Mantraweb</h2>
                      </div>
                   </div>
                   <div class="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
@@ -58,19 +59,19 @@
                         <nav id="mobile-menu">
                            <ul>
                               <li>
-                                 <a href="{{ route('pages.home') }}">Home</a>
+                                 <a href="{{ route('pages.home') }}">HOME</a>
                               </li>
                               <li>
-                                 <a href="{{ route('pages.about') }}">About</a>
+                                 <a href="{{ route('pages.about') }}">ABOUT</a>
                               </li>
                               <li>
-                                 <a href="{{ route('pages.team') }}">Team</a>
+                                 <a href="{{ route('pages.team') }}">TEAM</a>
                               </li>
                               <li>
-                                 <a href="{{ route('pages.project') }}">Projects</a>
+                                 <a href="{{ route('pages.project') }}">PROJECTS</a>
                               </li>
                               <li>
-                                 <a href="{{ route('pages.contact') }}">Contact</a>
+                                 <a href="{{ route('pages.contact') }}">CONTACT</a>
                               </li>
                            </ul>
                         </nav>
@@ -78,14 +79,14 @@
                   </div>
                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-8 col-6">
                      <div class="header-bottom__right d-flex align-items-center justify-content-end">
-                        <div class="header-bottom__action">
+                        {{-- <div class="header-bottom__action">
                            <a class="d-none d-lg-inline-block header-bottom__action-2 border-none" href="register.html">
                               <span>Log In</span>
                            </a>
-                        </div>
+                        </div> --}}
                         <div class="header-bottom__btn d-flex align-items-center">
                            <a class="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black" href="service-details.html">
-                              <span>Start Project</span>
+                              <span>Mulai Proyek</span>
                               <b></b>
                            </a>
                            <a class="header-bottom__bar tp-menu-bar d-lg-none" href="javascript:void(0)"><i class="fal fa-bars"></i></a>
@@ -134,7 +135,8 @@
                            <div class="tp-footer__widget footer-widget-3 footer-widget-5 footer-col-3-1">
                               <div class="tp-footer__logo mb-25">
                                  <a href="index.html">
-                                    <img src="{{ asset('landing/img/logo/logo-black.png') }}" alt="">
+                                    {{-- <img src="{{ asset('landing/img/logo/logo-black.png') }}" alt=""> --}}
+                                    <h2>Mantraweb</h2>
                                  </a>
                               </div>
                               <div class="tp-footer__contact-info">
@@ -280,7 +282,6 @@
    <script src="{{ asset('landing/js/purecounter.js') }}"></script>
    <script src="{{ asset('landing/js/jarallax.js') }}"></script>
    <script src="{{ asset('landing/js/main.js') }}"></script>
-
 
 
 </body>

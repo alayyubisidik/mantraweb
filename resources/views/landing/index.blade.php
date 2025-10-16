@@ -18,17 +18,17 @@
                      <div class="col-xl-11">
                         <div class="tp-hero-title-box text-center">
                            <h2 class="tp-hero-title-3 hero-text-anim pb-5">
-                            <i><i class="child-1">Turning <span>Concept</span></i></i> 
-                            <i><i class="child-1">Into Creative Reality.</i></i></h2>
-                           <p class=" tp-char-animation-2">We turn your creative concepts into beautiful, impactful digital experiences. <br> Your imagination deserves to be seen.</p>
+                            <i><i class="child-1">Solusi <span>Terpercaya</span></i></i> 
+                            <i><i class="child-1">untuk Bisnis Digital Anda.</i></i></h2>
+                           <p class=" tp-char-animation-2">Dapatkan dukungan teknologi terbaik untuk bisnis dan menjangkau lebih banyak pelanggan. <br> Semua bisa Anda lakukan dalam satu tempat.</p>
                         </div>
                         <div class="tp-hero-btn-3 text-center wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                            <a class="tp-btn-blue-lg tp-btn-hover alt-color-black" href="#">
-                              <span>Browse Portfolio</span>
+                              <span>Jelajahi Portfolio</span>
                               <b></b>
                            </a>
                            <a class="tp-btn-border tp-btn-hover alt-color-black" href="#">
-                              <span>Call Us Brader</span>
+                              <span>Panggil Aja</span>
                               <b></b>
                            </a>
                         </div>
@@ -168,11 +168,11 @@
                   <div class="container">
                      <div class="row align-items-center">
                         <div class="col-xl-4 col-lg-4">
-                           <div class="tp-barnd-left-item d-flex align-items-center">
-                              <div class="tp-barnd-icon">
+                           <div class="tp-barnd-left-item d-flex align-items-center justify-content-center justify-content-lg-start">
+                              {{-- <div class="tp-barnd-icon">
                                  <img src="{{ asset('landing/img/hero/hero-slider-icon-1.jpg') }}" alt="">
-                              </div>
-                              <h5 class="tp-barnd-title-sm">2k Companies <br> Trusted in the world</h5>
+                              </div> --}}
+                              <h5 class="tp-barnd-title-sm text-center text-lg-start">Beberapa mitra dan klien <br> yang telah mempercayai kami</h5>
                            </div>
                         </div>
                         <div class="col-xl-8 col-lg-8">
@@ -227,20 +227,20 @@
                      </div>
                      <div class="col-xl-6 col-lg-6 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".6s">
                         <div class="tp-sales-section-box pb-20">
-                           <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                           <h3 class="tp-section-title-3 pb-15 ">Track and <span>Analyze Sales</span> in Real time</h3>
-                           <p class="tp-title-anim">Centralize and simplify payments, and get comprehensive <br>
-                              insights on your financials softuch.! </p>
+                           <h4 class="tp-section-subtitle">KOLABORASI SEJAK 2025</h4>
+                           <h3 class="tp-section-title-3 pb-15 ">Membangun <span>Masa Depan</span> Digital Anda.</h3>
+                           <p class="tp-title-anim">Tim inovator yang berdedikasi menciptakan website yang fungsional,<br>
+                              dan siap membawa bisnis Anda online ke level berikutnya.</p>
                         </div>
                         <div class="tp-sales-feature pb-20">
                            <ul>
-                              <li class="yellow-1"><span><i class="far fa-check"></i> <em>No hidden fees.</em></span></li>
-                              <li class="purple-2"><span><i class="far fa-check"></i> <em>100% security. Guaranteed.</em></span></li>
-                              <li class="green-3"><span><i class="far fa-check"></i> <em>No training or maintenance needed</em></span></li>
+                              <li class="yellow-1"><span><i class="far fa-check"></i> <em>Teknologi terbaru dan teruji.</em></span></li>
+                              <li class="purple-2"><span><i class="far fa-check"></i> <em>Desain custom dan eksklusif.</em></span></li>
+                              <li class="green-3"><span><i class="far fa-check"></i> <em>Proses cepat dan terarah.</em></span></li>
                            </ul>
                         </div>
-                        <a class="tp-btn tp-btn-hover alt-color-black" href="about.html">
-                                 <span>About Us</span>
+                        <a class="tp-btn tp-btn-hover alt-color-black" href="{{ route('pages.about') }}">
+                                 <span>Kenalan Yuk</span>
                                  <b></b>
                               </a>
                      </div>
@@ -260,34 +260,47 @@
                <div class="tp-counter-shape-4 d-none d-sm-block">
                   <img src="{{ asset('landing/img/counter/counter-shape-4.png') }}" alt="">
                </div>
+
                <div class="container">
                   <div class="tp-counter-wrapper p-relative">
-                     <div class="row gx-0">
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                           <div class="tp-counter-wrap d-flex justify-content-center">
-                              <div class="tp-counter-item">
-                                 <h4><span data-purecounter-duration="1" data-purecounter-end="350" class="purecounter">0</span>+</h4>
-                                 <p>Team Members</p>
+                        <div class="row gx-0">
+
+                           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                              <div class="tp-counter-wrap d-md-flex justify-content-md-center align-items-md-center text-center"> 
+                                 <div class="tp-counter-item">
+                                       <h4><span data-purecounter-duration="1" data-purecounter-end="1" class="purecounter">0</span>+</h4>
+                                       <p>Proyek Selesai</p>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                              <div class="tp-counter-wrap d-md-flex justify-content-md-center align-items-md-center text-center">
+                                    <div class="tp-counter-item">
+                                       <h4><span data-purecounter-duration="1" data-purecounter-end="5" class="purecounter">0</span>+</h4>
+                                       <p>Tim Berpengalaman</p>
+                                    </div>
+                              </div>
+                           </div>
+
+                           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                              <div class="tp-counter-wrap d-md-flex justify-content-md-center align-items-md-center text-center">
+                                    <div class="tp-counter-item">
+                                       <h4><span data-purecounter-duration="1" data-purecounter-end="98" class="purecounter">0</span><em>%</em></h4>
+                                       <p>Klien Puas</p>
+                                    </div>
+                              </div>
+                           </div>
+
+                           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                              <div class="tp-counter-wrap d-md-flex justify-content-md-center align-items-md-center text-center">
+                                    <div class="tp-counter-item">
+                                       <h4><span data-purecounter-duration="1" data-purecounter-end="10" class="purecounter">0</span>+</h4>
+                                       <p>Industri Ditangani</p>
+                                    </div>
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                           <div class="tp-counter-wrap d-flex justify-content-center">
-                              <div class="tp-counter-item">
-                                 <h4><span data-purecounter-duration="1" data-purecounter-end="10" class="purecounter">0</span><em>m</em>+</h4>
-                                 <p>Total funding</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                           <div class="tp-counter-wrap d-flex justify-content-center">
-                              <div class="tp-counter-item">
-                                 <h4><span data-purecounter-duration="1" data-purecounter-end="500" class="purecounter">0</span><em>k</em></h4>
-                                 <p>Total active user base</p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
                   </div>
                </div>
             </div>
@@ -299,62 +312,62 @@
                   <div class="row justify-content-center">
                      <div class="col-xl-5">
                         <div class="tp-blog-section-box text-center mb-70">
-                           <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                           <h3 class="tp-section-title-3">Our Latest <span>News and Articles</span></h3>
+                           <h4 class="tp-section-subtitle">LAYANAN KAMI</h4>
+                           <h3 class="tp-section-title-3">Solusi <span>Terbaik</span></h3>
                         </div>
                      </div>
                   </div>
-                  <div class="row gx-60">
-                     <div class="col-xl-3 col-lg-3 col-md-6 mb-40 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".4s">
+                  <div class="row gy-5 gx-lg-5 gx-4 px-3 px-sm-4 px-md-0">
+                     <div class="col-xl-3 col-lg-3 col-md-6 mb-4 mb-md-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".4s">
                         <div class="tp-service-2__item-wrapper p-relative">
                            <div class="tp-service-2__item d-flex justify-content-between flex-column">
                               <div class="tp-service-2__icon">
-                                 <img src="assets/img/service/sv-icon-2-1.png" alt="">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" class="duoicon duoicon-building" style="color: rgb(99, 102, 241);"><path fill="currentColor" fill-rule="evenodd" d="M13 3a2 2 0 0 1 1.995 1.85L15 5v14h1V9.5a.5.5 0 0 1 .41-.492L16.5 9H18a2 2 0 0 1 1.995 1.85L20 11v8h1a1 1 0 0 1 .117 1.993L21 21H3a1 1 0 0 1-.117-1.993L3 19h1V5a2 2 0 0 1 1.85-1.995L6 3h7Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" fill-rule="evenodd" d="M11 7H8v2h3V7Zm0 4H8v2h3v-2Zm0 4H8v2h3v-2Z" class="duoicon-primary-layer"></path></svg>
                               </div>
                               <div class="tp-service-2__text">
-                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">Online</a></h4>
+                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">Website App</a></h4>
                                  <a class="tp-service-2__link" href="service-details.html">Explore<i class="far fa-arrow-right"></i></a>
                               </div>
                            </div>
-                           <div class="tp-service-2__bg-shape"></div>
+                           <div class="tp-service-2__bg-shape tp-service-2__color-4"></div>
                         </div>
                      </div>
-                     <div class="col-xl-3 col-lg-3 col-md-6 mb-40 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
+                     <div class="col-xl-3 col-lg-3 col-md-6 mb-4 mb-md-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
                         <div class="tp-service-2__item-wrapper p-relative">
                            <div class="tp-service-2__item d-flex justify-content-between flex-column">
                               <div class="tp-service-2__icon">
-                                 <img src="assets/img/service/sv-icon-2-2.png" alt="">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" class="duoicon duoicon-shopping-bag" style="color: rgb(99, 102, 241);"><path fill="currentColor" fill-rule="evenodd" d="M10.464 3.282a2 2 0 0 1 2.964-.12l.108.12L17.468 8h2.985a1.49 1.49 0 0 1 1.484 1.655l-.092.766-.1.74-.082.554-.095.595-.108.625-.122.648-.136.661c-.072.333-.149.667-.232.998a20.957 20.957 0 0 1-.832 2.584l-.221.54-.214.488-.202.434-.094.194-.249.49c-.32.61-.924.97-1.563 1.022l-.16.006H6.555a1.928 1.928 0 0 1-1.71-1.008l-.232-.45-.18-.37-.095-.205-.2-.449a21.511 21.511 0 0 1-1.108-3.276 34.602 34.602 0 0 1-.156-.654l-.142-.648-.127-.634-.112-.613-.1-.587-.087-.554-.074-.513-.09-.683-.066-.556-.017-.153a1.489 1.489 0 0 1 1.348-1.64L3.543 8h2.989l3.932-4.718Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" fill-rule="evenodd" d="M12 4.562 9.135 8h5.73L12 4.562Zm3.164 7.452a1 1 0 0 0-1.125.708l-.025.114-.5 3a1 1 0 0 0 1.947.442l.025-.114.5-3a1 1 0 0 0-.822-1.15Zm-5.203.708a1 1 0 0 0-1.96.326l.013.116.5 3 .025.114a1 1 0 0 0 1.96-.326l-.013-.116-.5-3-.025-.114Z" class="duoicon-primary-layer"></path></svg>
                               </div>
                               <div class="tp-service-2__text">
-                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">Bank Transfers</a></h4>
+                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">E-Commerce</a></h4>
                                  <a class="tp-service-2__link" href="service-details.html">Explore<i class="far fa-arrow-right"></i></a>
                               </div>
                            </div>
-                           <div class="tp-service-2__bg-shape tp-service-2__color-2"></div>
+                           <div class="tp-service-2__bg-shape tp-service-2__color-4"></div>
                         </div>
                      </div>
-                     <div class="col-xl-3 col-lg-3 col-md-6 mb-40 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".8s">
+                     <div class="col-xl-3 col-lg-3 col-md-6 mb-4 mb-md-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".8s">
                         <div class="tp-service-2__item-wrapper p-relative">
                            <div class="tp-service-2__item d-flex justify-content-between flex-column">
                               <div class="tp-service-2__icon">
-                                 <img src="assets/img/service/sv-icon-2-3.png" alt="">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" class="duoicon duoicon-id-card" style="color: rgb(99, 102, 241);"><path fill="currentColor" d="M20 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" d="M10 9v2H8V9h2Zm7 2h-3a1 1 0 0 0-.117 1.993L14 13h3a1 1 0 0 0 .117-1.993L17 11Z" class="duoicon-primary-layer"></path><path fill="currentColor" d="M10 7H8a2 2 0 0 0-1.995 1.85L6 9v2a2 2 0 0 0 1.85 1.995L8 13h2a2 2 0 0 0 1.995-1.85L12 11V9a2 2 0 0 0-1.85-1.995L10 7Zm7 8H7a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2Z" class="duoicon-primary-layer"></path></svg>
                               </div>
                               <div class="tp-service-2__text">
-                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">Keyed</a></h4>
+                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">Landing Page</a></h4>
                                  <a class="tp-service-2__link" href="service-details.html">Explore<i class="far fa-arrow-right"></i></a>
                               </div>
                            </div>
-                           <div class="tp-service-2__bg-shape tp-service-2__color-3"></div>
+                           <div class="tp-service-2__bg-shape tp-service-2__color-4"></div>
                         </div>
                      </div>
-                     <div class="col-xl-3 col-lg-3 col-md-6 mb-40 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
+                     <div class="col-xl-3 col-lg-3 col-md-6 mb-4 mb-md-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
                         <div class="tp-service-2__item-wrapper p-relative">
                            <div class="tp-service-2__item  d-flex justify-content-between flex-column">
                               <div class="tp-service-2__icon">
-                                 <img src="assets/img/service/sv-icon-2-4.png" alt="">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" class="duoicon duoicon-settings" style="color: rgb(99, 102, 241);"><path fill="currentColor" fill-rule="evenodd" d="M9.965 2.809a1.51 1.51 0 0 0-1.401-.203 10.007 10.007 0 0 0-2.982 1.725 1.51 1.51 0 0 0-.524 1.313c.075.753-.058 1.48-.42 2.106-.361.627-.925 1.106-1.615 1.417-.458.203-.786.62-.875 1.113a10.035 10.035 0 0 0 0 3.44c.093.537.46.926.875 1.114.69.31 1.254.79 1.616 1.416.361.627.494 1.353.419 2.106-.045.452.107.964.524 1.313a10.007 10.007 0 0 0 2.982 1.725c.471.169.996.093 1.4-.203.615-.442 1.312-.691 2.036-.691s1.42.249 2.035.691c.37.266.89.39 1.401.203a10.007 10.007 0 0 0 2.982-1.725c.417-.349.57-.86.524-1.313-.075-.753.057-1.48.42-2.106.361-.627.925-1.105 1.615-1.416.414-.188.782-.577.875-1.114a10.085 10.085 0 0 0 0-3.44 1.512 1.512 0 0 0-.875-1.113c-.69-.311-1.254-.79-1.616-1.417-.362-.626-.494-1.353-.419-2.106a1.513 1.513 0 0 0-.524-1.313 10.007 10.007 0 0 0-2.982-1.725 1.514 1.514 0 0 0-1.4.203C13.42 3.25 12.723 3.5 12 3.5c-.723 0-1.42-.249-2.035-.691Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" fill-rule="evenodd" d="M9 12c0-2.309 2.5-3.753 4.5-2.598A3 3 0 0 1 15 12c0 2.309-2.5 3.753-4.5 2.598A3 3 0 0 1 9 12Z" class="duoicon-primary-layer"></path></svg>
                               </div>
                               <div class="tp-service-2__text">
-                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">In-Person</a></h4>
+                                 <h4 class="tp-service-2__title-sm"><a href="service-details.html">Maintenace</a></h4>
                                  <a class="tp-service-2__link" href="service-details.html">Explore<i class="far fa-arrow-right"></i></a>
                               </div>
                            </div>
@@ -372,8 +385,8 @@
                   <div class="row justify-content-center">
                      <div class="col-xl-5">
                         <div class="tp-blog-section-box text-center mb-70">
-                           <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                           <h3 class="tp-section-title-3">Our Latest <span>News and Articles</span></h3>
+                           <h4 class="tp-section-subtitle">APA KATA MEREKA</h4>
+                           <h3 class="tp-section-title-3">Testimoni <span>Klien</span></h3>
                         </div>
                      </div>
                   </div>
@@ -448,7 +461,7 @@
                                           </div>
                                           <div class="tp-blog-author-info-box blog-grid-avata-box d-flex align-items-center">
                                              <div class="tp-blog-avata">
-                                                <img src="assets/img/blog/blog-avata-3.png" alt="">
+                                                <img src="{{ asset('landing/img/blog/blog-avata-3.png') }}" alt="">
                                              </div>
                                              <div class="tp-blog-author-info">
                                                 <h5>Hilary Ouse</h5>
@@ -458,58 +471,6 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <!-- <div class="swiper-slide">
-                                    <div class="blog-grid-slider blog-grid-slider-bg d-flex align-items-center blog-grid-slider-height" data-background="assets/img/service/service-3-bg.png">
-                                       <div class="blog-grid-slider-wrapper">
-                                          <div class="blog-grid-slider-meta">
-                                             <span class="child-one">Resources</span>
-                                             <span class="child-two">October 20, 2023</span>
-                                          </div>
-                                          <div class="blog-grid-slider-title-box">
-                                             <h4 class="blog-grid-slider-title"><a href="blog-details.html">5 Companies doing Brand <br> Marketing Right</a></h4>
-                                             <p>From publishing content and hoping to acquire leads to <br>
-                                                gaining audience insights and making personalized <br>
-                                                content, content marketing.
-                                             </p>
-                                          </div>
-                                          <div class="tp-blog-author-info-box blog-grid-avata-box d-flex align-items-center">
-                                             <div class="tp-blog-avata">
-                                                <img src="assets/img/blog/blog-avata-2.png" alt="">
-                                             </div>
-                                             <div class="tp-blog-author-info">
-                                                <h5>Hilary Ouse</h5>
-                                                <span>Founder & CEO Dulalix</span>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="swiper-slide">
-                                    <div class="blog-grid-slider blog-grid-slider-bg d-flex align-items-center blog-grid-slider-height" data-background="assets/img/blog/inner-blog-3.png">
-                                       <div class="blog-grid-slider-wrapper">
-                                          <div class="blog-grid-slider-meta">
-                                             <span class="child-one">Resources</span>
-                                             <span class="child-two">October 20, 2023</span>
-                                          </div>
-                                          <div class="blog-grid-slider-title-box">
-                                             <h4 class="blog-grid-slider-title"><a href="#">5 Companies doing Brand <br> Marketing Right</a></h4>
-                                             <p class="">From publishing content and hoping to acquire leads to <br>
-                                                gaining audience insights and making personalized <br>
-                                                content, content marketing.
-                                             </p>
-                                          </div>
-                                          <div class="tp-blog-author-info-box blog-grid-avata-box d-flex align-items-center">
-                                             <div class="tp-blog-avata">
-                                                <img src="assets/img/blog/blog-avata-1.png" alt="">
-                                             </div>
-                                             <div class="tp-blog-author-info">
-                                                <h5>Hilary Ouse</h5>
-                                                <span>Founder & CEO Dulalix</span>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div> -->
                               </div>
                            </div>
                         </div>
@@ -526,8 +487,8 @@
                      <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12">
                            <div class="tp-team-section-box text-center">
-                              <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                              <h3 class="tp-section-title-3">Our Latest <span>News</span></h3>
+                              <h4 class="tp-section-subtitle">PROFESIONAL TEAM</h4>
+                              <h3 class="tp-section-title-3">Our <span>Team</span></h3>
                            </div>
                         </div>
                      </div>
@@ -536,11 +497,11 @@
                      <div class="col-lg-4 col-md-6 col-sm-6 mb-70 tp-border-after-1 team-inner-border-right">
                         <div class="tp-team-item text-center tp-team-inner-title-color z-index">
                            <div class="tp-team-img">
-                              <img src="assets/img/team/team-4-1.png" alt="">
+                              <img src="{{ asset('landing/img/team/team-4-2.png') }}" alt="">
                            </div>
                            <div class="tp-team-content">
-                              <h4 class="tp-team-title-sm"><a href="team-details.html">Alexa Montes</a></h4>
-                              <span>Partner & COO</span>
+                              <h4 class="tp-team-title-sm"><a href="team-details.html">Anieza Dwi</a></h4>
+                              <span>Member</span>
                            </div>
                            <div class="tp-team-social">
                               <a class="icon-color-1" href="#">
@@ -565,11 +526,11 @@
                      <div class="col-lg-4 col-md-6 col-sm-6 mb-70 tp-border-after-2 team-inner-border-right">
                         <div class="tp-team-item tp-team-inner-title-color text-center z-index">
                            <div class="tp-team-img">
-                              <img src="assets/img/team/team-4-2.png" alt="">
+                              <img src="{{ asset('landing/img/team/team-4-5.png') }}" alt="">
                            </div>
                            <div class="tp-team-content">
-                              <h4 class="tp-team-title-sm"><a href="team-details.html">Ravi Ganatra</a></h4>
-                              <span>Designer</span>
+                              <h4 class="tp-team-title-sm"><a href="team-details.html">Al Ayyubi</a></h4>
+                              <span>Member</span>
                            </div>
                            <div class="tp-team-social">
                               <a class="icon-color-1" href="#">
@@ -594,11 +555,11 @@
                      <div class="col-lg-4 col-md-6 col-sm-6 mb-70 tp-border-after-3 team-inner-border-right">
                         <div class="tp-team-item tp-team-inner-title-color text-center z-index">
                            <div class="tp-team-img">
-                              <img src="assets/img/team/team-4-3.png" alt="">
+                              <img src="{{ asset('landing/img/team/team-4-5.png') }}" alt="">
                            </div>
                            <div class="tp-team-content">
-                              <h4 class="tp-team-title-sm"><a href="team-details.html">Imdat Cimsit</a></h4>
-                              <span>CEO & Founder</span>
+                              <h4 class="tp-team-title-sm"><a href="team-details.html">Fahri Ahmad</a></h4>
+                              <span>Member</span>
                            </div>
                            <div class="tp-team-social">
                               <a class="icon-color-1" href="#">
@@ -623,11 +584,11 @@
                      <div class="col-lg-4 col-md-6 col-sm-6 mb-70 tp-border-after-4 team-inner-border-right">
                         <div class="tp-team-item tp-team-inner-title-color text-center z-index">
                            <div class="tp-team-img">
-                              <img src="assets/img/team/team-4-4.png" alt="">
+                              <img src="{{ asset('landing/img/team/team-4-5.png') }}" alt="">
                            </div>
                            <div class="tp-team-content">
-                              <h4 class="tp-team-title-sm"><a href="team-details.html">Imdat Cimsit</a></h4>
-                              <span>PHP Developer</span>
+                              <h4 class="tp-team-title-sm"><a href="team-details.html">Agung Prasetya</a></h4>
+                              <span>Member</span>
                            </div>
                            <div class="tp-team-social">
                               <a class="icon-color-1" href="#">
@@ -652,11 +613,11 @@
                      <div class="col-lg-4 col-md-6 col-sm-6 mb-70 tp-border-after-1 team-inner-border-right">
                         <div class="tp-team-item tp-team-inner-title-color text-center z-index">
                            <div class="tp-team-img">
-                              <img src="assets/img/team/team-4-5.png" alt="">
+                              <img src="{{ asset('landing/img/team/team-4-5.png') }}" alt="">
                            </div>
                            <div class="tp-team-content">
-                              <h4 class="tp-team-title-sm"><a href="team-details.html">Trevor Philips</a></h4>
-                              <span>Marketing Lead</span>
+                              <h4 class="tp-team-title-sm"><a href="team-details.html">Angga Budiaksa</a></h4>
+                              <span>Member</span>
                            </div>
                            <div class="tp-team-social">
                               <a class="icon-color-1" href="#">
@@ -690,10 +651,10 @@
                      <div class="col-xl-5 col-lg-6">
                         <div class="contact-form-left">
                            <div class="contact-form-section-box">
-                              <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                              <h3 class="tp-section-title-3 pb-15">Our Latest <span>News and Articles</span></h3>
-                              <p>While we're good with smoke signals,
-                                 there <br> are easier ways to get in touch.</p>
+                              <h4 class="tp-section-subtitle">BUTUH BANTUAN?</h4>
+                              <h3 class="tp-section-title-3 pb-15">Siap Memulai <span>Proyek Digital</span> Anda</h3>
+                              <p>Hubungi kami dan temukan solusi terbaik
+                                 <br> untuk bisnis Anda hari ini.</p>
                            </div>
                            <!-- <div class="contact-form-social-box">
                               <div class="contact-form-social-item">

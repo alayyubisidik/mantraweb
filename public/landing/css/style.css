@@ -3687,7 +3687,7 @@ input[type=color] {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 14px;
   line-height: 1.5;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 .mean-container .mean-nav ul li a:hover {
   color: var(--tp-theme-3);
@@ -10786,7 +10786,7 @@ input[type=color] {
 }
 
 .blog-grid-slider-height {
-  min-height: 500px;
+  min-height: 400px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px) {
   .blog-grid-slider-height {
