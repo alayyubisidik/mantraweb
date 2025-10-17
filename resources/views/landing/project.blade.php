@@ -20,10 +20,10 @@
                   <div class="row justify-content-center">
                      <div class="col-xl-10">
                         <div class="breadcrumb__content z-index-3 text-center">
-                           <h3 class="breadcrumb__title tp-char-animation text-black">Our Projects</h3>
+                           <h3 class="breadcrumb__title tp-char-animation text-black">Proyek Mantra</h3>
                            <div class="breadcrumb__text wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
-                              <p>We have an experienced team of production and inspection personnel <br> to ensure
-                                 quality.</p>
+                              <p>Kombinasi teknologi modern dan sentuhan kreatif
+                                 <br> untuk menciptakan pengalaman terbaik.</p>
                            </div>
                         </div>
                      </div>

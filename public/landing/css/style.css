@@ -7584,12 +7584,12 @@ input[type=color] {
 .ab-company-video a {
   height: 70px;
   width: 70px;
-  background-color: var(--tp-common-yellow-2);
+  background-color: var(--tp-common-blue);
   text-align: center;
   line-height: 70px;
   display: inline-block;
   border-radius: 50%;
-  color: var(--tp-common-black);
+  color: var(--tp-common-white);
   font-size: 18px;
   margin-right: 20px;
   transition: 0.3s;
@@ -7598,7 +7598,7 @@ input[type=color] {
   margin-left: 5px;
 }
 .ab-company-video a:hover {
-  background-color: var(--tp-theme-1);
+  background-color: var(--tp-common-black);
   color: var(--tp-common-white);
 }
 .ab-company-video span {
@@ -9452,8 +9452,8 @@ input[type=color] {
   }
 }
 .pd-details-social a:hover {
-  background-color: #600EE4;
-  border-color: #600EE4;
+  background-color: var(--tp-common-blue);
+  border-color: var(--tp-common-blue);
   color: var(--tp-common-white);
 }
 

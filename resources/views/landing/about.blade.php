@@ -18,10 +18,10 @@
                   <div class="row justify-content-center">
                      <div class="col-xl-10">
                         <div class="breadcrumb__content z-index-3 text-center">
-                           <h3 class="breadcrumb__title tp-char-animation text-black">About Us</h3>
+                           <h3 class="breadcrumb__title tp-char-animation text-black">Tentang Kami</h3>
                            <div class="breadcrumb__text wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
-                              <p>We have an experienced team of production and inspection personnel <br> to ensure
-                                 quality.</p>
+                              <p>Tim kreatif yang berfokus pada pengembangan website modern dan fungsional.
+                                 <br>Kami menciptakan pengalaman digital yang berkesan.</p>
                            </div>
                         </div>
                      </div>
@@ -52,8 +52,8 @@
                      <div class="row">
                         <div class="col-12">
                            <div class="ab-brand-section-box text-center mb-50">
-                              <h4 class="ab-brand-title">Trusted by Thousands Business</h4>
-                              <p>More than 100,000+ teams are using Softec</p>
+                              <h4 class="ab-brand-title">Teknologi Pendukung</h4>
+                              <p>Dibangun dengan fondasi kuat menggunakan teknologi terpercaya.</p>
                            </div>
                         </div>
                      </div>
@@ -119,17 +119,17 @@
                   <div class="row ab-company-section-space">
                      <div class="col-xl-6">
                         <div class="ab-company-section-box">
-                           <h4 class="inner-section-subtitle">ABOUT THE COMPANY</h4>
-                           <h3 class="tp-section-title">Softuch is Made <br>
-                              For the Creator.</h3>
+                              <h4 class="tp-section-subtitle">DARI TUJUAN</h4>
+                           <h3 class="tp-section-title">Sebagai Perwujudan <br>
+                              Ide Digitalmu.</h3>
                         </div>
                      </div>
                      <div class="col-xl-6 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".5s">
                         <div class="ab-company-right">
                            <div class="ab-company-section-text">
-                              <p class="pb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rutrum arcu sollicitudin viverra sit elit leo in. Vitae eu tellus mattis quis. Eu, tempus donec nam mauris egestas. Id aliquet ultricies ligula tellus arcu dolor. Massa arcu pulvinar in mattis</p>
-                              <p class="pb-10">Feugiat purus congue risus, blandit a sed. In aenean quam aenean purus dictum pellentesque consequat.!</p>
-                              <p><span>Our clean and simple APIs and transparent SaaS model will give you complete peace of mind.</span></p>
+                              <p class="pb-10">Mantraweb lahir dari keinginan untuk membantu bisnis, komunitas, dan individu membangun kehadiran digital yang kuat.</p>
+                              <p class="pb-10">Kami percaya setiap ide pantas memiliki tampilan profesional di dunia online.</p>
+                              <p class="pb-10">Dengan tim kecil yang bersemangat dan teknologi modern, kami berfokus menciptakan website yang cepat, menarik, dan mudah digunakan.</p>
                            </div>
                         </div>
                      </div>
@@ -138,38 +138,7 @@
                      <div class="col-xl-4">
                         <div class="ab-company-video">
                            <a class="popup-video" href="https://www.youtube.com/watch?v=EW4ZYb3mCZk"><i class="fas fa-play"></i></a>
-                           <span>Watch Demo</span>
-                        </div>
-                     </div>
-                     <div class="col-xl-8">
-                        <div class="row">
-                           <div class="col-md-4 col-sm-4 mb-40">
-                              <div class="ab-company-fun-fact-wrap d-flex justify-content-start">
-                                 <div class="ab-company-fun-fact">
-                                    <span>USED BY</span>
-                                    <h4>11,000<em>+</em></h4>
-                                    <p>Creators</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4 col-sm-4 mb-40">
-                              <div class="ab-company-fun-fact-wrap d-flex justify-content-md-center justify-content-left">
-                                 <div class="ab-company-fun-fact">
-                                    <span>VALUE</span>
-                                    <h4>46<em>m</em></h4>
-                                    <p>Revenue per Year</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4 col-sm-4 mb-40">
-                              <div class="ab-company-fun-fact-wrap ab-company-border-none d-flex justify-content-md-center justify-content-left">
-                                 <div class="ab-company-fun-fact">
-                                    <span>IN</span>
-                                    <h4>150<em>+</em></h4>
-                                    <p>Countries using</p>
-                                 </div>
-                              </div>
-                           </div>
+                           <span>Tonton Demo</span>
                         </div>
                      </div>
                   </div>
@@ -187,46 +156,45 @@
                               <img src="{{ asset('landing/img/about/about-bg-shape.png') }}" alt="">
                            </div>
                            <div class="tp-about__main-img z-index">
-                              <img src="{{ asset('landing/img/about/about-2.jpg" alt="') }}">
+                              <img src="{{ asset('landing/img/about/about-2.jpg') }}" alt="">
                            </div>
                            <div class="tp-about__sub-img-1 d-none d-sm-block z-index-3">
-                              <img src="{{ asset('landing/img/about/about-1.jpg" alt="') }}">
+                              <img src="{{ asset('landing/img/about/about-1.jpg') }}" alt="">
                            </div>
                            <div class="tp-about__sub-img-2 d-none d-sm-block">
-                              <img src="{{ asset('landing/img/about/about-3.jpg" alt="') }}">
+                              <img src="{{ asset('landing/img/about/about-3.jpg') }}" alt="">
                            </div>
                            <div class="tp-about__sub-img-3 d-none d-sm-block z-index-3">
-                              <img src="{{ asset('landing/img/about/about-5.png" alt="') }}">
+                              <img src="{{ asset('landing/img/about/about-5.png') }}" alt="">
                            </div>
                         </div>
                      </div>
                      <div class="col-xl-6 col-lg-6 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".6s">
                         <div class="tp-about__right">
                            <div class="tp-about__section-box">
-                              <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                              <h3 class="tp-section-title mb-15">We Offer Real Time Data Solutions
+                              <h4 class="tp-section-subtitle">HINGGA VISI</h4>
+                              <h3 class="tp-section-title mb-15">Mendorong Transformasi Lewat Kreativitas 
                               </h3>
-                              <p>Excepteur sint occaecat cupidatat officia non proident <br>
-                                 sunt in culpa qui deserunt.!</p>
+                              <p>Kreativitas adalah kunci untuk beradaptasi dan tumbuh di era digital. <br>
+                                 — dan kami mewujudkannya lewat karya.</p>
                            </div>
                            <div class="tp-about__list">
                               <ul>
-                                 <li><i class="fal fa-check"></i>Various analysis options.</li>
-                                 <li><i class="fal fa-check"></i>Page Load (time, size, number of requests).</li>
-                                 <li><i class="fal fa-check"></i>Big data analysis.</li>
+                                 <li><i class="fal fa-check"></i>Inovasi Tanpa Henti</li>
+                                 <li><i class="fal fa-check"></i>Kolaborasi yang Dekat</li>
+                                 <li><i class="fal fa-check"></i>Hasil yang Berdampak</li>
                               </ul>
                            </div>
-                           <div class="tp-about__btn">
-                              <a class="tp-btn tp-btn-inner tp-btn-hover alt-color-black" href="about.html">
-                                 <span>About Us</span>
+                           <a class="tp-btn tp-btn-hover alt-color-black" href="{{ route('pages.project') }}">
+                                 <span>Liat Projectnya</span>
                                  <b></b>
                               </a>
-                           </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
+      
             <!-- tp-about-area-end -->
 
          </main>

@@ -17,10 +17,10 @@
                   <div class="row justify-content-center">
                      <div class="col-xl-10">
                         <div class="breadcrumb__content z-index-3 text-center">
-                           <h3 class="breadcrumb__title tp-char-animation text-black">Contact Us</h3>
+                           <h3 class="breadcrumb__title tp-char-animation text-black">Waktunya Merapal</h3>
                            <div class="breadcrumb__text wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
-                              <p>We have an experienced team of production and inspection personnel <br> to ensure
-                                 quality.</p>
+                              <p>Biarkan kami menenun ide-ide digitalmu jadi karya yang hidup.
+                                 <br> Setiap kolaborasi dimulai dari satu panggilan.</p>
                            </div>
                         </div>
                      </div>
@@ -50,10 +50,10 @@
                      <div class="col-xl-5 col-lg-6">
                         <div class="contact-form-left">
                            <div class="contact-form-section-box">
-                              <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                              <h3 class="tp-section-title-3 pb-15">Our Latest <span>News and Articles</span></h3>
-                              <p>While we're good with smoke signals,
-                                 there <br> are easier ways to get in touch.</p>
+                              <h4 class="tp-section-subtitle">BUTUH BANTUAN?</h4>
+                              <h3 class="tp-section-title-3 pb-15">Siap Memulai <span>Proyek Digital</span> Anda</h3>
+                              <p>Hubungi kami dan temukan solusi terbaik
+                                 <br> untuk bisnis Anda hari ini.</p>
                            </div>
                            <!-- <div class="contact-form-social-box">
                               <div class="contact-form-social-item">

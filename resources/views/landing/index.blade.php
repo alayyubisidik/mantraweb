@@ -488,7 +488,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12">
                            <div class="tp-team-section-box text-center">
                               <h4 class="tp-section-subtitle">PROFESIONAL TEAM</h4>
-                              <h3 class="tp-section-title-3">Our <span>Team</span></h3>
+                              <h3 class="tp-section-title-3">Dirancang <span>Tim Keren</span></h3>
                            </div>
                         </div>
                      </div>
