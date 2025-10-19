@@ -18,7 +18,7 @@ class OnlyAdminMiddleware
     {
 
         if (!Auth::check()) {
-            return redirect("/signin");
+            return redirect("/login");
         }
 
         if (Auth::user()->role !== "admin") {

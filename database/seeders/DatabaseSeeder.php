@@ -17,16 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Buat akun admin utama
-        User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'admin@example.com',
-            'password' => bcrypt('password'),
-            'role' => 'admin',
-        ]);
-
         // Buat beberapa user team
-        User::factory(3)->create([
+        User::factory(1)->create([
             'role' => 'team',
         ]);
 

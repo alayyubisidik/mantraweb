@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
     public function index()
     {
-        return view('landing.index');
+        $teams = Team::limit(5)->get();
+
+        return view('landing.index')->with('teams', $teams);
     }
 
     public function about()
@@ -18,7 +21,9 @@ class LandingController extends Controller
 
     public function team()
     {
-        return view('landing.team');
+        $teams = Team::all();
+
+        return view('landing.team')->with('teams', $teams);
     }
 
     public function project()

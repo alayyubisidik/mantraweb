@@ -43,12 +43,12 @@
                     </li>
                 </ul>
                 <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
-                    <li class="topbar-item">
+                    {{-- <li class="topbar-item">
                         <a class="nav-link nav-icon" href="javascript:void(0);" id="light-dark-mode">
                             <i class="iconoir-half-moon dark-mode"></i>
                             <i class="iconoir-sun-light light-mode"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="dropdown topbar-item">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
@@ -63,11 +63,10 @@
                                 </div>
                                 <div class="flex-grow-1 ms-2 text-truncate align-self-center">
                                     <h6 class="my-0 fw-medium text-dark fs-13">
-                                        William Martin
+                                        {{ auth()->user()->name }}
                                     </h6>
-                                    <small class="text-muted mb-0">Front End Developer</small>
+                                    <small class="text-muted mb-0">{{ auth()->user()->role }}</small>
                                 </div>
-                                <!--end media-body-->
                             </div>
                             <div class="dropdown-divider mt-0"></div>
                             <small class="text-muted px-2 pb-1 d-block">Account</small>
@@ -75,7 +74,7 @@
                                     class="las la-user fs-18 me-1 align-text-bottom"></i>
                                 Profile</a>
                             <div class="dropdown-divider mb-0"></div>
-                            <a class="dropdown-item text-danger" href="{{ route('signout') }}"><i
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i
                                     class="las la-power-off fs-18 me-1 align-text-bottom"></i>
                                 Logout</a>
                         </div>
@@ -91,14 +90,12 @@
 
         <!-- Brand Section Start-->
         <div class="brand">
-            <a href="index.html" class="logo">
+            <a href="{{ route('dashboard') }}" class="logo">
                 <span>
-                    <img src="{{ asset('dashboard/images/logo-sm.png') }}" alt="logo-small" class="logo-sm" />
+                    <img src="{{ asset('dashboard/images/logo-dark.png') }}" alt="logo-small" class="logo-sm" />
                 </span>
                 <span class="">
-                    <img src="{{ asset('dashboard/images/logo-light.png') }}" alt="logo-large"
-                        class="logo-lg logo-light" />
-                    <img src="{{ asset('dashboard/images/logo-dark.png') }}" alt="logo-large"
+                    <img src="{{ asset('dashboard/images/logo.png') }}" alt="logo-large"
                         class="logo-lg logo-dark" />
                 </span>
             </a>
@@ -137,6 +134,13 @@
                                 </a>
                             </li>
                         @endunless
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('team.index') }}">
+                                <i class="iconoir-learning menu-icon"></i>
+                                <span>Team</span>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('service.index') }}">
@@ -263,7 +267,7 @@
             const input = event.target;
             const preview = document.getElementById('logoPreview');
             const oldLogo = input.closest('.col-sm-9').querySelector(
-            'img.img-thumbnail:not(#logoPreview)'); // ambil logo lama
+                'img.img-thumbnail:not(#logoPreview)'); // ambil logo lama
 
             if (input.files && input.files[0]) {
                 const reader = new FileReader();

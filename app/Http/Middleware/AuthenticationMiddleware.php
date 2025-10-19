@@ -17,7 +17,7 @@ class AuthenticationMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check()) {
-            return redirect('/signin');
+            return redirect('/login');
         }
 
         return $next($request);

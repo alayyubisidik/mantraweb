@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
-    public function signIn(Request $request)
+    public function login(Request $request)
     {
         if ($request->isMethod("GET")) {
-            return view("signin");
+            return view("login");
         }
 
         $request->validate([
@@ -43,10 +43,10 @@ class AuthController extends Controller
         return redirect()->back()->with("message-error", "username or password is incorrect");
     }
 
-    public function signOut()
+    public function logout()
     {
         Auth::logout();
 
-        return redirect('/signin');
+        return redirect('/login');
     }
 }
