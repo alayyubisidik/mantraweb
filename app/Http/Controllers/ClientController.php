@@ -26,10 +26,10 @@ class ClientController extends Controller
             'name' => 'required|string|max:100',
             'job_title' => 'required|string|max:100',
             'email' => 'required|email|unique:clients,email',
-            'phone' => 'required|numeric|digits_between:8,15',
+            'phone' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'company' => 'required|string|max:150',
-            'company_logo_url' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048', // max 2MB
+            'company_logo_url' => 'required|image|mimes:jpg,jpeg,png,webp,svg|max:2048', // max 2MB
         ]);
 
         $path = $request->file('company_logo_url')->store('company-logo', 'public');
@@ -70,7 +70,7 @@ class ClientController extends Controller
             'phone' => 'required|numeric|digits_between:8,15',
             'address' => 'required|string|max:255',
             'company' => 'required|string|max:150',
-            'company_logo_url' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'company_logo_url' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
         ]);
 
         if ($request->hasFile('company_logo_url')) {

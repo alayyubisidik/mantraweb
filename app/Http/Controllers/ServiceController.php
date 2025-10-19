@@ -23,13 +23,9 @@ class ServiceController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|string|max:150',
-            'description' => 'required|string|max:255',
-            'icon_url' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'description' => 'required|string|max:500',
+            'icon_url' => 'required|string|max:2000',
         ]);
-
-        $path = $request->file('icon_url')->store('service-icons', 'public');
-
-        $validated['icon_url'] = $path;
 
         Service::create($validated);
 
@@ -62,17 +58,8 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:150',
             'description' => 'required|string|max:500',
-            'icon_url' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'icon_url' => 'required|string|max:2000',
         ]);
-
-        if ($request->hasFile('icon_url')) {
-            if ($service->icon_url && Storage::disk('public')->exists($service->icon_url)) {
-                Storage::disk('public')->delete($service->icon_url);
-            }
-
-            $path = $request->file('icon_url')->store('service-icons', 'public');
-            $validated['icon_url'] = $path;
-        }
 
         $service->update($validated);
 

@@ -1,112 +1,146 @@
-@extends('layout.dashboard-layout')
+@extends('layouts.dashboard')
 
 @section('title', 'Create Project')
 
 @section('content')
-    <h1>Create Project</h1>
 
-    <form action="/dashboard/project/create" method="POST" class="mt-4" style="width: 60%" enctype="multipart/form-data">
-        @csrf
-
-        {{-- Select Client --}}
-        <div class="mb-3">
-            <label for="client_id" class="form-label">Client</label>
-            @error('client_id')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <select name="client_id" id="client_id" class="form-control">
-                <option value="">-- Select Client --</option>
-                @foreach ($clients as $client)
-                    <option value="{{ $client->id }}" {{ old('client_id') == $client->id ? 'selected' : '' }}>
-                        {{ $client->name }}
-                    </option>
-                @endforeach
-            </select>
+    <!--Container Start-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
+                    <h4 class="page-title">Project Management</h4>
+                    <div class="">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="{{ route('project.index') }}">Project</a>
+                            </li>
+                            <li class="breadcrumb-item active">Form</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        {{-- Title --}}
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            @error('title')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <input type="text" name="title" id="title" class="form-control" placeholder="Project title"
-                value="{{ old('title') }}">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="card-title">Create New Project</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <form action="{{ route('project.create') }}" method="POST" enctype="multipart/form-data"
+                            class="needs-validation" novalidate>
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3 row">
+                                        <label for="client_id" class="col-sm-3 col-form-label">Client Name</label>
+                                        <div class="col-sm-9">
+                                            <select id="clientId" name="client_id">
+                                                @foreach ($clients as $client)
+                                                    <option value="{{ $client->id }}">
+                                                        {{ $client->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-3 col-form-label">Project Title</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="title" name="title"
+                                                required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="name" class="col-sm-3 col-form-label">Service</label>
+                                        <div class="col-sm-9">
+                                            <select id="multiSelect" name="services[]" class="form-control">
+                                                @foreach ($services as $service)
+                                                    <option value="{{ $service->id }}">
+                                                        {{ $service->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="description" class="col-sm-3 col-form-label">Description</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" rows="5" id="description" name="description" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="start_date" class="col-sm-3 col-form-label">Start Date</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="date" id="start_date" name="start_date" required />
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="end_date" class="col-sm-3 col-form-label">End Date</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="date" id="start_date" name="end_date" />
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3 row">
+                                        <label for="project_url" class="col-sm-3 col-form-label">Project URL</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="project_url" name="project_url"
+                                                placeholder="https://example.com">
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="thumbnail_url" class="col-sm-3 col-form-label">Project Thumbnail</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control" id="thumbnail_url"
+                                                name="thumbnail_url" accept="image/*" onchange="previewImage(event)">
+                                            <img id="logoPreview" src="#" alt="Logo Preview"
+                                                class="img-thumbnail img-fluid mt-2 d-none w-50">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="status" class="col-sm-3 col-form-label">Status Project</label>
+                                        <div class="col-sm-9">
+                                            <select id="status" name="status">
+                                                <option value="draft">Draft</option>
+                                                <option value="published">Published</option>
+                                            </select>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 ms-auto">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <a href="{{ route('project.index') }}" class="btn btn-danger">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <!--Container Start-->
 
-        {{-- Description --}}
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            @error('description')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <textarea name="description" id="description" class="form-control" rows="4"
-                placeholder="Write project description here...">{{ old('description') }}</textarea>
-        </div>
-
-        {{-- Thumbnail --}}
-        <div class="mb-3">
-            <label for="thumbnail_url" class="form-label">Thumbnail</label>
-            @error('thumbnail_url')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <input type="file" name="thumbnail_url" id="thumbnail_url" class="form-control" accept="image/*"
-                onchange="previewImage(event)">
-        </div>
-
-        {{-- Preview --}}
-        <div class="mb-3">
-            <img id="logoPreview" src="#" alt="Thumbnail Preview"
-                style="display: none; max-width: 200px; border: 1px solid #ccc; padding: 5px; border-radius: 8px;">
-        </div>
-
-        {{-- Project URL --}}
-        <div class="mb-3">
-            <label for="project_url" class="form-label">Project URL</label>
-            @error('project_url')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <input type="url" name="project_url" id="project_url" class="form-control"
-                placeholder="https://example.com" value="{{ old('project_url') }}">
-        </div>
-
-        {{-- Start Date --}}
-        <div class="mb-3">
-            <label for="start_date" class="form-label">Start Date</label>
-            @error('start_date')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <input type="datetime-local" name="start_date" id="start_date" class="form-control"
-                value="{{ old('start_date') }}">
-        </div>
-
-        {{-- End Date --}}
-        <div class="mb-3">
-            <label for="end_date" class="form-label">End Date</label>
-            @error('end_date')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <input type="datetime-local" name="end_date" id="end_date" class="form-control"
-                value="{{ old('end_date') }}">
-        </div>
-
-        {{-- Multiple Services --}}
-        <div class="mb-3">
-            <label for="services" class="form-label">Services</label>
-            @error('services')
-                <p class="text-danger fs-6">{{ $message }}</p>
-            @enderror
-            <select name="services[]" id="services" class="form-control" multiple>
-                @foreach ($services as $service)
-                    <option value="{{ $service->id }}"
-                        {{ collect(old('services'))->contains($service->id) ? 'selected' : '' }}>
-                        {{ $service->name }}
-                    </option>
-                @endforeach
-            </select>
-            <small class="text-muted">Hold CTRL (or CMD on Mac) to select multiple services.</small>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
 @endsection

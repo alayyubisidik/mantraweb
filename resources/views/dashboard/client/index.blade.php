@@ -1,9 +1,119 @@
-@extends('layout.dashboard-layout')
+@extends('layouts.dashboard')
 
 @section('title', 'Client')
 
 @section('content')
-    <h1>Client</h1>
+
+    <!--Container Start-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
+                    <h4 class="page-title">Client Management</h4>
+                    <div class="">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Client</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="card-title">Client Directory</h4>
+                            </div>
+                            <div class="col-auto">
+                                <a href="{{ route('client.create') }}" class="btn bg-primary text-white">
+                                    <i class="fas fa-plus me-1"></i> Add Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="table-responsive">
+                            <table class="table mb-0" id="datatable_1">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        {{-- <th>Phone</th> --}}
+                                        {{-- <th>Address</th> --}}
+                                        <th>Company</th>
+                                        <th>Company Logo</th>
+                                        <th class="text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($clients as $client)
+                                        <tr>
+                                            <td class="align-middle">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 text-truncate">
+                                                        <h6 class="m-0"> {{ $client->name }}</h6>
+                                                        <p class="fs-12 text-muted mb-0"> {{ $client->job_title }}</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="#"
+                                                    class="text-body text-decoration-underline">{{ $client->email }}</a>
+                                            </td>
+                                            {{-- <td>
+                                                <p class="d-inline-block align-middle mb-0 text-body">
+                                                    {{ $client->phone }}
+                                                </p>
+                                            </td> --}}
+                                            {{-- <td>
+                                                <p class="d-inline-block align-middle mb-0 text-body">
+                                                    {{ $client->address }}
+                                                </p>
+                                            </td> --}}
+                                            <td>
+                                                <p class="d-inline-block align-middle mb-0 text-body">
+                                                    {{ $client->company }}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                @if ($client->company_logo_url)
+                                                    <img src="{{ asset('storage/' . $client->company_logo_url) }}"
+                                                        alt="Logo" class="img-fluid" style="max-width: 100px;">
+                                                @else
+                                                    <span class="badge rounded text-body bg-secondary-subtle">No
+                                                        Image</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-end">
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <a href="{{ route('client.update', ['clientId' => $client->id]) }}"
+                                                        class="btn btn-outline-warning">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="{{ route('client.delete', ['clientId' => $client->id]) }}"
+                                                        class="btn btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Container Start-->
+
+
+    {{-- <h1>Client</h1>
 
     <a href="/dashboard/client/create">
         <button type="button" class="btn btn-success mt-3 mb-2">Create new Client</button>
@@ -60,5 +170,5 @@
                 </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> --}}
 @endsection

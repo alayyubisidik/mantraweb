@@ -35,6 +35,7 @@ class ProjectController extends Controller
             "project_url" => "required|string",
             "start_date" => "required|date",
             "end_date" => "nullable|date|after_or_equal:start_date",
+            'status' => 'required|in:draft,published',
             "thumbnail_url" => "required|image|mimes:jpeg,png,jpg|max:2048",
         ]);
 
@@ -57,6 +58,7 @@ class ProjectController extends Controller
             "project_url" => $validated["project_url"],
             "start_date" => $validated["start_date"],
             "end_date" => $validated["end_date"],
+            "status" => $validated["status"],
             "thumbnail_url" => $validated["thumbnail_url"],
         ]);
 

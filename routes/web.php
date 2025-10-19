@@ -20,39 +20,38 @@ Route::controller(LandingController::class)->group(function () {
 Route::middleware("auth")->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard.index');
-    });
-    Route::get('/signout', [AuthController::class, "signout"]);
+    })->name('dashboard');
 
-    Route::get('/dashboard/client', [ClientController::class, "index"]);
-    Route::match(['GET', 'POST'], '/dashboard/client/create', [ClientController::class, "create"]);
-    Route::get('/dashboard/client/delete/{clientId}', [ClientController::class, "delete"]);
-    Route::match(['GET', 'POST'], '/dashboard/client/update/{clientId}', [ClientController::class, "update"]);
+    Route::get('/signout', [AuthController::class, "signout"])->name('signout');
 
-    Route::get('/dashboard/service', [ServiceController::class, "index"]);
-    Route::match(['GET', 'POST'], '/dashboard/service/create', [ServiceController::class, "create"]);
-    Route::get('/dashboard/service/delete/{serviceId}', [ServiceController::class, "delete"]);
-    Route::match(['GET', 'POST'], '/dashboard/service/update/{serviceId}', [ServiceController::class, "update"]);
+    Route::get('/dashboard/client', [ClientController::class, "index"])->name('client.index');
+    Route::match(['GET', 'POST'], '/dashboard/client/create', [ClientController::class, "create"])->name('client.create');
+    Route::match(['GET', 'POST'], '/dashboard/client/update/{clientId}', [ClientController::class, "update"])->name('client.update');
+    Route::get('/dashboard/client/delete/{clientId}', [ClientController::class, "delete"])->name('client.delete');
 
-    Route::get('/dashboard/testimonial', [TestimonialController::class, "index"]);
-    Route::match(['GET', 'POST'], '/dashboard/testimonial/create', [TestimonialController::class, "create"]);
-    Route::get('/dashboard/testimonial/delete/{testimonialId}', [TestimonialController::class, "delete"]);
-    Route::match(['GET', 'POST'], '/dashboard/testimonial/update/{testimonialId}', [TestimonialController::class, "update"]);
+    Route::get('/dashboard/service', [ServiceController::class, "index"])->name('service.index');
+    Route::match(['GET', 'POST'], '/dashboard/service/create', [ServiceController::class, "create"])->name('service.create');
+    Route::match(['GET', 'POST'], '/dashboard/service/update/{serviceId}', [ServiceController::class, "update"])->name('service.update');
+    Route::get('/dashboard/service/delete/{serviceId}', [ServiceController::class, "delete"])->name('service.delete');
+
+    Route::get('/dashboard/testimonial', [TestimonialController::class, "index"])->name('testimonial.index');
+    Route::match(['GET', 'POST'], '/dashboard/testimonial/create', [TestimonialController::class, "create"])->name('testimonial.create');
+    Route::match(['GET', 'POST'], '/dashboard/testimonial/update/{testimonialId}', [TestimonialController::class, "update"])->name('testimonial.update');
+    Route::get('/dashboard/testimonial/delete/{testimonialId}', [TestimonialController::class, "delete"])->name('testimonial.delete');
     
-    Route::get('/dashboard/project', [ProjectController::class, "index"]);
-    Route::match(['GET', 'POST'], '/dashboard/project/create', [ProjectController::class, "create"]);
-    Route::get('/dashboard/project/delete/{projectId}', [ProjectController::class, "delete"]);
-    Route::match(['GET', 'POST'], '/dashboard/project/update/{projectId}', [ProjectController::class, "update"]);
-
-
+    Route::get('/dashboard/project', [ProjectController::class, "index"])->name('project.index');
+    Route::match(['GET', 'POST'], '/dashboard/project/create', [ProjectController::class, "create"])->name('project.create');
+    Route::match(['GET', 'POST'], '/dashboard/project/update/{projectId}', [ProjectController::class, "update"])->name('project.update');
+    Route::get('/dashboard/project/delete/{projectId}', [ProjectController::class, "delete"])->name('project.delete');
 });
 
 Route::middleware(["admin"])->group(function () {
-    Route::get('/dashboard/user', [UserController::class, "index"]);
-    Route::match(['GET', 'POST'], '/dashboard/user/create', [UserController::class, "create"]);
-    Route::match(['GET', 'POST'], '/dashboard/user/update/{userId}', [UserController::class, "update"]);
-    Route::get('/dashboard/user/delete/{userId}', [UserController::class, "delete"]);
+    Route::get('/dashboard/user', [UserController::class, "index"])->name('user.index');
+    Route::match(['GET', 'POST'], '/dashboard/user/create', [UserController::class, "create"])->name('user.create');
+    Route::match(['GET', 'POST'], '/dashboard/user/update/{userId}', [UserController::class, "update"])->name('user.update');
+    Route::get('/dashboard/user/delete/{userId}', [UserController::class, "delete"])->name('user.delete');
 });
 
 Route::middleware("guest")->group(function () {
-    Route::match(['GET', 'POST'], '/signin', [AuthController::class, "signIn"]);
+    Route::match(['GET', 'POST'], '/signin', [AuthController::class, "signIn"])->name('signin');
 });
