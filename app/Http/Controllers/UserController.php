@@ -18,8 +18,8 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-        if ($request->isMethod("GET")) {
-            return view("dashboard.user.create");
+        if ($request->isMethod('GET')) {
+            return view('dashboard.user.create');
         }
 
         $validated = $request->validate([
@@ -27,24 +27,38 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:3',
             'role' => 'required|in:admin,team',
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
+            'email.unique' => 'Email sudah digunakan.',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password minimal 3 karakter.',
+            'role.required' => 'Role wajib dipilih.',
         ]);
 
-        User::create([
+        $user = User::create([
             ...$validated,
-            "password" => Hash::make($validated["password"]),
+            'password' => Hash::make($validated['password']),
         ]);
 
-        return redirect("/dashboard/user");
+        if ($user) {
+            return redirect()
+                ->route('user.index')
+                ->with('message-success', 'User berhasil ditambahkan!');
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('message-error', 'Gagal menambahkan user!');
     }
 
     public function update(Request $request, $userId)
     {
-
         $user = User::findOrFail($userId);
 
-        if ($request->isMethod("GET")) {
-            return view("dashboard.user.update", [
-                "user" => $user
+        if ($request->isMethod('GET')) {
+            return view('dashboard.user.update', [
+                'user' => $user
             ]);
         }
 
@@ -53,26 +67,45 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|min:3',
             'role' => 'required|in:admin,team',
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
+            'email.unique' => 'Email sudah digunakan.',
+            'password.min' => 'Password minimal 3 karakter.',
+            'role.required' => 'Role wajib dipilih.',
         ]);
 
-        $user->update([
+        $updated = $user->update([
             ...$validated,
-            'password' => $validated['password'] ? Hash::make($validated['password']) : $user->password,
+            'password' => $validated['password']
+                ? Hash::make($validated['password'])
+                : $user->password,
         ]);
 
-        return redirect("/dashboard/user");
+        if ($updated) {
+            return redirect()
+                ->route('user.index')
+                ->with('message-success', 'User berhasil diperbarui!');
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('message-error', 'Gagal memperbarui user!');
     }
 
     public function delete($userId)
     {
         $user = User::findOrFail($userId);
+        $deleted = $user->delete();
 
-        if (Auth::user()->id === $user->id) {
-            return redirect('/dashboard/user')->with('error', 'You cannot delete your own account.');
+        if ($deleted) {
+            return redirect()
+                ->route('user.index')
+                ->with('message-success', 'User berhasil dihapus!');
         }
 
-        $user->delete();
-
-        return redirect('/dashboard/user')->with('success', 'User deleted successfully.');
+        return redirect()
+            ->route('user.index')
+            ->with('message-error', 'Gagal menghapus user!');
     }
 }

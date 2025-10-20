@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Client;
-use App\Models\Service;
 use App\Models\Testimonial;
 use App\Models\Project;
 
@@ -17,27 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Buat beberapa user team
-        User::factory(1)->create([
-            'role' => 'team',
-        ]);
-
-        // Buat beberapa client
-        $clients = Client::factory(5)->create();
-
-        // Buat beberapa service
-        $services = Service::factory(5)->create();
-
-        // Buat project dan kaitkan dengan services
-        $projects = Project::factory(8)->create()->each(function ($project) use ($services) {
-            $project->services()->attach(
-                $services->random(rand(1, 3))->pluck('id')->toArray()
-            );
-        });
-
-        // Buat testimonial untuk beberapa client
-        Testimonial::factory(5)->create([
-            'client_id' => $clients->random()->id,
+        $this->call([
+            UserSeeder::class,
+            TeamSeeder::class,
+            ClientSeeder::class,
+            CategorySeeder::class,   // meski kamu isi manual, biar gak error tetap bisa dideklarasikan
+            ProjectSeeder::class,
+            TestimonialSeeder::class,
         ]);
     }
 }

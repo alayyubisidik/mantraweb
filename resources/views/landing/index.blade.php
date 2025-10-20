@@ -65,71 +65,71 @@
 
         <!-- tp-integration-area-start -->
         <!-- <div class="tp-integration-area pb-110 tp-integration-mlr">
-                   <div class="container">
-                      <div class="row align-items-end tp-integration-section-space">
-                         <div class="col-xl-6 col-lg-8 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div class="tp-integration-section-box">
-                               <h5 class="tp-integration-subtitle">Integration</h5>
-                               <h3 class="tp-section-title-3">Integrated with Your <span>Favourite Apps</span></h3>
-                            </div>
-                         </div>
-                         <div class="col-xl-6 col-lg-4 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-integration-btn text-lg-end text-start">
-                               <a class="tp-btn-blue-lg tp-btn-hover alt-color-black" href="integrations.html">
-                                  <span>See all Integrations</span>
-                                  <b></b>
-                               </a>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="tp-integration-slider-wrapper pt-50 pb-50" data-background="assets/img/integration/integration-bg.jpg">
-                      <div class="tp-integration-slider-active">
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-1.png" alt="">
-                            </div>
-                         </div>
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-2.png" alt="">
-                            </div>
-                         </div>
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-3.png" alt="">
-                            </div>
-                         </div>
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-4.png" alt="">
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tp-integration-slider-active-2 carousel-rtl" dir="rtl">
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-5.png" alt="">
-                            </div>
-                         </div>
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-6.png" alt="">
-                            </div>
-                         </div>
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-7.png" alt="">
-                            </div>
-                         </div>
-                         <div class="tp-integration-slider-main">
-                            <div class="tp-integration-slider-item">
-                               <img src="assets/img/integration/integration-8.png" alt="">
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div> -->
+                       <div class="container">
+                          <div class="row align-items-end tp-integration-section-space">
+                             <div class="col-xl-6 col-lg-8 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s">
+                                <div class="tp-integration-section-box">
+                                   <h5 class="tp-integration-subtitle">Integration</h5>
+                                   <h3 class="tp-section-title-3">Integrated with Your <span>Favourite Apps</span></h3>
+                                </div>
+                             </div>
+                             <div class="col-xl-6 col-lg-4 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s">
+                                <div class="tp-integration-btn text-lg-end text-start">
+                                   <a class="tp-btn-blue-lg tp-btn-hover alt-color-black" href="integrations.html">
+                                      <span>See all Integrations</span>
+                                      <b></b>
+                                   </a>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="tp-integration-slider-wrapper pt-50 pb-50" data-background="assets/img/integration/integration-bg.jpg">
+                          <div class="tp-integration-slider-active">
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-1.png" alt="">
+                                </div>
+                             </div>
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-2.png" alt="">
+                                </div>
+                             </div>
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-3.png" alt="">
+                                </div>
+                             </div>
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-4.png" alt="">
+                                </div>
+                             </div>
+                          </div>
+                          <div class="tp-integration-slider-active-2 carousel-rtl" dir="rtl">
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-5.png" alt="">
+                                </div>
+                             </div>
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-6.png" alt="">
+                                </div>
+                             </div>
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-7.png" alt="">
+                                </div>
+                             </div>
+                             <div class="tp-integration-slider-main">
+                                <div class="tp-integration-slider-item">
+                                   <img src="assets/img/integration/integration-8.png" alt="">
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div> -->
         <!-- tp-integration-area-end -->
 
         <!-- tp-brand-area-start -->
@@ -151,19 +151,22 @@
                             <div class="tp-barnd-slider-wrapper">
                                 <div class="tp-barnd-slider-active p-relative">
                                     <div class="tp-brand-item">
-                                        <img src="{{ asset('landing/img/hero/hero-slider-icon-2.jpg') }}" alt="">
+                                        <img src="{{ asset('landing/img/brand-slider/brand-1.png') }}" alt="">
                                     </div>
                                     <div class="tp-brand-item">
-                                        <img src="{{ asset('landing/img/hero/hero-slider-icon-3.jpg') }}" alt="">
+                                        <img src="{{ asset('landing/img/brand-slider/brand-2.png') }}" alt="">
                                     </div>
                                     <div class="tp-brand-item">
-                                        <img src="{{ asset('landing/img/hero/hero-slider-icon-4.jpg') }}" alt="">
+                                        <img src="{{ asset('landing/img/brand-slider/brand-3.png') }}" alt="">
                                     </div>
                                     <div class="tp-brand-item">
-                                        <img src="{{ asset('landing/img/hero/hero-slider-icon-5.jpg') }}" alt="">
+                                        <img src="{{ asset('landing/img/brand-slider/brand-4.png') }}" alt="">
                                     </div>
                                     <div class="tp-brand-item">
-                                        <img src="{{ asset('landing/img/hero/hero-slider-icon-3.jpg') }}" alt="">
+                                        <img src="{{ asset('landing/img/brand-slider/brand-5.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-brand-item">
+                                        <img src="{{ asset('landing/img/brand-slider/brand-6.png') }}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -454,7 +457,7 @@
                                             <div class="blog-grid-slider-wrapper">
                                                 <div class="blog-grid-slider-meta">
                                                     <!-- <span class="child-one">Resources</span>
-                                                 <span class="child-two">October 20, 2023</span> -->
+                                                     <span class="child-two">October 20, 2023</span> -->
                                                     <div class="tp-testimonial-2-star">
                                                         <span>
                                                             <svg width="16" height="16" viewBox="0 0 16 16"
@@ -520,7 +523,7 @@
                                                 <div
                                                     class="tp-blog-author-info-box blog-grid-avata-box d-flex align-items-center">
                                                     <div class="tp-blog-avata">
-                                                        <img src="{{ asset('landing/img/blog/blog-avatar-3.png') }}"
+                                                        <img src="{{ asset('landing/img/avatar/avata-3.png') }}"
                                                             alt="">
                                                     </div>
                                                     <div class="tp-blog-author-info">
@@ -561,7 +564,8 @@
                                     <img src="{{ asset('storage/' . $team->profile_url) }}" alt="">
                                 </div>
                                 <div class="tp-team-content">
-                                    <h4 class="tp-team-title-sm"><a href="#">{{ str($team->name)->words(2, '') }}</a></h4>
+                                    <h4 class="tp-team-title-sm"><a
+                                            href="#">{{ str($team->name)->words(2, '') }}</a></h4>
                                     <span>{{ $team->position }}</span>
                                 </div>
                                 <div class="tp-team-social">
@@ -604,13 +608,13 @@
                                 </p>
                             </div>
                             <!-- <div class="contact-form-social-box">
-                                  <div class="contact-form-social-item">
-                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                     <a href="#"><i class="fab fa-twitter"></i></a>
-                                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                     <a href="#"><i class="fab fa-instagram"></i></a>
-                                  </div>
-                               </div> -->
+                                      <div class="contact-form-social-item">
+                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                         <a href="#"><i class="fab fa-twitter"></i></a>
+                                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                         <a href="#"><i class="fab fa-instagram"></i></a>
+                                      </div>
+                                   </div> -->
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">

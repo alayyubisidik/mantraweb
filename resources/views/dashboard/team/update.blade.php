@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Update Client')
+@section('title', 'Team | Dashboard Mantraweb')
 
 @section('content')
 
@@ -36,41 +36,57 @@
 
                     <div class="card-body pt-0">
                         <form action="{{ route('team.update', ['teamId' => $team->id]) }}" method="POST"
-                            enctype="multipart/form-data" class="needs-validation" novalidate>
+                            enctype="multipart/form-data">
                             @csrf
+
                             <div class="mb-3 row">
                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name" name="name"
-                                        value="{{ old('name', $team->name) }}" required>
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please choose a username.</div>
+                                    <input type="text" id="name" name="name"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        value="{{ old('name', $team->name) }}">
+                                    @error('name')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="mb-3 row">
                                 <label for="position" class="col-sm-3 col-form-label">Position</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="position" name="position"
-                                        value="{{ old('name', $team->position) }}" required>
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please choose a username.</div>
+                                    <input type="text" id="position" name="position"
+                                        class="form-control @error('position') is-invalid @enderror"
+                                        value="{{ old('position', $team->position) }}">
+                                    @error('position')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="mb-3 row">
                                 <label for="profile_url" class="col-sm-3 col-form-label">Profile Picture</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="profile_url" name="profile_url"
-                                        accept="image/*" onchange="previewImage(event)">
+                                    <input type="file" id="profile_url" name="profile_url" accept="image/*"
+                                        class="form-control @error('profile_url') is-invalid @enderror"
+                                        onchange="previewImage(event)">
+                                    @error('profile_url')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
+
+                                    {{-- Preview gambar lama --}}
                                     @if ($team->profile_url)
                                         <div class="mt-2">
-                                            <img src="{{ asset('storage/' . $team->profile_url) }}" alt="Logo Lama"
+                                            <img src="{{ asset('storage/' . $team->profile_url) }}" alt="Current Image"
                                                 class="img-thumbnail img-fluid mt-2 w-50">
                                         </div>
                                     @endif
-                                    <img id="logoPreview" src="#" alt="Logo Preview"
+
+                                    {{-- Preview gambar baru --}}
+                                    <img id="logoPreview" src="#" alt="New Preview"
                                         class="img-thumbnail img-fluid mt-2 d-none w-50">
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-sm-9 ms-auto">
                                     <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -78,6 +94,7 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

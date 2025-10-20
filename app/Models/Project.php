@@ -18,14 +18,14 @@ class Project extends Model
         return $this->belongsTo(Client::class);
     }    
 
-    public function projectService(): BelongsToMany
+    public function projectCategory(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class, 'project_service', 'project_id', 'service_id');
+        return $this->belongsToMany(Category::class, 'project_category', 'project_id', 'category_id');
     }
 
-    public function services()
+    public function categories()
     {
-        return $this->belongsToMany(Service::class, 'project_service');
+        return $this->belongsToMany(Category::class, 'project_category');
     }
 
 }

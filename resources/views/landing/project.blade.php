@@ -4,7 +4,6 @@
 
 @section('content')
     <main>
-
         <!-- breadcrumb-area-start -->
         <div class="breadcrumb__area breadcrumb-height-2 breadcrumb-overlay p-relative fix"
             data-background="{{ asset('landing/img/project/project-brdcrmb-bg.jpg') }}">
@@ -41,182 +40,42 @@
                     <div class="col-xl-12">
                         <div class="portfolio-filter masonary-menu text-center mb-35">
                             <button data-filter="*" class="active"><span>All</span></button>
-                            <button data-filter=".cat1"><span>Design Work</span></button>
-                            <button data-filter=".cat2"><span>Branding</span></button>
-                            <button data-filter=".cat3"><span>Development</span></button>
-                            <button data-filter=".cat4"><span>Illusutration</span></button>
-                            <button data-filter=".cat5"><span>App Design</span></button>
+                            <button data-filter=".Landing"><span>Landing Page</span></button>
+                            <button data-filter=".Web"><span>Web App</span></button>
+                            <button data-filter=".E-Commerce"><span>E-Commerce</span></button>
+                            <button data-filter=".Portfolio"><span>Portfolio</span></button>
+                            <button data-filter=".Government"><span>Government</span></button>
                         </div>
                     </div>
                 </div>
                 <div class="row grid">
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat1 cat4 cat3 cat5">
-                        <div class="inner-project-item mb-30">
-                            <div class="inner-project-img fix p-relative">
-                                <img class="w-100" src="{{ asset('landing/img/project/project-inner-1.jpg') }}"
-                                    alt="">
-                                <div class="inner-project-brand">
-                                    <img src="{{ asset('landing/img/project/project-inner-brand-1.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="inner-project-content">
-                                <span class="inner-project-category-title">Design Wok, Branding</span>
-                                <h4 class="inner-project-title"><a href="project-details.html">Airbnb Upgrade</a></h4>
-                                <p>Quis nostrud exercitation ullamco laboris
-                                    nisi ut aliquip ex ea commodo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat4 cat2 cat1 ">
-                        <div class="inner-project-item  mb-30">
-                            <div class="inner-project-img fix p-relative">
-                                <img src="{{ asset('landing/img/project/project-inner-2.jpg') }}" alt="">
-                                <div class="inner-project-brand">
-                                    <img class="w-100" src="{{ asset('landing/img/project/project-inner-brand-2.png') }}"
+                    @foreach ($projects as $project)
+                        <div
+                            class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item
+                            @foreach ($project->categories as $category) {{ $category->name }} @endforeach ">
+                            <div class="inner-project-item mb-30">
+                                <div class="inner-project-img fix p-relative">
+                                    <img class="w-100" src="{{ asset('landing/img/project/pd-img-1.png') }}"
                                         alt="">
-                                </div>
-                            </div>
-                            <div class="inner-project-content">
-                                <span class="inner-project-category-title">Development, App Design</span>
-                                <h4 class="inner-project-title"><a href="project-details.html">Mobile App Design</a></h4>
-                                <p>Quis nostrud exercitation ullamco laboris
-                                    nisi ut aliquip ex ea commodo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat3 cat4 cat5 ">
-                        <div class="inner-project-item mb-30">
-                            <div class="inner-project-img fix p-relative">
-                                <img class="w-100" src="{{ asset('landing/img/project/project-inner-3.jpg') }}"
-                                    alt="">
-                                <div class="inner-project-brand">
-                                    <img src="{{ asset('landing/img/project/project-inner-brand-3.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="inner-project-content">
-                                <span class="inner-project-category-title">Branding, Illusutration</span>
-                                <h4 class="inner-project-title"><a href="project-details.html">Branding & Identity</a></h4>
-                                <p>Quis nostrud exercitation ullamco laboris
-                                    nisi ut aliquip ex ea commodo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat4 cat2 cat1">
-                        <div class="inner-project-item mb-30">
-                            <div class="inner-project-img fix p-relative">
-                                <img class="w-100" src="{{ asset('landing/img/project/project-inner-5.jpg') }}"
-                                    alt="">
-                                <div class="inner-project-brand">
-                                    <img src="{{ asset('landing/img/project/project-inner-brand-5.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="inner-project-content">
-                                <span class="inner-project-category-title">Design Wok, Illusutration</span>
-                                <h4 class="inner-project-title"><a href="project-details.html">Muckup Design</a></h4>
-                                <p>Quis nostrud exercitation ullamco laboris
-                                    nisi ut aliquip ex ea commodo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat1 cat2 cat3 cat5">
-                        <div class="portfolio__single">
-                            <div class="portfolio__img">
-                                <div class="inner-project-item mb-30">
-                                    <div class="inner-project-img fix p-relative">
-                                        <img class="w-100" src="{{ asset('landing/img/project/project-inner-4.jpg') }}"
+                                    <div class="inner-project-brand">
+                                        <img src="{{ asset('landing/img/project/project-inner-brand-1.png') }}"
                                             alt="">
-                                        <div class="inner-project-brand">
-                                            <img src="{{ asset('landing/img/project/project-inner-brand-4.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                    <div class="inner-project-content">
-                                        <span class="inner-project-category-title">Design Wok, Branding</span>
-                                        <h4 class="inner-project-title"><a href="project-details.html">Realistic
-                                                Scenarios</a></h4>
-                                        <p>Quis nostrud exercitation ullamco laboris
-                                            nisi ut aliquip ex ea commodo.</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat1 cat5 cat2 cat3 cat4">
-                        <div class="inner-project-item mb-30">
-                            <div class="inner-project-img fix p-relative">
-                                <img src="{{ asset('landing/img/project/project-inner-6.jpg') }}" alt="">
-                                <div class="inner-project-brand">
-                                    <img src="{{ asset('landing/img/project/project-inner-brand-6.png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="inner-project-content">
-                                <span class="inner-project-category-title">Design Wok, App Design</span>
-                                <h4 class="inner-project-title"><a href="project-details.html">Design System & Ul Kit</a>
-                                </h4>
-                                <p>Quis nostrud exercitation ullamco laboris
-                                    nisi ut aliquip ex ea commodo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat4 cat2 cat1">
-                        <div class="inner-project-item mb-30">
-                            <div class="inner-project-img fix p-relative">
-                                <img class="w-100" src="{{ asset('landing/img/project/project-inner-7.jpg') }}"
-                                    alt="">
-                                <div class="inner-project-brand">
-                                    <img src="{{ asset('landing/img/project/project-inner-brand-5.png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="inner-project-content">
-                                <span class="inner-project-category-title">Design Wok, Illusutration</span>
-                                <h4 class="inner-project-title"><a href="project-details.html">Web Design</a></h4>
-                                <p>Quis nostrud exercitation ullamco laboris
-                                    nisi ut aliquip ex ea commodo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat1 cat2 cat3 cat5">
-                        <div class="portfolio__single">
-                            <div class="portfolio__img">
-                                <div class="inner-project-item mb-30">
-                                    <div class="inner-project-img fix p-relative">
-                                        <img class="w-100" src="{{ asset('landing/img/project/project-inner-8.jpg') }}"
-                                            alt="">
-                                        <div class="inner-project-brand">
-                                            <img src="{{ asset('landing/img/project/project-inner-brand-4.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                    <div class="inner-project-content">
-                                        <span class="inner-project-category-title">Design Wok, Branding</span>
-                                        <h4 class="inner-project-title"><a href="project-details.html">Landing Page
-                                                Design</a></h4>
-                                        <p>Quis nostrud exercitation ullamco laboris
-                                            nisi ut aliquip ex ea commodo.</p>
-                                    </div>
+                                <div class="inner-project-content">
+                                    @foreach ($project->categories as $category)
+                                        <span class="inner-project-category-title">{{ $category->name }}@if (!$loop->last), @endif</span>
+                                    @endforeach
+                                    </span>
+                                    <h4 class="inner-project-title"><a
+                                            href="{{ route('pages.project.detail', $project->slug) }}">{{ $project->title }}</a>
+                                    </h4>
+                                    <p>Quis nostrud exercitation ullamco laboris
+                                        nisi ut aliquip ex ea commodo.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item  cat1 cat5 cat2 cat3 cat4">
-                        <div class="inner-project-item mb-30">
-                            <div class="inner-project-img fix p-relative">
-                                <img src="{{ asset('landing/img/project/project-inner-9.jpg') }}" alt="">
-                                <div class="inner-project-brand">
-                                    <img src="{{ asset('landing/img/project/project-inner-brand-6.png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="inner-project-content">
-                                <span class="inner-project-category-title">Design Wok, App Design</span>
-                                <h4 class="inner-project-title"><a href="project-details.html">Mobile Design</a></h4>
-                                <p>Quis nostrud exercitation ullamco laboris
-                                    nisi ut aliquip ex ea commodo.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

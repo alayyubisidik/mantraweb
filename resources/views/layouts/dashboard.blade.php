@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard | Mantraweb</title>
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Jasa Web Design dan Pemrograman" name="description" />
     <meta content="" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -20,6 +20,8 @@
     <link href="{{ asset('dashboard/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -70,13 +72,13 @@
                             </div>
                             <div class="dropdown-divider mt-0"></div>
                             <small class="text-muted px-2 pb-1 d-block">Account</small>
-                            <a class="dropdown-item" href="pages-profile.html"><i
-                                    class="las la-user fs-18 me-1 align-text-bottom"></i>
-                                Profile</a>
-                            <div class="dropdown-divider mb-0"></div>
+                            <a class="dropdown-item" href="{{ route('dashboard') }}"><i
+                                    class="las la-tachometer-alt fs-18 me-1 align-text-bottom"></i>
+                                Dashboard</a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i
                                     class="las la-power-off fs-18 me-1 align-text-bottom"></i>
                                 Logout</a>
+                            <div class="dropdown-divider mb-0"></div>
                         </div>
                     </li>
                 </ul>
@@ -95,8 +97,7 @@
                     <img src="{{ asset('dashboard/images/logo-dark.png') }}" alt="logo-small" class="logo-sm" />
                 </span>
                 <span class="">
-                    <img src="{{ asset('dashboard/images/logo.png') }}" alt="logo-large"
-                        class="logo-lg logo-dark" />
+                    <img src="{{ asset('dashboard/images/logo.png') }}" alt="logo-large" class="logo-lg logo-dark" />
                 </span>
             </a>
         </div>
@@ -110,11 +111,12 @@
                         <li class="menu-label mt-2">
                             <span>Main</span>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}">
+
+                        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                                href="{{ route('dashboard') }}">
                                 <i class="iconoir-report-columns menu-icon"></i>
                                 <span>Dashboard</span>
-                                <span class="badge text-bg-info ms-auto">New</span>
                             </a>
                         </li>
 
@@ -127,44 +129,50 @@
                         </li>
 
                         @unless (Auth::user()->role === 'team')
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
+                            <li class="nav-item {{ request()->routeIs('user.*') ? 'active' : '' }}">
+                                <a class="nav-link {{ request()->routeIs('user.*') ? 'active' : '' }}"
+                                    href="{{ route('user.index') }}">
                                     <i class="iconoir-user-badge-check menu-icon"></i>
                                     <span>User</span>
                                 </a>
                             </li>
                         @endunless
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('team.index') }}">
+                        <li class="nav-item {{ request()->routeIs('team.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('team.*') ? 'active' : '' }}"
+                                href="{{ route('team.index') }}">
                                 <i class="iconoir-learning menu-icon"></i>
                                 <span>Team</span>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('service.index') }}">
+                        <li class="nav-item {{ request()->routeIs('category.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('category.*') ? 'active' : '' }}"
+                                href="{{ route('category.index') }}">
                                 <i class="iconoir-laptop-dev-mode menu-icon"></i>
-                                <span>Service</span>
+                                <span>Category</span>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('client.index') }}">
+                        <li class="nav-item {{ request()->routeIs('client.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('client.*') ? 'active' : '' }}"
+                                href="{{ route('client.index') }}">
                                 <i class="iconoir-community menu-icon"></i>
                                 <span>Client</span>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('project.index') }}">
+                        <li class="nav-item {{ request()->routeIs('project.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('project.*') ? 'active' : '' }}"
+                                href="{{ route('project.index') }}">
                                 <i class="iconoir-presentation menu-icon"></i>
                                 <span>Project</span>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('testimonial.index') }}">
+                        <li class="nav-item {{ request()->routeIs('testimonial.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('testimonial.*') ? 'active' : '' }}"
+                                href="{{ route('testimonial.index') }}">
                                 <i class="iconoir-chat-lines menu-icon"></i>
                                 <span>Testimonial</span>
                             </a>
@@ -176,12 +184,11 @@
                             class="d-flex justify-content-center align-items-center thumb-lg update-icon-box rounded-circle mx-auto">
                             <i class="iconoir-peace-hand h3 align-self-center mb-0 text-primary"></i>
                         </div>
-                        <h5 class="mt-3">Mannat Themes</h5>
+                        <h5 class="mt-3">Mantraweb Dashboard</h5>
                         <p class="mb-3 text-muted">
-                            Approx is a high quality web applications.
+                            Semua sistem berjalan normal.
                         </p>
-                        <a href="javascript: void(0);" class="btn text-primary shadow-sm rounded-pill">Upgrade your
-                            plan</a>
+                        <a href="javascript: void(0);" class="btn text-primary shadow-sm rounded-pill">hehehe</a>
                     </div>
                 </div>
             </div>
@@ -246,6 +253,8 @@
     <script src="{{ asset('dashboard/js/pages/form-validation.js') }}"></script>
     <script src="{{ asset('dashboard/libs/mobius1-selectr/selectr.min.js') }}"></script>
     <script src="{{ asset('dashboard/js/pages/forms-advanced.js') }}"></script>
+    <script src="{{ asset('dashboard/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('dashboard/js/pages/sweet-alert.init.js') }}"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -255,7 +264,7 @@
             if (document.querySelector("#multiSelect")) {
                 new Selectr("#multiSelect", {
                     multiple: true,
-                    placeholder: "Select one or more services",
+                    placeholder: "Select one or more categories",
                     searchable: true
                 });
             }
@@ -294,6 +303,70 @@
                 document.querySelectorAll('label[for^="star"]').forEach((label, index) => {
                     label.classList.toggle('text-warning', 5 - index <= selected);
                     label.classList.toggle('text-muted', 5 - index > selected);
+                });
+            });
+        });
+    </script>
+
+    <script>
+        @if (session('message-success'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+
+            Toast.fire({
+                icon: 'success',
+                title: '{{ session('message-success') }}'
+            });
+        @endif
+
+        @if (session('message-error'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                background: '#f8d7da',
+                color: '#842029',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+
+            Toast.fire({
+                icon: 'error',
+                title: '{{ session('message-error') }}'
+            });
+        @endif
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+
+            deleteButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const href = this.getAttribute('href');
+                    const data = this.getAttribute('data-name');
+
+                    Swal.fire({
+                        title: 'Yakin ingin menghapus?',
+                        text: `Data "${data}" akan dihapus secara permanen.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = href;
+                        }
+                    });
                 });
             });
         });

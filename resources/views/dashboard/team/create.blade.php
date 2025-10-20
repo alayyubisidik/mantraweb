@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Create Clent')
+@section('title', 'Team | Dashboard Mantraweb')
 
 @section('content')
 
@@ -35,34 +35,48 @@
                     </div>
 
                     <div class="card-body pt-0">
-                        <form action="{{ route('team.create') }}" method="POST" enctype="multipart/form-data"
-                            class="needs-validation" novalidate>
+                        <form action="{{ route('team.create') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+
                             <div class="mb-3 row">
                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name" name="name" required>
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please choose a username.</div>
+                                    <input type="text" id="name" name="name"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        value="{{ old('name') }}">
+                                    @error('name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="mb-3 row">
                                 <label for="position" class="col-sm-3 col-form-label">Position</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="position" name="position" required>
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please choose a username.</div>
+                                    <input type="text" id="position" name="position"
+                                        class="form-control @error('position') is-invalid @enderror"
+                                        value="{{ old('position') }}">
+                                    @error('position')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="mb-3 row">
                                 <label for="profile_url" class="col-sm-3 col-form-label">Profile Picture</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="profile_url" name="profile_url"
-                                        accept="image/*" onchange="previewImage(event)">
+                                    <input type="file" id="profile_url" name="profile_url" accept="image/*"
+                                        onchange="previewImage(event)"
+                                        class="form-control @error('profile_url') is-invalid @enderror">
+                                    @error('profile_url')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+
                                     <img id="logoPreview" src="#" alt="Logo Preview"
                                         class="img-thumbnail img-fluid mt-2 d-none w-50">
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-sm-9 ms-auto">
                                     <button type="submit" class="btn btn-primary">Save</button>

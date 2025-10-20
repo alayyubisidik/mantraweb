@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Update User')
+@section('title', 'User | Dashboard Mantraweb')
 
 @section('content')
 
@@ -32,44 +32,59 @@
                         </div>
                     </div>
                     <div class="card-body pt-0">
-                        <form action="{{ route('user.update', ['userId' => $user->id]) }}" method="POST"
-                            class="needs-validation" novalidate>
+                        <form action="{{ route('user.update', ['userId' => $user->id]) }}" method="POST">
                             @csrf
+
                             <div class="mb-3 row">
                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name" name="name"
-                                        value="{{ old('name', $user->name) }}" required>
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please choose a username.</div>
+                                    <input type="text" id="name" name="name"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        value="{{ old('name', $user->name) }}">
+                                    @error('name')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        value="{{ old('email', $user->email) }}" required>
+                                    <input type="email" id="email" name="email"
+                                        class="form-control @error('email') is-invalid @enderror"
+                                        value="{{ old('email', $user->email) }}">
+                                    @error('email')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label for="password" class="col-sm-3 col-form-label">Password</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="password" name="password"
+                                    <input type="password" id="password" name="password"
+                                        class="form-control @error('password') is-invalid @enderror"
                                         placeholder="[leave blank if not changing]">
+                                    @error('password')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
-                                <label for="default" class="col-sm-3 col-form-label">Role</label>
+                                <label for="role" class="col-sm-3 col-form-label">Role</label>
                                 <div class="col-sm-9">
-                                    <select id="default" name="role">
+                                    <select id="default" name="role"
+                                        class="form-select @error('role') is-invalid @enderror">
+                                        <option value="" disabled selected>-- Pilih Role --</option>
                                         <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>
                                             Admin</option>
                                         <option value="team" {{ old('role', $user->role) == 'team' ? 'selected' : '' }}>
                                             Team</option>
                                     </select>
+                                    @error('role')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -80,6 +95,7 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

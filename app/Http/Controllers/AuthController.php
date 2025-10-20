@@ -28,19 +28,17 @@ class AuthController extends Controller
         $user = User::where('email', $credentials["email"])->first();
 
         if (!$user) {
-            return redirect()->back()->with('message-error', 'Username or password is incorrect');
-        }
-        
-        if ($user) {
-            if (password_verify($credentials["password"], $user->password)) {
-                Auth::login($user);
-                $request->session()->regenerate();
-
-                return redirect("/dashboard");
-            }
+            return redirect()->back()->with('message-error', 'email atau password salah!');
         }
 
-        return redirect()->back()->with("message-error", "username or password is incorrect");
+        if (password_verify($credentials["password"], $user->password)) {
+            Auth::login($user);
+            $request->session()->regenerate();
+
+            return redirect("/dashboard")->with('message-success', 'login berhasil!');
+        }
+
+        return redirect()->back()->with("message-error", "Email atau Password salah!");
     }
 
     public function logout()

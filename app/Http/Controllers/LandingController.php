@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,19 @@ class LandingController extends Controller
 
     public function project()
     {
-        return view('landing.project');
+        $projects = Project::all();
+
+        return view('landing.project')->with('projects', $projects);
+    }
+    public function projectDetail($slug)
+    {
+        // Ambil project berdasarkan slug
+        $project = Project::with(['client', 'categories'])
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        // Kirim ke view dengan with()
+        return view('landing.project-detail')->with('project', $project);
     }
 
     public function contact()

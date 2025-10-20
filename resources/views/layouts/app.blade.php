@@ -16,6 +16,7 @@
             color: #6865FF;
             font-weight: 600;
         }
+
         .header-bottom__main-menu ul li:hover>a,
         .tpoffcanvas .mobile-menu ul li:hover>a {
             color: #6865FF !important;
@@ -62,7 +63,8 @@
                 <div class="row align-items-center">
                     <div class="col-xxl-3 col-xl-3 col-lg-2 col-md-4 col-6">
                         <div class="header-bottom__logo">
-                            <a href="{{ route('pages.home') }}"><img src="{{ asset('landing/img/logo/logo-vertical.png') }}" alt=""></a>
+                            <a href="{{ route('pages.home') }}"><img
+                                    src="{{ asset('landing/img/logo/logo-vertical.png') }}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xxl-6 col-xl-6 col-lg-8 d-none d-lg-block">
@@ -155,7 +157,8 @@
                                     <div class="tp-footer__widget footer-widget-3 footer-widget-5 footer-col-3-1">
                                         <div class="tp-footer__logo mb-25">
                                             <a href="index.html">
-                                                <img src="{{ asset('landing/img/logo/logo-vertical.png') }}" alt="">
+                                                <img src="{{ asset('landing/img/logo/logo-vertical.png') }}"
+                                                    alt="">
                                             </a>
                                         </div>
                                         <div class="tp-footer__contact-info">
@@ -288,8 +291,8 @@
                             <div class="row justify-content-center">
                                 <div class="col-xl-4 col-lg-6 col-md-6">
                                     <div class="tp-copyright__text tp-copyright__text-3 text-center">
-                                        <span>Full Copyright & Design By <a href="#">@Theme pure</a> –
-                                            2023</span>
+                                        <span>Full Copyright & Design By <a href="#">Mantraweb</a> –
+                                            2025</span>
                                     </div>
                                 </div>
                             </div>

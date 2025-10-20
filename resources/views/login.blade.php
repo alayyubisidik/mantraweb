@@ -10,12 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('dashboard/images/favico.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('dashboard/images/favicon.ico') }}" />
 
     <!-- App css -->
     <link href="{{ asset('dashboard/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 
 <!-- Top Bar Start -->
@@ -31,8 +33,8 @@
                                 <div class="card-body p-0 bg-black auth-header-box rounded-top">
                                     <div class="text-center p-3">
                                         <a href="index.html" class="logo logo-admin">
-                                            <img src="{{ asset('dashboard/images/logo-light.png') }}" height="50" alt="logo"
-                                                class="auth-logo" />
+                                            <img src="{{ asset('dashboard/images/logo-light.png') }}" height="50"
+                                                alt="logo" class="auth-logo" />
                                         </a>
                                         <h4 class="mt-3 mb-1 fw-semibold text-white fs-18">
                                             Let's Get Started Mantraweb
@@ -88,5 +90,21 @@
         </div>
     </div>
 </body>
+
+<script src="{{ asset('dashboard/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+<script src="{{ asset('dashboard/js/pages/sweet-alert.init.js') }}"></script>
+<script src="{{ asset('dashboard/js/app.js') }}"></script>
+
+<script>
+    @if(session('message-error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal Masuk!',
+            text: '{{ session('message-error') }}',
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Coba Lagi'
+        })
+    @endif
+</script>
 
 </html>

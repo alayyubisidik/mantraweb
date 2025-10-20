@@ -64,47 +64,47 @@
                             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center">
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".2s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-1.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-1.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".4s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-2.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-2.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-3.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-3.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".8s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-4.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-4.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-5.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-5.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-6.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-6.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1.1s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-7.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-7.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1.2s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-8.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-8.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1.3s">
                                     <div class="ab-brand-item mb-25">
-                                        <img src="{{ asset('landing/img/brand/brand-inner-9.png') }}" alt="">
+                                        <img src="{{ asset('landing/img/technology/tech-9.png') }}" alt="">
                                     </div>
                                 </div>
                             </div>

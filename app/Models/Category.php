@@ -6,19 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Service extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function projectService(): BelongsToMany
+    public function ProjectCategory(): BelongsToMany
     {
-        return $this->belongsToMany(Project::class, 'project_service', 'service_id', 'project_id');
+        return $this->belongsToMany(Project::class, 'project_category', 'category_id', 'project_id');
     }
 
     public function projects()
     {
-        return $this->belongsToMany(Project::class, 'project_service');
+        return $this->belongsToMany(Project::class, 'project_category');
     }
+
 }

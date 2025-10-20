@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Overview')
+@section('title', 'Dashboard | Mantraweb')
 
 @section('content')
 
@@ -23,9 +23,9 @@
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-9">
                                         <p class="text-muted text-uppercase mb-0 fw-normal fs-13">
-                                            Total Services
+                                            Total Category
                                         </p>
-                                        <h4 class="mt-1 mb-0 fw-medium">{{ $total_services }}</h4>
+                                        <h4 class="mt-1 mb-0 fw-medium">{{ $total_categories }}</h4>
                                     </div>
                                     <div class="col-3 align-self-center">
                                         <div

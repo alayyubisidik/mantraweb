@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("thumbnail_url");
             $table->string("project_url");
             $table->dateTime("start_date");
-            $table->dateTime("end_date");
+            $table->dateTime("end_date")->nullable();
             $table->enum("status", ["draft", "published"])->default("draft");
             $table->timestamps();
         });

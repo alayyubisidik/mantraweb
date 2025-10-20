@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign("client_id")->references("id")->on("clients");
             $table->text("message");
             $table->integer("rating");
-            $table->string("image_url");
+            $table->string("image_url")->nullable();
             $table->timestamps();
         });
     }

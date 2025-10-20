@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Create Project')
+@section('title', 'Project | Dashboard Mantraweb')
 
 @section('content')
 
@@ -34,7 +34,159 @@
                         </div>
                     </div>
                     <div class="card-body pt-0">
-                        <form action="{{ route('project.create') }}" method="POST" enctype="multipart/form-data"
+                        <form action="{{ route('project.create') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    {{-- Client --}}
+                                    <div class="mb-3 row">
+                                        <label for="client_id" class="col-sm-3 col-form-label">Client Name</label>
+                                        <div class="col-sm-9">
+                                            <select id="clientId" name="client_id">
+                                                <option value="" disabled selected>-- Pilih Client --</option>
+                                                @foreach ($clients as $client)
+                                                    <option value="{{ $client->id }}">
+                                                        {{ $client->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('client_id')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- Project Title --}}
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-3 col-form-label">Project Title</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="title" name="title"
+                                                class="form-control @error('title') is-invalid @enderror"
+                                                value="{{ old('title') }}">
+                                            @error('title')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- Categories --}}
+                                    <div class="mb-3 row">
+                                        <label for="categories" class="col-sm-3 col-form-label">Categories</label>
+                                        <div class="col-sm-9">
+                                            <select id="multiSelect" name="categories[]" class="form-control">
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">
+                                                        {{ $category->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('categories')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- Description --}}
+                                    <div class="mb-3 row">
+                                        <label for="description" class="col-sm-3 col-form-label">Description</label>
+                                        <div class="col-sm-9">
+                                            <textarea id="description" name="description" rows="5"
+                                                class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+                                            @error('description')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- Start Date --}}
+                                    <div class="mb-3 row">
+                                        <label for="start_date" class="col-sm-3 col-form-label">Start Date</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" id="start_date" name="start_date"
+                                                class="form-control @error('start_date') is-invalid @enderror"
+                                                value="{{ old('start_date') }}">
+                                            @error('start_date')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- End Date --}}
+                                    <div class="mb-3 row">
+                                        <label for="end_date" class="col-sm-3 col-form-label">End Date</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" id="end_date" name="end_date"
+                                                class="form-control @error('end_date') is-invalid @enderror"
+                                                value="{{ old('end_date') }}">
+                                            @error('end_date')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+
+                                    {{-- Project URL --}}
+                                    <div class="mb-3 row">
+                                        <label for="project_url" class="col-sm-3 col-form-label">Project URL</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="project_url" name="project_url"
+                                                class="form-control @error('project_url') is-invalid @enderror"
+                                                placeholder="https://example.com" value="{{ old('project_url') }}">
+                                            @error('project_url')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- Thumbnail --}}
+                                    <div class="mb-3 row">
+                                        <label for="thumbnail_url" class="col-sm-3 col-form-label">Project Thumbnail</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" id="thumbnail_url" name="thumbnail_url"
+                                                accept="image/*" onchange="previewImage(event)"
+                                                class="form-control @error('thumbnail_url') is-invalid @enderror">
+                                            @error('thumbnail_url')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+
+                                            <img id="logoPreview" src="#" alt="Thumbnail Preview"
+                                                class="img-thumbnail img-fluid mt-2 d-none w-50">
+                                        </div>
+                                    </div>
+
+                                    {{-- Status --}}
+                                    <div class="mb-3 row">
+                                        <label for="status" class="col-sm-3 col-form-label">Status Project</label>
+                                        <div class="col-sm-9">
+                                            <select id="status" name="status"
+                                                class="form-select @error('status') is-invalid @enderror">
+                                                <option value="" disabled selected>-- Pilih Status --</option>
+                                                <option value="draft" {{ old('status') == 'draft' ? 'selected' : '' }}>
+                                                    Draft</option>
+                                                <option value="published"
+                                                    {{ old('status') == 'published' ? 'selected' : '' }}>Published</option>
+                                            </select>
+                                            @error('status')
+                                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- Action Buttons --}}
+                                    <div class="row">
+                                        <div class="col-sm-9 ms-auto">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <a href="{{ route('project.index') }}" class="btn btn-danger">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        {{-- <form action="{{ route('project.create') }}" method="POST" enctype="multipart/form-data"
                             class="needs-validation" novalidate>
                             @csrf
                             <div class="row">
@@ -63,12 +215,12 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label for="name" class="col-sm-3 col-form-label">Service</label>
+                                        <label for="name" class="col-sm-3 col-form-label">Categories</label>
                                         <div class="col-sm-9">
-                                            <select id="multiSelect" name="services[]" class="form-control">
-                                                @foreach ($services as $service)
-                                                    <option value="{{ $service->id }}">
-                                                        {{ $service->name }}
+                                            <select id="multiSelect" name="categories[]" class="form-control">
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">
+                                                        {{ $category->name }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -135,7 +287,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\Service;
@@ -17,7 +18,7 @@ class DashboardController extends Controller
         $stats = [
             'total_users' => User::count(),
             'total_teams' => Team::count(),
-            'total_services' => Service::count(),
+            'total_categories' => Category::count(),
             'total_clients' => Client::count(),
             'total_projects' => Project::count(),
             'total_testimonials' => Testimonial::count(),

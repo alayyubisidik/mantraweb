@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Create User')
+@section('title', 'User | Dashboard Mantraweb')
 
 @section('content')
 
@@ -32,38 +32,55 @@
                         </div>
                     </div>
                     <div class="card-body pt-0">
-                        <form action="{{ route('user.create') }}" method="POST" class="needs-validation" novalidate>
+                        <form action="{{ route('user.create') }}" method="POST">
                             @csrf
+
                             <div class="mb-3 row">
                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name" name="name" required>
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please choose a username.</div>
+                                    <input type="text" id="name" name="name"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        value="{{ old('name') }}">
+                                    @error('name')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" id="email" name="email"
+                                        class="form-control @error('email') is-invalid @enderror"
+                                        value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label for="password" class="col-sm-3 col-form-label">Password</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <input type="password" id="password" name="password"
+                                        class="form-control @error('password') is-invalid @enderror">
+                                    @error('password')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
-                                <label for="default" class="col-sm-3 col-form-label">Role</label>
+                                <label for="role" class="col-sm-3 col-form-label">Role</label>
                                 <div class="col-sm-9">
                                     <select id="default" name="role">
+                                        <option value="" disabled selected>-- Pilih Role --</option>
                                         <option value="admin">Admin</option>
                                         <option value="team">Team</option>
                                     </select>
+                                    @error('role')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 

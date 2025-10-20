@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Client')
+@section('title', 'Client | Dashboard Mantraweb')
 
 @section('content')
 
@@ -95,7 +95,8 @@
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                     <a href="{{ route('client.delete', ['clientId' => $client->id]) }}"
-                                                        class="btn btn-outline-danger">
+                                                        class="btn btn-outline-danger delete-btn"
+                                                        data-name="{{ $client->name }}">
                                                         <i class="fa fa-trash-alt"></i>
                                                     </a>
                                                 </div>

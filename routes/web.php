@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
@@ -16,6 +17,7 @@ Route::controller(LandingController::class)->group(function () {
     Route::get('/about', 'about')->name('pages.about');
     Route::get('/team', 'team')->name('pages.team');
     Route::get('/project', 'project')->name('pages.project');
+    Route::get('/project/{slug}', 'projectDetail')->name('pages.project.detail');
     Route::get('/contact', 'contact')->name('pages.contact');
 });
 
@@ -34,10 +36,10 @@ Route::middleware("auth")->group(function () {
     Route::match(['GET', 'POST'], '/dashboard/client/update/{clientId}', [ClientController::class, "update"])->name('client.update');
     Route::get('/dashboard/client/delete/{clientId}', [ClientController::class, "delete"])->name('client.delete');
 
-    Route::get('/dashboard/service', [ServiceController::class, "index"])->name('service.index');
-    Route::match(['GET', 'POST'], '/dashboard/service/create', [ServiceController::class, "create"])->name('service.create');
-    Route::match(['GET', 'POST'], '/dashboard/service/update/{serviceId}', [ServiceController::class, "update"])->name('service.update');
-    Route::get('/dashboard/service/delete/{serviceId}', [ServiceController::class, "delete"])->name('service.delete');
+    Route::get('/dashboard/category', [CategoryController::class, "index"])->name('category.index');
+    Route::match(['GET', 'POST'], '/dashboard/category/create', [CategoryController::class, "create"])->name('category.create');
+    Route::match(['GET', 'POST'], '/dashboard/category/update/{categoryId}', [CategoryController::class, "update"])->name('category.update');
+    Route::get('/dashboard/category/delete/{categoryId}', [CategoryController::class, "delete"])->name('category.delete');
 
     Route::get('/dashboard/testimonial', [TestimonialController::class, "index"])->name('testimonial.index');
     Route::match(['GET', 'POST'], '/dashboard/testimonial/create', [TestimonialController::class, "create"])->name('testimonial.create');

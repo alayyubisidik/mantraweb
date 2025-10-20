@@ -20,31 +20,34 @@
                         <div class="col-xl-12">
                             <div class="breadcrumb__content z-index-3 mb-60">
                                 <div class="breadcrumb__text wow tpfadeIn" data-wow-duration=".9s" data-wow-delay=".6s">
-                                    <span>Development, App Design</span>
+                                    @foreach ($project->categories as $category)
+                                        <span>{{ $category->name }}@if (!$loop->last), @endif</span>
+                                    @endforeach
                                 </div>
-                                <h3 class="breadcrumb__title text-black">Mobile App Design</h3>
+                                <h3 class="breadcrumb__title text-black">{{ $project->title }}</h3>
                             </div>
                         </div>
                     </div>
                     <div class="row g-0 z-index-3">
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
                             <div class="breadcrumb__client-info space-left-1">
-                                <span>CLIENT</span>
-                                <p>Microsoft App Holing Ltd, <br>
-                                    Australia Area</p>
+                                <span>Client</span>
+                                <p>{{ $project->client->name }}, <br>
+                                    {{ $project->client->company }}</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
                             <div class="breadcrumb__client-info space-left-2">
                                 <span>Services</span>
-                                <p>Design, Branding, App, <br>
-                                    Development</p>
+                                @foreach ($project->categories as $category)
+                                        <p>{{ $category->name }}</p>
+                                    @endforeach
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
                             <div class="breadcrumb__client-info space-left-3">
                                 <span>Project Date</span>
-                                <p>October 23th, 2022 <br>
+                                <p>{{ \Carbon\Carbon::parse($project->start_date)->format('F jS, Y') }}<br>
                                     Release Started</p>
                             </div>
                         </div>
@@ -52,7 +55,7 @@
                             <div class="breadcrumb__client-info space-left-4">
                                 <span>Project Date</span>
                                 <div class="breadcrumb__live-btn">
-                                    <a class="tp-btn-inner-border" href="#">See live <i
+                                    <a class="tp-btn-inner-border" href="{{ $project->project_url }}" target="_blank">See live <i
                                             class="fal fa-arrow-up"></i></a>
                                 </div>
                             </div>
@@ -69,7 +72,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="pd-thumb">
-                            <img src="{{ asset('landing/img/project/pd-img-1.jpg') }}" alt="">
+                            <img src="{{ asset('landing/img/project/pd-img-1.png') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -97,13 +100,8 @@
                     <div class="col-xl-10 col-lg-10 ">
                         <div class="pd-details-wrapper">
                             <div class="pd-details-info">
-                                <h4 class="pd-details-title">Duis aute irure dolor in reprehenderit</h4>
-                                <p>Posuere nibh vestibulum, velit pulvinar interdum sed in. Magnis netus magna urna, in
-                                    tempor magna. Tortor vel vitae vel mi. Leo pellentesque eget pellentesque magnis.
-                                    Pellentesque molestie sem massa nibh suspendisse ante eget. Sit dolor arcu scelerisque
-                                    sit nibh nunc, vulputate cursus. Feugiat in tortor non mauris, sit. Hac adipiscing dui
-                                    sit magna. Integer elementum et amet hac turpis. Sagittis magna nulla ut gravida integer
-                                    pellentesque. </p>
+                                <h4 class="pd-details-title">Project Description</h4>
+                                <p>{{ $project->description}}</p>
                             </div>
                             <div class="pd-details-overview">
                                 <h4 class="pd-details-title">Overview</h4>
