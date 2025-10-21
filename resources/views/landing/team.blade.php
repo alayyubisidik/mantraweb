@@ -42,7 +42,12 @@
                         <div class="col-lg-4 col-md-6 col-sm-6 mb-70 tp-border-after-1 team-inner-border-right">
                             <div class="tp-team-item text-center tp-team-inner-title-color z-index">
                                 <div class="tp-team-img">
-                                    <img src="{{ asset('storage/' . $team->profile_url) }}" alt="">
+                                    <img src="{{ $team->profile_url
+                                        ? asset('storage/' . $team->profile_url)
+                                        : asset('landing/img/profile-picture/profile-default.png') }}"
+                                        alt="{{ $team->name }}">
+
+                                    {{-- <img src="{{ asset('storage/' . $team->profile_url) }}" alt=""> --}}
                                 </div>
                                 <div class="tp-team-content">
                                     <h4 class="tp-team-title-sm"><a href="#">{{ str($team->name)->words(2, '') }}</a>

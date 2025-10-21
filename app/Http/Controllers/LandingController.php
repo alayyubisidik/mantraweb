@@ -4,15 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Team;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
     public function index()
     {
-        $teams = Team::limit(5)->get();
+        $data = [
+            'teams' => Team::limit(5)->get(),
+            'testimonials' => Testimonial::with('client')
+                ->latest()
+                ->limit(3)
+                ->get(),
+        ];
 
-        return view('landing.index')->with('teams', $teams);
+        return view('landing.index', $data);
+
+        // $testimonials = Testimonial::with('client')
+        //     ->latest()
+        //     ->limit(3)
+        //     ->get();
+
+        // return view('landing.index', compact('teams', 'testimonials'));
     }
 
     public function about()

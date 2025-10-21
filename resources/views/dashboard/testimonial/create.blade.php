@@ -93,7 +93,7 @@
                                         @for ($i = 5; $i >= 1; $i--)
                                             <input type="radio" id="star{{ $i }}" name="rating"
                                                 value="{{ $i }}" class="d-none"
-                                                {{ old('rating') == $i ? 'checked' : '' }}>
+                                                {{ old('rating', 5) == $i ? 'checked' : '' }}>
                                             <label for="star{{ $i }}" class="text-warning fs-4 mx-1"
                                                 style="cursor: pointer;">
                                                 <i class="fas fa-star"></i>

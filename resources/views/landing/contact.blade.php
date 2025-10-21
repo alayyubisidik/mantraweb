@@ -88,12 +88,11 @@
                                         <div class="col-12">
                                             <div class="postbox__select mb-30">
                                                 <select>
-                                                    <option>Your Inquiry about</option>
-                                                    <option>01 Year</option>
-                                                    <option>02 Year</option>
-                                                    <option>03 Year</option>
-                                                    <option>04 Year</option>
-                                                    <option>05 Year</option>
+                                                    <option value="" disabled selected>Your Inquiry about</option>
+                                                    <option>Website Service</option>
+                                                    <option>Collaboration</option>
+                                                    <option>Technical Support</option>
+                                                    <option>Others</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -106,7 +105,7 @@
                                         <div class="col-xxl-12">
                                             <div class="postbox__btn-box">
                                                 <button class="tp-btn-blue-lg tp-btn-hover alt-color-black w-100">
-                                                    <span>Send Your Request</span>
+                                                    <span>Kirim Permintaan</span>
                                                     <b></b>
                                                 </button>
                                             </div>

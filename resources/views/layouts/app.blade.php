@@ -105,7 +105,7 @@
                         </div> --}}
                             <div class="header-bottom__btn d-flex align-items-center">
                                 <a class="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black"
-                                    href="service-details.html">
+                                    href="{{ route('pages.contact') }}">
                                     <span>Mulai Proyek</span>
                                     <b></b>
                                 </a>

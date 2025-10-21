@@ -63,75 +63,6 @@
         </div>
         <!-- tp-slider-area-end -->
 
-        <!-- tp-integration-area-start -->
-        <!-- <div class="tp-integration-area pb-110 tp-integration-mlr">
-                       <div class="container">
-                          <div class="row align-items-end tp-integration-section-space">
-                             <div class="col-xl-6 col-lg-8 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s">
-                                <div class="tp-integration-section-box">
-                                   <h5 class="tp-integration-subtitle">Integration</h5>
-                                   <h3 class="tp-section-title-3">Integrated with Your <span>Favourite Apps</span></h3>
-                                </div>
-                             </div>
-                             <div class="col-xl-6 col-lg-4 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s">
-                                <div class="tp-integration-btn text-lg-end text-start">
-                                   <a class="tp-btn-blue-lg tp-btn-hover alt-color-black" href="integrations.html">
-                                      <span>See all Integrations</span>
-                                      <b></b>
-                                   </a>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="tp-integration-slider-wrapper pt-50 pb-50" data-background="assets/img/integration/integration-bg.jpg">
-                          <div class="tp-integration-slider-active">
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-1.png" alt="">
-                                </div>
-                             </div>
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-2.png" alt="">
-                                </div>
-                             </div>
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-3.png" alt="">
-                                </div>
-                             </div>
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-4.png" alt="">
-                                </div>
-                             </div>
-                          </div>
-                          <div class="tp-integration-slider-active-2 carousel-rtl" dir="rtl">
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-5.png" alt="">
-                                </div>
-                             </div>
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-6.png" alt="">
-                                </div>
-                             </div>
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-7.png" alt="">
-                                </div>
-                             </div>
-                             <div class="tp-integration-slider-main">
-                                <div class="tp-integration-slider-item">
-                                   <img src="assets/img/integration/integration-8.png" alt="">
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                    </div> -->
-        <!-- tp-integration-area-end -->
-
         <!-- tp-brand-area-start -->
         <div class="tp-barnd-area tp-barnd-plr z-index-3 pb-160">
             <div class="tp-barnd-main-wrapper p-relative">
@@ -182,8 +113,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-6">
-                        <div class="tp-account-thumb-wrapper p-relative text-center wow tpfadeLeft"
-                            data-wow-duration=".9s" data-wow-delay=".5s">
+                        <div class="tp-account-thumb-wrapper p-relative text-center wow tpfadeLeft" data-wow-duration=".9s"
+                            data-wow-delay=".5s">
                             <div class="tp-account-bg">
                                 <img src="{{ asset('landing/img/account/account-bg.png') }}" alt="">
                             </div>
@@ -451,89 +382,51 @@
                             </div>
                             <div class="swiper-container blog-grid-slider-active">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="blog-grid-slider blog-grid-slider-bg d-flex align-items-center blog-grid-slider-height"
-                                            data-background="assets/img/integration/integration-bg1.jpg">
-                                            <div class="blog-grid-slider-wrapper">
-                                                <div class="blog-grid-slider-meta">
-                                                    <!-- <span class="child-one">Resources</span>
-                                                     <span class="child-two">October 20, 2023</span> -->
-                                                    <div class="tp-testimonial-2-star">
-                                                        <span>
-                                                            <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
-                                                                    fill="#FFCF55" />
-                                                            </svg>
-                                                        </span>
-                                                        <span>
-                                                            <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
-                                                                    fill="#FFCF55" />
-                                                            </svg>
-                                                        </span>
-                                                        <span>
-                                                            <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
-                                                                    fill="#FFCF55" />
-                                                            </svg>
-                                                        </span>
-                                                        <span>
-                                                            <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
-                                                                    fill="#FFCF55" />
-                                                            </svg>
-                                                        </span>
-                                                        <span>
-                                                            <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
-                                                                    fill="#FFCF55" />
-                                                            </svg>
-                                                        </span>
-                                                        <span>
-                                                            <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
-                                                                    fill="#FFCF55" />
-                                                            </svg>
-                                                        </span>
+                                    @foreach ($testimonials as $testimonial)
+                                        <div class="swiper-slide">
+                                            <div class="blog-grid-slider blog-grid-slider-bg d-flex align-items-center blog-grid-slider-height"
+                                                data-background="assets/img/integration/integration-bg1.jpg">
+                                                <div class="blog-grid-slider-wrapper">
+                                                    <div class="blog-grid-slider-meta">
+                                                        <!-- <span class="child-one">Resources</span>
+                                                                         <span class="child-two">October 20, 2023</span> -->
+                                                        <div class="tp-testimonial-2-star">
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                <span>
+                                                                    <svg width="16" height="16"
+                                                                        viewBox="0 0 16 16" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
+                                                                            fill="#FFCF55" />
+                                                                    </svg>
+                                                                </span>
+                                                            @endfor
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="blog-grid-slider-title-box">
-                                                    <!-- <h4 class="blog-grid-slider-title"><a href="blog-details.html">5 Companies doing Brand <br> Marketing Right</a></h4> -->
-                                                    <p style="font-size: 1.2em;">From publishing content and hoping to
-                                                        acquire leads to
-                                                        gaining audience insights and making personalized
-                                                        content, content marketing. From publishing content and hoping to
-                                                        acquire leads to
-                                                        gaining audience insights and making personalized
-                                                        content, content marketing.
-                                                    </p>
-                                                </div>
-                                                <div
-                                                    class="tp-blog-author-info-box blog-grid-avata-box d-flex align-items-center">
-                                                    <div class="tp-blog-avata">
-                                                        <img src="{{ asset('landing/img/avatar/avata-3.png') }}"
-                                                            alt="">
+                                                    <div class="blog-grid-slider-title-box">
+                                                        <!-- <h4 class="blog-grid-slider-title"><a href="blog-details.html">5 Companies doing Brand <br> Marketing Right</a></h4> -->
+                                                        <p style="font-size: 1.2em;">{{ $testimonial->message }}
+                                                        </p>
                                                     </div>
-                                                    <div class="tp-blog-author-info">
-                                                        <h5>Hilary Ouse</h5>
-                                                        <span>Founder & CEO Dulalix</span>
+                                                    <div
+                                                        class="tp-blog-author-info-box blog-grid-avata-box d-flex align-items-center">
+                                                        <div class="tp-blog-avata">
+                                                            <img src="{{ $testimonial->image_url
+                                                                ? asset('storage/' . $testimonial->image_url)
+                                                                : asset('landing/img/avatar/avatar-default.png') }}"
+                                                                alt="{{ $testimonial->client->name }}">
+                                                        </div>
+                                                        <div class="tp-blog-author-info">
+                                                            <h5>{{ $testimonial->client->name }}</h5>
+                                                            <span>{{ $testimonial->client->job_title }} at
+                                                                {{ $testimonial->client->company }}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -561,7 +454,10 @@
                         <div class="col-lg-4 col-md-6 col-sm-6 mb-70 tp-border-after-1 team-inner-border-right">
                             <div class="tp-team-item text-center tp-team-inner-title-color z-index">
                                 <div class="tp-team-img">
-                                    <img src="{{ asset('storage/' . $team->profile_url) }}" alt="">
+                                    <img src="{{ $team->profile_url
+                                        ? asset('storage/' . $team->profile_url)
+                                        : asset('landing/img/profile-picture/profile-default.png') }}"
+                                        alt="{{ $team->name }}">
                                 </div>
                                 <div class="tp-team-content">
                                     <h4 class="tp-team-title-sm"><a
@@ -608,13 +504,13 @@
                                 </p>
                             </div>
                             <!-- <div class="contact-form-social-box">
-                                      <div class="contact-form-social-item">
-                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                         <a href="#"><i class="fab fa-twitter"></i></a>
-                                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                         <a href="#"><i class="fab fa-instagram"></i></a>
-                                      </div>
-                                   </div> -->
+                                                          <div class="contact-form-social-item">
+                                                             <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                             <a href="#"><i class="fab fa-twitter"></i></a>
+                                                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                                             <a href="#"><i class="fab fa-instagram"></i></a>
+                                                          </div>
+                                                       </div> -->
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">
@@ -637,12 +533,11 @@
                                         <div class="col-12">
                                             <div class="postbox__select mb-30">
                                                 <select>
-                                                    <option>Your Inquiry about</option>
-                                                    <option>01 Year</option>
-                                                    <option>02 Year</option>
-                                                    <option>03 Year</option>
-                                                    <option>04 Year</option>
-                                                    <option>05 Year</option>
+                                                    <option value="" disabled selected>Your Inquiry about</option>
+                                                    <option>Website Service</option>
+                                                    <option>Collaboration</option>
+                                                    <option>Technical Support</option>
+                                                    <option>Others</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -655,7 +550,7 @@
                                         <div class="col-xxl-12">
                                             <div class="postbox__btn-box">
                                                 <button class="tp-btn-blue-lg tp-btn-hover alt-color-black w-100">
-                                                    <span>Send Your Request</span>
+                                                    <span>Kirim Permintaan</span>
                                                     <b></b>
                                                 </button>
                                             </div>

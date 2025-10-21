@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("title");
             $table->string("slug")->unique();
             $table->text("description");
-            $table->string("thumbnail_url");
+            $table->string("thumbnail_url")->nullable();
             $table->string("project_url");
             $table->dateTime("start_date");
             $table->dateTime("end_date")->nullable();

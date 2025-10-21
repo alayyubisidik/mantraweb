@@ -4,7 +4,6 @@
 
 @section('content')
     <main>
-
         <!-- breadcrumb-area-start -->
         <div class="breadcrumb__area breadcrumb-height-3 breadcrumb-overlay p-relative fix"
             data-background="{{ asset('landing/img/project/project-brdcrmb-bg.jpg') }}">
@@ -21,7 +20,10 @@
                             <div class="breadcrumb__content z-index-3 mb-60">
                                 <div class="breadcrumb__text wow tpfadeIn" data-wow-duration=".9s" data-wow-delay=".6s">
                                     @foreach ($project->categories as $category)
-                                        <span>{{ $category->name }}@if (!$loop->last), @endif</span>
+                                        <span>{{ $category->name }}@if (!$loop->last)
+                                                ,
+                                            @endif
+                                        </span>
                                     @endforeach
                                 </div>
                                 <h3 class="breadcrumb__title text-black">{{ $project->title }}</h3>
@@ -40,8 +42,8 @@
                             <div class="breadcrumb__client-info space-left-2">
                                 <span>Services</span>
                                 @foreach ($project->categories as $category)
-                                        <p>{{ $category->name }}</p>
-                                    @endforeach
+                                    <p>{{ $category->name }}</p>
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
@@ -55,8 +57,8 @@
                             <div class="breadcrumb__client-info space-left-4">
                                 <span>Project Date</span>
                                 <div class="breadcrumb__live-btn">
-                                    <a class="tp-btn-inner-border" href="{{ $project->project_url }}" target="_blank">See live <i
-                                            class="fal fa-arrow-up"></i></a>
+                                    <a class="tp-btn-inner-border" href="{{ $project->project_url }}" target="_blank">See
+                                        live <i class="fal fa-arrow-up"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -101,28 +103,31 @@
                         <div class="pd-details-wrapper">
                             <div class="pd-details-info">
                                 <h4 class="pd-details-title">Project Description</h4>
-                                <p>{{ $project->description}}</p>
+                                <p>{{ $project->description }}</p>
                             </div>
                             <div class="pd-details-overview">
                                 <h4 class="pd-details-title">Overview</h4>
                                 <ul>
-                                    <li>Create & Save your notes with multi-media</li>
-                                    <li>Complete note editor with rich text options</li>
-                                    <li>Automatically sync in real time</li>
-                                    <li>Web Clipper Extension</li>
+                                    <li>Buat dan simpan catatan atau ide proyek dengan dukungan multi-media.</li>
+                                    <li>Kolaborasi lebih efisien dengan editor lengkap dan fitur canggih.</li>
+                                    <li>Sinkronisasi otomatis secara real-time di semua perangkat.</li>
+                                    <li>Ekstensi tambahan untuk mempercepat dan mempermudah alur kerja.</li>
                                 </ul>
-                                <p>Felis morbi ut tristique pretium libero. Eget purus, enim, orci, quis tempor sed. Sed nec
-                                    eget nibh et Ut orci, sagittis tellus dui congue. Blandit laoreet nullam amet eget. Ut
-                                    tincidunt diam tempor sed turpis odio vitae sem lobortis. Lobortis enim non eu a.</p>
+                                <p>Proyek ini bertujuan untuk menghadirkan pengalaman digital yang lancar dan inovatif.
+                                    Setiap fitur dikembangkan dengan fokus pada kebutuhan pengguna, performa, dan
+                                    skalabilitas sistem.</p>
                             </div>
                             <div class="pd-details-info">
                                 <h4 class="pd-details-title">Solution & Result</h4>
-                                <p>Posuere nibh vestibulum, velit pulvinar interdum sed in. Magnis netus magna urna, in
-                                    tempor magna. Tortor vel vitae vel mi. Leo pellentesque eget pellentesque magnis.
-                                    Pellentesque molestie sem massa nibh suspendisse ante eget. Sit dolor arcu scelerisque
-                                    sit nibh nunc, vulputate cursus. Feugiat in tortor non mauris, sit. Hac adipiscing dui
-                                    sit magna. Integer elementum et amet hac turpis. Sagittis magna nulla ut gravida integer
-                                    pellentesque. </p>
+                                <p>Kami menyelesaikan proyek ini dengan menggabungkan sistem desain yang kuat dan praktik
+                                    pengembangan modern. Solusi yang diterapkan berfokus pada peningkatan interaksi
+                                    pengguna, penyederhanaan alur kerja, serta performa yang responsif di berbagai
+                                    perangkat.</p>
+
+                                <p>Hasil akhirnya adalah produk yang tidak hanya memenuhi ekspektasi klien, tetapi juga
+                                    meningkatkan citra merek dan efisiensi operasional mereka. Dengan arsitektur yang
+                                    fleksibel dan tampilan antarmuka yang bersih, hasil proyek memberikan nilai fungsional
+                                    sekaligus estetika yang optimal.</p>
                             </div>
                             {{-- <div class="pd-details-solution">
                               <div class="pd-details-solution-img-box d-flex align-items-center">
