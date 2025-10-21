@@ -389,16 +389,16 @@
                                                 <div class="blog-grid-slider-wrapper">
                                                     <div class="blog-grid-slider-meta">
                                                         <!-- <span class="child-one">Resources</span>
-                                                                         <span class="child-two">October 20, 2023</span> -->
+                                                                             <span class="child-two">October 20, 2023</span> -->
                                                         <div class="tp-testimonial-2-star">
                                                             @for ($i = 1; $i <= 5; $i++)
                                                                 <span>
                                                                     <svg width="16" height="16"
-                                                                        viewBox="0 0 16 16" fill="none"
+                                                                        viewBox="0 0 16 16"
                                                                         xmlns="http://www.w3.org/2000/svg">
                                                                         <path
                                                                             d="M8 0L10.472 5.26604L16 6.11567L12 10.2124L12.944 16L8 13.266L3.056 16L4 10.2124L0 6.11567L5.528 5.26604L8 0Z"
-                                                                            fill="#FFCF55" />
+                                                                            fill="{{ $i <= $testimonial->rating ? '#FFCF55' : '#ddd' }}" />
                                                                     </svg>
                                                                 </span>
                                                             @endfor
@@ -504,13 +504,13 @@
                                 </p>
                             </div>
                             <!-- <div class="contact-form-social-box">
-                                                          <div class="contact-form-social-item">
-                                                             <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                             <a href="#"><i class="fab fa-twitter"></i></a>
-                                                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                                             <a href="#"><i class="fab fa-instagram"></i></a>
-                                                          </div>
-                                                       </div> -->
+                                                              <div class="contact-form-social-item">
+                                                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                                                 <a href="#"><i class="fab fa-instagram"></i></a>
+                                                              </div>
+                                                           </div> -->
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">

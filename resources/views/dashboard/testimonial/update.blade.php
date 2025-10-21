@@ -71,11 +71,11 @@
                                     @if ($testimonial->image_url)
                                         <div class="mt-2">
                                             <img src="{{ asset('storage/' . $testimonial->image_url) }}" alt="Logo Lama"
-                                                class="img-thumbnail img-fluid mt-2 w-50">
+                                                class="img-thumbnail img-fluid mt-2 w-25">
                                         </div>
                                     @endif
                                     <img id="logoPreview" src="#" alt="Logo Preview"
-                                        class="img-thumbnail img-fluid mt-2 d-none w-50">
+                                        class="img-thumbnail img-fluid mt-2 d-none w-25">
                                 </div>
                             </div>
 
@@ -83,7 +83,7 @@
                             <div class="mb-3 row">
                                 <label for="message" class="col-sm-3 col-form-label">Message</label>
                                 <div class="col-sm-9">
-                                    <textarea id="message" name="message" rows="4" class="form-control @error('message') is-invalid @enderror">{{ $testimonial->message }}</textarea>
+                                    <textarea id="message" name="message" rows="7" class="form-control @error('message') is-invalid @enderror">{{ $testimonial->message }}</textarea>
                                     @error('message')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="pd-thumb">
-                            <img src="{{ asset('landing/img/project/pd-img-1.jpg') }}" alt="">
+                            <img src="{{ asset('landing/img/project/pd-img-1.png') }}" alt="">
                         </div>
                     </div>
                 </div>
