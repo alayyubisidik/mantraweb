@@ -85,7 +85,7 @@
                                     </li>
                                     <li>
                                         <a href="{{ route('pages.project') }}"
-                                            class="{{ request()->routeIs('pages.project') ? 'active' : '' }}">Projects</a>
+                                            class="{{ request()->routeIs('pages.project*') ? 'active' : '' }}">Projects</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('pages.contact') }}"

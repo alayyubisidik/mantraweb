@@ -7,7 +7,7 @@
 
         <!-- breadcrumb-area-start -->
         <div class="breadcrumb__area breadcrumb-height-3 breadcrumb-overlay p-relative fix"
-            data-background="{{ asset('landing/img/project/project-brdcrmb-bg.jpg') }}">
+            data-background="{{ asset('landing/img/breadcrumb/breadcrumb-background.jpg') }}">
             <div class="breadcrumb__shape-1">
                 <img src="{{ asset('landing/img/breadcrumb/breadcrumb-shape-1.png') }}" alt="">
             </div>
@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="pd-thumb">
-                            <img src="{{ asset('landing/img/project/pd-img-1.jpg') }}" alt="">
+                            <img src="{{ asset('landing/img/about/about-us.png') }}" alt="">
                         </div>
                     </div>
                 </div>

@@ -119,16 +119,16 @@
                                 <img src="{{ asset('landing/img/account/account-bg.png') }}" alt="">
                             </div>
                             <div class="tp-account-main-img">
-                                <img src="{{ asset('landing/img/account/acc-main.png') }}" alt="">
+                                <img src="{{ asset('landing/img/account/account-main.png') }}" alt="">
                             </div>
                             <div class="tp-account-author">
-                                <img src="{{ asset('landing/img/account/ac-author.png') }}" alt="">
+                                <img src="{{ asset('landing/img/account/account-author.png') }}" alt="">
                             </div>
                             <div class="tp-account-shape-1">
-                                <img src="{{ asset('landing/img/account/ac-shape-1.png') }}" alt="">
+                                <img src="{{ asset('landing/img/account/account-shape-1.png') }}" alt="">
                             </div>
                             <div class="tp-account-shape-2">
-                                <img src="{{ asset('landing/img/account/ac-shape-2.png') }}" alt="">
+                                <img src="{{ asset('landing/img/account/account-shape-2.png') }}" alt="">
                             </div>
                         </div>
                     </div>
