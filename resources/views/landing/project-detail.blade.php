@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About - Mantraweb')
+@section('title', 'Project Detail - Mantraweb')
 
 @section('content')
     <main>

@@ -14,7 +14,7 @@
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('testimonial.create') }}">Testimonial</a>
+                            <li class="breadcrumb-item"><a href="{{ route('testimonials.create') }}">Testimonial</a>
                             </li>
                             <li class="breadcrumb-item active">Form</li>
                         </ol>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="card-body pt-0">
-                        <form action="{{ route('testimonial.create') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('testimonials.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             {{-- Client --}}
@@ -115,7 +115,7 @@
                             <div class="row">
                                 <div class="col-sm-9 ms-auto">
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                    <a href="{{ route('testimonial.index') }}" class="btn btn-danger">Cancel</a>
+                                    <a href="{{ route('testimonials.index') }}" class="btn btn-danger">Cancel</a>
                                 </div>
                             </div>
                         </form>

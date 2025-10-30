@@ -13,14 +13,14 @@
                     <div class="">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
-                            <li class="breadcrumb-item active"><a href="{{ route('user.index') }}">User</a>
+                            <li class="breadcrumb-item active"><a href="{{ route('users.index') }}">User</a>
                             <li class="breadcrumb-item active">Form</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
-
+ 
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-6">
                 <div class="card">
@@ -32,15 +32,14 @@
                         </div>
                     </div>
                     <div class="card-body pt-0">
-                        <form action="{{ route('user.create') }}" method="POST">
+                        <form action="{{ route('users.store') }}" method="POST" novalidate>
                             @csrf
 
                             <div class="mb-3 row">
                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" id="name" name="name"
-                                        class="form-control @error('name') is-invalid @enderror"
-                                        value="{{ old('name') }}">
+                                        class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                                     @error('name')
                                         <div class="invalid-feedback d-block">{{ $message }}</div>
                                     @enderror
@@ -71,12 +70,26 @@
                             </div>
 
                             <div class="mb-3 row">
+                                <label for="password" class="col-sm-3 col-form-label">Confirm Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" id="password" name="password_confirmation"
+                                        class="form-control @error('password_confirmation') is-invalid @enderror">
+                                    @error('password_confirmation')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
                                 <label for="role" class="col-sm-3 col-form-label">Role</label>
                                 <div class="col-sm-9">
                                     <select id="default" name="role">
                                         <option value="" disabled selected>-- Pilih Role --</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="team">Team</option>
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->name }}" {{ old('role') == $role->name ? 'selected' : '' }}>
+                                                {{ $role->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                     @error('role')
                                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -87,7 +100,7 @@
                             <div class="row">
                                 <div class="col-sm-9 ms-auto">
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                    <a href="{{ route('user.index') }}" class="btn btn-danger">Cancel</a>
+                                    <a href="{{ route('users.index') }}" class="btn btn-danger">Cancel</a>
                                 </div>
                             </div>
                         </form>

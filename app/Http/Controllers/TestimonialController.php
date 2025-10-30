@@ -4,26 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Testimonial;
+use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
+    use FileUploadTrait;
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        return view("dashboard.testimonial.index", [
-            'testimonials' => Testimonial::with('client')->get()
+        return view('dashboard.testimonial.index', [
+            'testimonials' => Testimonial::all()
         ]);
     }
 
-    public function create(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        if ($request->isMethod('GET')) {
-            return view('dashboard.testimonial.create', [
-                'clients' => Client::all()
-            ]);
-        }
+        return view('dashboard.testimonial.create', [
+            'clients' => Client::all()
+        ]);
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'client_id' => 'required|exists:clients,id',
             'message' => 'required|string',
@@ -43,32 +55,37 @@ class TestimonialController extends Controller
         ]);
 
         if ($request->hasFile('image_url')) {
-            $path = $request->file('image_url')->store('testimonial-images', 'public');
-            $validated['image_url'] = $path;
+            // Contoh helper upload (hapus lama dan simpan baru)
+            $imagePath = $this->uploadFile($request->file('image_url'), $request->image_url, 'rating-image');
+            $validated["image_url"] = $imagePath;
         }
 
         Testimonial::create($validated);
 
-        return redirect('/dashboard/testimonial')->with('message-success', 'Testimonial berhasil ditambahkan!');
+        return redirect()->route('testimonials.index')->with('message-success', 'Testimonial berhasil ditambahkan!');
     }
 
+    /**
+     * Display the specified resource.
+     */
 
-    public function update(Request $request, $testimonialId)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Testimonial $testimonial)
     {
-        $testimonial = Testimonial::find($testimonialId);
+        return view('dashboard.testimonial.edit', [
+            'testimonial' => $testimonial,
+            'clients' => Client::all(),
+        ]);
+    }
 
-        if (!$testimonial) {
-            return redirect('/dashboard/testimonial')->with('message-error', 'Testimonial tidak ditemukan!');
-        }
-
-        if ($request->isMethod("GET")) {
-            return view("dashboard.testimonial.update", [
-                "testimonial" => $testimonial,
-                "clients" => Client::all(),
-            ]);
-        }
-
-        $validated = $request->validate([
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Testimonial $testimonial)
+    {
+        $request->validate([
             'client_id' => 'required|exists:clients,id',
             'message' => 'required|string|max:1000',
             'rating' => 'integer|min:1|max:5',
@@ -87,37 +104,32 @@ class TestimonialController extends Controller
             'image_url.max' => 'Ukuran gambar maksimal 2 MB.',
         ]);
 
+         // Jika ada file logo baru
         if ($request->hasFile('image_url')) {
-            if ($testimonial->image_url && Storage::disk('public')->exists($testimonial->image_url)) {
-                Storage::disk('public')->delete($testimonial->image_url);
-            }
-
-            $path = $request->file('image_url')->store('testimonial-images', 'public');
-            $validated['image_url'] = $path;
-        } else {
-            unset($validated['image_url']);
+            // Contoh helper upload (hapus lama dan simpan baru)
+            $imagePath = $this->uploadFile($request->file('image_url'), $testimonial->image_url, 'rating-image');
+            $testimonial->image_url = $imagePath;
         }
 
-        $testimonial->update($validated);
+        $testimonial->client_id = $request->client_id;
+        $testimonial->message = $request->message;
+        $testimonial->rating = $request->rating;
+        $testimonial->save();
 
-        return redirect('/dashboard/testimonial')->with('message-success', 'Testimonial berhasil diperbarui!');
+        return redirect()->route('testimonials.index')->with('message-success', 'Testimonial berhasil diperbarui!');
     }
 
-
-    public function delete($testimonialId)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Testimonial $testimonial)
     {
-        $testimonial = Testimonial::find($testimonialId);
-
-        if (!$testimonial) {
-            return redirect('/dashboard/testimonial')->with('message-error', 'Testimonial tidak ditemukan!');
-        }
-
         if ($testimonial->image_url && Storage::disk('public')->exists($testimonial->image_url)) {
             Storage::disk('public')->delete($testimonial->image_url);
         }
 
         $testimonial->delete();
 
-        return redirect('/dashboard/testimonial')->with('message-success', 'Testimonial berhasil dihapus!');
+        return redirect()->route('testimonials.index')->with('message-success', 'Testimonial berhasil dihapus!');
     }
 }

@@ -29,7 +29,7 @@
                                 <h4 class="card-title">Category Directory</h4>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('category.create') }}" class="btn bg-primary text-white">
+                                <a href="{{ route('categories.create') }}" class="btn bg-primary text-white">
                                     <i class="fas fa-plus me-1"></i> Add Data
                                 </a>
                             </div>
@@ -60,15 +60,18 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <a href="{{ route('category.update', ['categoryId' => $category->id]) }}"
+                                                    <a href="{{ route('categories.edit', $category) }}"
                                                         class="btn btn-outline-warning">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{ route('category.delete', ['categoryId' => $category->id]) }}"
-                                                        class="btn btn-outline-danger delete-btn"
-                                                        data-name="{{ $category->name }}">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
+                                                    <form action="{{ route('categories.destroy', $category) }}"
+                                                        method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-outline-danger delete-btn" data-name="{{ $category->name }}">
+                                                            <i class="fa fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

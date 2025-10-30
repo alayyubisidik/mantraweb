@@ -22,6 +22,16 @@
     <link href="{{ asset('dashboard/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
 
+    <script src="{{ asset("assets/dist/js/tinymce/tinymce.min.js") }}"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            height: 500,
+            license_key: 'gpl'
+        });
+    </script>
+
 </head>
 
 <body>
@@ -129,50 +139,74 @@
                         </li>
 
                         @unless (Auth::user()->role === 'team')
-                            <li class="nav-item {{ request()->routeIs('user.*') ? 'active' : '' }}">
-                                <a class="nav-link {{ request()->routeIs('user.*') ? 'active' : '' }}"
-                                    href="{{ route('user.index') }}">
+                            <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                                <a class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}"
+                                    href="{{ route('users.index') }}">
                                     <i class="iconoir-user-badge-check menu-icon"></i>
                                     <span>User</span>
                                 </a>
                             </li>
                         @endunless
 
-                        <li class="nav-item {{ request()->routeIs('team.*') ? 'active' : '' }}">
-                            <a class="nav-link {{ request()->routeIs('team.*') ? 'active' : '' }}"
-                                href="{{ route('team.index') }}">
+                        <li class="nav-item {{ request()->routeIs('teams.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('teams.*') ? 'active' : '' }}"
+                                href="{{ route('teams.index') }}">
                                 <i class="iconoir-learning menu-icon"></i>
                                 <span>Team</span>
                             </a>
                         </li>
 
-                        <li class="nav-item {{ request()->routeIs('category.*') ? 'active' : '' }}">
-                            <a class="nav-link {{ request()->routeIs('category.*') ? 'active' : '' }}"
-                                href="{{ route('category.index') }}">
+                        <li class="nav-item {{ request()->routeIs('categories.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}"
+                                href="{{ route('categories.index') }}">
                                 <i class="iconoir-laptop-dev-mode menu-icon"></i>
                                 <span>Category</span>
                             </a>
                         </li>
 
-                        <li class="nav-item {{ request()->routeIs('client.*') ? 'active' : '' }}">
-                            <a class="nav-link {{ request()->routeIs('client.*') ? 'active' : '' }}"
-                                href="{{ route('client.index') }}">
+                        <li class="nav-item {{ request()->routeIs('features.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('features.*') ? 'active' : '' }}"
+                                href="{{ route('features.index') }}">
+                                <i class="iconoir-laptop-dev-mode menu-icon"></i>
+                                <span>Product Feature</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item {{ request()->routeIs('sections.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('sections.*') ? 'active' : '' }}"
+                                href="{{ route('sections.index') }}">
+                                <i class="iconoir-laptop-dev-mode menu-icon"></i>
+                                <span>Product Section</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item {{ request()->routeIs('products.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}"
+                                href="{{ route('products.index') }}">
+                                <i class="iconoir-laptop-dev-mode menu-icon"></i>
+                                <span>Product</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item {{ request()->routeIs('clients.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('clients.*') ? 'active' : '' }}"
+                                href="{{ route('clients.index') }}">
                                 <i class="iconoir-community menu-icon"></i>
                                 <span>Client</span>
                             </a>
                         </li>
 
-                        <li class="nav-item {{ request()->routeIs('project.*') ? 'active' : '' }}">
-                            <a class="nav-link {{ request()->routeIs('project.*') ? 'active' : '' }}"
-                                href="{{ route('project.index') }}">
+                        <li class="nav-item {{ request()->routeIs('projects.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('projects.*') ? 'active' : '' }}"
+                                href="{{ route('projects.index') }}">
                                 <i class="iconoir-presentation menu-icon"></i>
                                 <span>Project</span>
                             </a>
                         </li>
 
-                        <li class="nav-item {{ request()->routeIs('testimonial.*') ? 'active' : '' }}">
-                            <a class="nav-link {{ request()->routeIs('testimonial.*') ? 'active' : '' }}"
-                                href="{{ route('testimonial.index') }}">
+                        <li class="nav-item {{ request()->routeIs('testimonials.*') ? 'active' : '' }}">
+                            <a class="nav-link {{ request()->routeIs('testimonials.*') ? 'active' : '' }}"
+                                href="{{ route('testimonials.index') }}">
                                 <i class="iconoir-chat-lines menu-icon"></i>
                                 <span>Testimonial</span>
                             </a>
@@ -257,7 +291,7 @@
     <script src="{{ asset('dashboard/js/pages/sweet-alert.init.js') }}"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             if (document.querySelector("#clientId")) new Selectr("#clientId");
             if (document.querySelector("#status")) new Selectr("#status");
             if (document.querySelector("#rating")) new Selectr("#rating");
@@ -280,7 +314,7 @@
 
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     preview.src = e.target.result;
                     preview.classList.remove('d-none');
                     preview.classList.add('d-block');
@@ -324,33 +358,33 @@
             });
         @endif
 
-        @if (session('message-error'))
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                background: '#f8d7da',
-                color: '#842029',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-            });
+            @if (session('message-error'))
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    background: '#f8d7da',
+                    color: '#842029',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
 
-            Toast.fire({
-                icon: 'error',
-                title: '{{ session('message-error') }}'
-            });
-        @endif
+                Toast.fire({
+                    icon: 'error',
+                    title: '{{ session('message-error') }}'
+                });
+            @endif
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const deleteButtons = document.querySelectorAll('.delete-btn');
 
             deleteButtons.forEach(btn => {
-                btn.addEventListener('click', function(e) {
+                btn.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    const href = this.getAttribute('href');
+                    const form = this.closest('form'); // ambil form terdekat
                     const data = this.getAttribute('data-name');
 
                     Swal.fire({
@@ -364,13 +398,14 @@
                         cancelButtonText: 'Batal'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = href;
+                            form.submit(); // submit form jika dikonfirmasi
                         }
                     });
                 });
             });
         });
     </script>
+
 
 </body>
 

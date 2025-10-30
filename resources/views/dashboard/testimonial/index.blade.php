@@ -29,7 +29,7 @@
                                 <h4 class="card-title">Testimonial Directory</h4>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('testimonial.create') }}" class="btn bg-primary text-white">
+                                <a href="{{ route('testimonials.create') }}" class="btn bg-primary text-white">
                                     <i class="fas fa-plus me-1"></i> Add Data
                                 </a>
                             </div>
@@ -57,7 +57,7 @@
                                             </td>
                                             <td>
                                                 @if ($testimonial->image_url)
-                                                    <img src="{{ asset('storage/' . $testimonial->image_url) }}"
+                                                    <img src="{{ asset( $testimonial->image_url) }}"
                                                         alt="Logo" class="img-fluid" style="max-width: 100px;">
                                                 @else
                                                     <span class="badge rounded text-body bg-secondary-subtle">No
@@ -80,15 +80,19 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <a href="{{ route('testimonial.update', ['testimonialId' => $testimonial->id]) }}"
+                                                    <a href="{{ route('testimonials.edit', $testimonial) }}"
                                                         class="btn btn-outline-warning">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{ route('testimonial.delete', ['testimonialId' => $testimonial->id]) }}"
-                                                        class="btn btn-outline-danger delete-btn"
-                                                        data-name="{{ $testimonial->client->name }}">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
+                                                    <form action="{{ route('testimonials.destroy', $testimonial) }}"
+                                                        method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-outline-danger delete-btn"
+                                                            data-name="{{ $testimonial->description }}">
+                                                            <i class="fa fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

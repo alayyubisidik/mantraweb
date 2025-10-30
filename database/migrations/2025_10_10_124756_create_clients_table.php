@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("phone")->unique();
             $table->text("address");
             $table->string("company")->nullable();
-            $table->string("company_logo_url")->nullable();
+            $table->string("company_logo_url")->nullable()->default("/defaults/company-logo.png");
             $table->timestamps();
         });
     }

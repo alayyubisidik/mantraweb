@@ -13,7 +13,7 @@
                     <div class="">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
-                            <li class="breadcrumb-item active"><a href="{{ route('user.index') }}">User</a>
+                            <li class="breadcrumb-item active"><a href="{{ route('users.index') }}">User</a>
                             </li>
                         </ol>
                     </div>
@@ -30,7 +30,7 @@
                                 <h4 class="card-title">User Directory</h4>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('user.create') }}" class="btn bg-primary text-white">
+                                <a href="{{ route('users.create') }}" class="btn bg-primary text-white">
                                     <i class="fas fa-plus me-1"></i> Add Data
                                 </a>
                             </div>
@@ -62,7 +62,7 @@
                                             </td>
                                             <td>
                                                 <span
-                                                    class="badge rounded-pill 
+                                                    class="badge rounded-pill
                                                     {{ $user->role === 'admin'
                                                         ? 'bg-success-subtle text-success'
                                                         : ($user->role === 'team'
@@ -73,15 +73,18 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <a href="{{ route('user.update', ['userId' => $user->id]) }}"
+                                                    <a href="{{ route('users.edit', $user) }}"
                                                         class="btn btn-outline-warning">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{ route('user.delete', ['userId' => $user->id]) }}"
-                                                        class="btn btn-outline-danger delete-btn"
-                                                        data-name="{{ $user->name }}">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
+                                                    <form action="{{ route('users.destroy', $user) }}"
+                                                        method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-outline-danger delete-btn" data-name="{{ $user->name }}">
+                                                            <i class="fa fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

@@ -3,25 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
+    use FileUploadTrait;
+
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         return view("dashboard.team.index", [
             "teams" => Team::all()
-
         ]);
     }
 
-    public function create(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        if ($request->isMethod("GET")) {
-            return view("dashboard.team.create");
-        }
+        return view("dashboard.team.create");
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'position' => 'required|string|max:100',
@@ -36,28 +49,37 @@ class TeamController extends Controller
             'profile_url.max' => 'Ukuran gambar maksimal 2MB.',
         ]);
 
-        if ($request->hasFile('profile_url')) {
-            $path = $request->file('profile_url')->store('profile-picture', 'public');
-            $validated['profile_url'] = $path;
+
+        if ($request->hasFile("profile_url")) {
+            $filepath = $this->uploadFile($request->file("profile_url"), null, "profile-picture");
+            $validated["profile_url"] = $filepath;
         }
 
         Team::create($validated);
 
-        return redirect("/dashboard/team")->with('message-success', 'Team berhasil ditambahkan!');
+        return redirect()->route("teams.index")->with('message-success', 'Team berhasil ditambahkan!');
     }
 
-    public function update(Request $request, $teamId)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $team = Team::find($teamId);
+    }
 
-        if (!$team) {
-            return redirect('/dashboard/team')->with('message-error', 'Team tidak ditemukan!');
-        }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Team $team)
+    {
+        return view("dashboard.team.edit", compact('team'));
+    }
 
-        if ($request->isMethod("GET")) {
-            return view("dashboard.team.update", compact('team'));
-        }
-
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Team $team)
+    {
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'position' => 'required|string|max:100',
@@ -72,35 +94,27 @@ class TeamController extends Controller
             'profile_url.max' => 'Ukuran gambar maksimal 2MB.',
         ]);
 
-        if ($request->hasFile('profile_url')) {
-            if ($team->profile_url && Storage::disk('public')->exists($team->profile_url)) {
-                Storage::disk('public')->delete($team->profile_url);
-            }
-
-            $path = $request->file('profile_url')->store('profile-picture', 'public');
-            $validated['profile_url'] = $path;
+        if ($request->hasFile("profile_url")) {
+            $filepath = $this->uploadFile($request->file("profile_url"), $request->profile_url, "profile-picture");
+            $validated["profile_url"] = $filepath;
         }
 
         $team->update($validated);
 
-        return redirect('/dashboard/team')->with('message-success', 'Team berhasil diperbarui!');
+        return redirect()->route("teams.index")->with('message-success', 'Team berhasil diperbarui!');
     }
 
-
-    public function delete($teamId)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Team $team)
     {
-        $team = Team::find($teamId);
-
-        if (!$team) {
-            return redirect('/dashboard/team')->with('message-error', 'Team tidak ditemukan!');
-        }
-
-        if ($team->profile_url && Storage::disk('public')->exists($team->profile_url)) {
-            Storage::disk('public')->delete($team->profile_url);
+        if ($team->profile_url != "/defaults/profile.png") {
+            File::delete(public_path($team->profile_url));
         }
 
         $team->delete();
 
-        return redirect('/dashboard/team')->with('message-success', 'Team berhasil dihapus!');
+        return redirect()->route("teams.index")->with('message-success', 'Team berhasil dihapus!');
     }
 }

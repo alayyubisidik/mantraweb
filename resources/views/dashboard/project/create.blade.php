@@ -127,7 +127,6 @@
                                 </div>
 
                                 <div class="col-lg-6">
-
                                     {{-- Project URL --}}
                                     <div class="mb-3 row">
                                         <label for="project_url" class="col-sm-3 col-form-label">Project URL</label>

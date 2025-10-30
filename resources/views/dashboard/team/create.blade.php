@@ -14,7 +14,7 @@
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('team.index') }}">Team</a>
+                            <li class="breadcrumb-item"><a href="{{ route('teams.index') }}">Team</a>
                             </li>
                             <li class="breadcrumb-item active">Form</li>
                         </ol>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="card-body pt-0">
-                        <form action="{{ route('team.create') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('teams.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-3 row">
@@ -80,7 +80,7 @@
                             <div class="row">
                                 <div class="col-sm-9 ms-auto">
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                    <a href="{{ route('team.index') }}" class="btn btn-danger">Cancel</a>
+                                    <a href="{{ route('teams.index') }}" class="btn btn-danger">Cancel</a>
                                 </div>
                             </div>
                         </form>

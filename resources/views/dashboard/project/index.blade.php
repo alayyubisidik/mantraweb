@@ -28,11 +28,11 @@
                             <div class="col">
                                 <h4 class="card-title">Project Directory</h4>
                             </div>
-                            <div class="col-auto">
-                                <a href="{{ route('project.create') }}" class="btn bg-primary text-white">
+                            {{-- <div class="col-auto">
+                                <a href="{{ route('projects.create') }}" class="btn bg-primary text-white">
                                     <i class="fas fa-plus me-1"></i> Add Data
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body pt-0">
@@ -40,7 +40,8 @@
                             <table class="table mb-0" id="datatable_1">
                                 <thead class="table-light">
                                     <tr>
-                                        {{-- <th>Client Name</th> --}}
+                                        <th>Client</th>
+                                        <th>Product</th>
                                         <th>Project Title</th>
                                         <th>Thumbnail</th>
                                         <th>Project URL</th>
@@ -60,13 +61,23 @@
                                             </td> --}}
                                             <td>
                                                 <p class="d-inline-block align-middle mb-0 text-body">
+                                                    {{ $project->client->name }}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="d-inline-block align-middle mb-0 text-body">
+                                                    {{ $project->product->name }}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="d-inline-block align-middle mb-0 text-body">
                                                     {{ $project->title }}
                                                 </p>
                                             </td>
                                             <td>
                                                 @if ($project->thumbnail_url)
-                                                    <img src="{{ asset('storage/' . $project->thumbnail_url) }}" alt="Logo"
-                                                    class="img-fluid" style="max-width: 100px;">
+                                                    <img src="{{ asset($project->thumbnail_url) }}" alt="Logo"
+                                                        class="img-fluid" style="max-width: 100px;">
                                                 @else
                                                     <span class="badge rounded text-body bg-secondary-subtle">No
                                                         Thumbnail</span>
@@ -96,16 +107,19 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <a href="{{ route('project.update', ['projectId' => $project->id]) }}"
+                                                    <a href="{{ route('projects.edit', $project) }}"
                                                         class="btn btn-outline-warning">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{ route('project.delete', ['projectId' => $project->id]) }}"
-                                                        class="btn btn-outline-danger delete-btn"
-                                                        data-name="{{ $project->title }}">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
-                                                </div>
+                                                    <form action="{{ route('projects.destroy', $project) }}"
+                                                        method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-outline-danger delete-btn"
+                                                            data-name="{{ $project->title }}">
+                                                            <i class="fa fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                             </td>
                                         </tr>
                                     @endforeach

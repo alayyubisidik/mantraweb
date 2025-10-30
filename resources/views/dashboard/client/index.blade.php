@@ -28,11 +28,11 @@
                             <div class="col">
                                 <h4 class="card-title">Client Directory</h4>
                             </div>
-                            <div class="col-auto">
+                            {{-- <div class="col-auto">
                                 <a href="{{ route('client.create') }}" class="btn bg-primary text-white">
                                     <i class="fas fa-plus me-1"></i> Add Data
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body pt-0">
@@ -81,8 +81,8 @@
                                             </td>
                                             <td>
                                                 @if ($client->company_logo_url)
-                                                    <img src="{{ asset('storage/' . $client->company_logo_url) }}"
-                                                        alt="Logo" class="img-fluid" style="max-width: 100px;">
+                                                    <img src="{{ asset($client->company_logo_url) }}" alt="Logo"
+                                                        class="img-fluid" style="max-width: 100px;">
                                                 @else
                                                     <span class="badge rounded text-body bg-secondary-subtle">No
                                                         Image</span>
@@ -90,15 +90,19 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <a href="{{ route('client.update', ['clientId' => $client->id]) }}"
+                                                    <a href="{{ route('clients.edit', $client) }}"
                                                         class="btn btn-outline-warning">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{ route('client.delete', ['clientId' => $client->id]) }}"
-                                                        class="btn btn-outline-danger delete-btn"
-                                                        data-name="{{ $client->name }}">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
+                                                    <form action="{{ route('clients.destroy', $client) }}"
+                                                        method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-outline-danger delete-btn"
+                                                            data-name="{{ $client->name }}">
+                                                            <i class="fa fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

@@ -16,16 +16,11 @@ class Project extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
-    }    
-
-    public function projectCategory(): BelongsToMany
-    {
-        return $this->belongsToMany(Category::class, 'project_category', 'project_id', 'category_id');
     }
 
-    public function categories()
+    public function product(): BelongsTo
     {
-        return $this->belongsToMany(Category::class, 'project_category');
+        return $this->belongsTo(Product::class);
     }
 
 }

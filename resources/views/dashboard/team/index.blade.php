@@ -29,7 +29,7 @@
                                 <h4 class="card-title">Team Directory</h4>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('team.create') }}" class="btn bg-primary text-white">
+                                <a href="{{ route('teams.create') }}" class="btn bg-primary text-white">
                                     <i class="fas fa-plus me-1"></i> Add Data
                                 </a>
                             </div>
@@ -61,8 +61,8 @@
                                             </td>
                                             <td>
                                                 @if ($team->profile_url)
-                                                    <img src="{{ asset('storage/' . $team->profile_url) }}"
-                                                        alt="Logo" class="img-fluid" style="max-width: 100px;">
+                                                    <img src="{{ asset($team->profile_url) }}" alt="Logo"
+                                                        class="img-fluid" style="max-width: 100px;">
                                                 @else
                                                     <span class="badge rounded text-body bg-secondary-subtle">No
                                                         Image</span>
@@ -70,15 +70,18 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <a href="{{ route('team.update', ['teamId' => $team->id]) }}"
-                                                        class="btn btn-outline-warning">
+                                                    <a href="{{ route('teams.edit', $team) }}" class="btn btn-outline-warning">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{ route('team.delete', ['teamId' => $team->id]) }}"
-                                                        class="btn btn-outline-danger delete-btn"
-                                                        data-name="{{ $team->name }}">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
+                                                    <form action="{{ route('teams.destroy', $team) }}" method="POST"
+                                                        style="display:inline;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-outline-danger delete-btn"
+                                                            data-name="{{ $team->name }}">
+                                                            <i class="fa fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -92,5 +95,5 @@
         </div>
     </div>
     <!--Container Start-->
-    
+
 @endsection

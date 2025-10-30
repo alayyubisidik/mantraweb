@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->string("title")->nullable();
+            $table->string("slug")->unique()->nullable();
+            $table->text("description")->nullable();
+            $table->string("thumbnail_url")->nullable()->default("/defaults/thumbnail.png");
+            $table->string("project_url")->nullable();
+            $table->dateTime("start_date");
+            $table->dateTime("end_date")->nullable();
+            $table->enum("status", ["draft", "published"])->default("draft");
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('projects');
+    }
+};

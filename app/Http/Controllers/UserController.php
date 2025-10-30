@@ -9,63 +9,83 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        return view("dashboard.user.index", [
-            "users" => User::all()
-        ]);
+        $users = User::latest()->get();
+        return view('dashboard.user.index', compact('users'));
     }
 
-    public function create(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        if ($request->isMethod('GET')) {
-            return view('dashboard.user.create');
-        }
+        $roles = collect([
+            (object) ['name' => 'admin'],
+            (object) ['name' => 'team'],
+        ]);
 
+        return view('dashboard.user.create', compact('roles'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:3',
+            'password' => 'required|min:3|confirmed',
             'role' => 'required|in:admin,team',
         ], [
             'name.required' => 'Nama wajib diisi.',
             'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
             'email.unique' => 'Email sudah digunakan.',
             'password.required' => 'Password wajib diisi.',
             'password.min' => 'Password minimal 3 karakter.',
             'role.required' => 'Role wajib dipilih.',
         ]);
 
+
         $user = User::create([
             ...$validated,
             'password' => Hash::make($validated['password']),
         ]);
 
-        if ($user) {
-            return redirect()
-                ->route('user.index')
-                ->with('message-success', 'User berhasil ditambahkan!');
-        }
-
         return redirect()
-            ->route('user.index')
-            ->with('message-error', 'Gagal menambahkan user!');
+            ->route('users.index')
+            ->with('message-success', 'User berhasil ditambahkan!');
     }
 
-    public function update(Request $request, $userId)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(User $user)
     {
-        $user = User::findOrFail($userId);
+        $roles = collect([
+            (object) ['name' => 'admin'],
+            (object) ['name' => 'team'],
+        ]);
 
-        if ($request->isMethod('GET')) {
-            return view('dashboard.user.update', [
-                'user' => $user
-            ]);
-        }
+        return view('dashboard.user.edit', compact('user', 'roles'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $user = User::findOrFail($id);
 
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'nullable|min:3',
+            'password' => 'nullable|min:3|confirmed',
             'role' => 'required|in:admin,team',
         ], [
             'name.required' => 'Nama wajib diisi.',
@@ -75,37 +95,32 @@ class UserController extends Controller
             'role.required' => 'Role wajib dipilih.',
         ]);
 
-        $updated = $user->update([
+        $user->update([
             ...$validated,
             'password' => $validated['password']
                 ? Hash::make($validated['password'])
                 : $user->password,
         ]);
 
-        if ($updated) {
-            return redirect()
-                ->route('user.index')
-                ->with('message-success', 'User berhasil diperbarui!');
-        }
-
         return redirect()
-            ->route('user.index')
-            ->with('message-error', 'Gagal memperbarui user!');
+            ->route('users.index')
+            ->with('message-success', 'User berhasil diperbarui!');
     }
 
-    public function delete($userId)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(User $user)
     {
-        $user = User::findOrFail($userId);
-        $deleted = $user->delete();
-
-        if ($deleted) {
-            return redirect()
-                ->route('user.index')
-                ->with('message-success', 'User berhasil dihapus!');
+        if ($user->role == "admin" && $user->id === Auth::user()->id) {
+            return redirect()->back()->with("message-error", "Akun yang sedang login tidak dapat dihapus!");
         }
 
+
+        $user->delete();
+
         return redirect()
-            ->route('user.index')
-            ->with('message-error', 'Gagal menghapus user!');
+            ->route('users.index')
+            ->with('message-success', 'User berhasil dihapus!');
     }
 }

@@ -36,6 +36,9 @@
     <link rel="stylesheet" href="{{ asset('landing/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('landing/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('landing/css/style.css') }}">
+
+   
+
 </head>
 
 <body>
@@ -99,10 +102,11 @@
                     <div class="col-xxl-3 col-xl-3 col-lg-2 col-md-8 col-6">
                         <div class="header-bottom__right d-flex align-items-center justify-content-end">
                             {{-- <div class="header-bottom__action">
-                           <a class="d-none d-lg-inline-block header-bottom__action-2 border-none" href="register.html">
-                              <span>Log In</span>
-                           </a>
-                        </div> --}}
+                                <a class="d-none d-lg-inline-block header-bottom__action-2 border-none"
+                                    href="register.html">
+                                    <span>Log In</span>
+                                </a>
+                            </div> --}}
                             <div class="header-bottom__btn d-flex align-items-center">
                                 <a class="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black"
                                     href="{{ route('pages.contact') }}">
@@ -157,8 +161,7 @@
                                     <div class="tp-footer__widget footer-widget-3 footer-widget-5 footer-col-3-1">
                                         <div class="tp-footer__logo mb-25">
                                             <a href="index.html">
-                                                <img src="{{ asset('landing/img/logo/logo-vertical.png') }}"
-                                                    alt="">
+                                                <img src="{{ asset('landing/img/logo/logo-vertical.png') }}" alt="">
                                             </a>
                                         </div>
                                         <div class="tp-footer__contact-info">
@@ -166,8 +169,8 @@
                                             <ul>
                                                 <li>
                                                     <span>
-                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
                                                             <path
                                                                 d="M13.2906 0.249174C12.878 0.211673 12.5132 0.51568 12.4757 0.928192C12.4382 1.3407 12.7422 1.70551 13.1548 1.74301L13.2906 0.249174ZM22.2533 10.8416C22.2908 11.2541 22.6556 11.5581 23.0681 11.5206C23.4806 11.4831 23.7846 11.1183 23.7471 10.7058L22.2533 10.8416ZM13.2227 0.996094C13.1548 1.74301 13.1543 1.74298 13.1539 1.74294C13.1538 1.74293 13.1534 1.74289 13.1532 1.74287C13.1527 1.74283 13.1523 1.74279 13.1519 1.74275C13.1511 1.74267 13.1505 1.74261 13.15 1.74256C13.149 1.74247 13.1487 1.74243 13.1491 1.74247C13.1497 1.74254 13.1529 1.74289 13.1585 1.74361C13.1698 1.74506 13.191 1.74798 13.2216 1.75308C13.2827 1.76327 13.3816 1.78217 13.5144 1.81537C13.7798 1.88173 14.1816 2.0054 14.6902 2.23144C15.7057 2.68274 17.157 3.54668 18.8033 5.19301L19.864 4.13235C18.0881 2.35653 16.484 1.38718 15.2994 0.860723C14.7081 0.597886 14.2238 0.446563 13.8782 0.360151C13.7054 0.316962 13.5674 0.290028 13.4682 0.273485C13.4186 0.265215 13.3786 0.259543 13.3488 0.255735C13.334 0.253832 13.3216 0.252394 13.3119 0.251331C13.307 0.2508 13.3028 0.250362 13.2992 0.250006C13.2975 0.249828 13.2959 0.249671 13.2944 0.249533C13.2937 0.249464 13.293 0.249399 13.2924 0.249339C13.292 0.24931 13.2916 0.249268 13.2914 0.249253C13.291 0.249213 13.2906 0.249174 13.2227 0.996094ZM18.8033 5.19301C20.4496 6.83934 21.3136 8.29066 21.7649 9.30608C21.9909 9.81467 22.1146 10.2165 22.181 10.482C22.2141 10.6148 22.233 10.7136 22.2432 10.7747C22.2483 10.8053 22.2513 10.8265 22.2527 10.8378C22.2534 10.8434 22.2538 10.8466 22.2538 10.8473C22.2539 10.8476 22.2538 10.8473 22.2538 10.8463C22.2537 10.8459 22.2536 10.8452 22.2536 10.8444C22.2535 10.844 22.2535 10.8436 22.2534 10.8431C22.2534 10.8429 22.2534 10.8425 22.2534 10.8424C22.2533 10.842 22.2533 10.8416 23.0002 10.7737C23.7471 10.7058 23.7471 10.7053 23.7471 10.7049C23.747 10.7047 23.747 10.7043 23.747 10.704C23.7469 10.7033 23.7469 10.7026 23.7468 10.7019C23.7466 10.7005 23.7465 10.6988 23.7463 10.6971C23.746 10.6935 23.7455 10.6893 23.745 10.6844C23.7439 10.6747 23.7425 10.6624 23.7406 10.6475C23.7368 10.6177 23.7311 10.5778 23.7228 10.5281C23.7063 10.4289 23.6794 10.2909 23.6362 10.1182C23.5498 9.77251 23.3984 9.28826 23.1356 8.69687C22.6091 7.51234 21.6398 5.90817 19.864 4.13235L18.8033 5.19301Z"
                                                                 fill="#595B62" />
@@ -184,8 +187,8 @@
                                                 </li>
                                                 <li>
                                                     <span>
-                                                        <svg width="18" height="18" viewBox="0 0 18 18"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
                                                             <path
                                                                 d="M6.6 8.99531C6.6 9.43714 6.24183 9.79531 5.8 9.79531C5.35817 9.79531 5 9.43714 5 8.99531C5 8.55348 5.35817 8.19531 5.8 8.19531C6.24183 8.19531 6.6 8.55348 6.6 8.99531Z"
                                                                 fill="#595B62" />
@@ -247,23 +250,21 @@
                                             <form action="#">
                                                 <input type="text" placeholder="Business email adress">
                                                 <span>
-                                                    <svg width="18" height="16" viewBox="0 0 18 16"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M13 14.6H5C2.6 14.6 1 13.4 1 10.6V5C1 2.2 2.6 1 5 1H13C15.4 1 17 2.2 17 5V10.6C17 13.4 15.4 14.6 13 14.6Z"
-                                                            stroke="#5F6168" stroke-width="1.5"
-                                                            stroke-miterlimit="10" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
+                                                            stroke="#5F6168" stroke-width="1.5" stroke-miterlimit="10"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
                                                         <path opacity="0.4"
                                                             d="M13 5.39993L10.496 7.39993C9.672 8.05593 8.32 8.05593 7.496 7.39993L5 5.39993"
-                                                            stroke="#5F6168" stroke-width="1.5"
-                                                            stroke-miterlimit="10" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
+                                                            stroke="#5F6168" stroke-width="1.5" stroke-miterlimit="10"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
                                                 </span>
                                                 <button>
-                                                    <svg width="14" height="16" viewBox="0 0 14 14"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg width="14" height="16" viewBox="0 0 14 14" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1.00098 7H13.001" stroke="currentColor"
                                                             stroke-width="2" stroke-linecap="round"
                                                             stroke-linejoin="round" />

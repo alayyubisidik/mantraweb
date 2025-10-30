@@ -3,31 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return view("dashboard.category.index", [
-            "categories" => Category::all()
-        ]);
+        $categories = Category::latest()->get();
+        return view('dashboard.category.index', compact('categories'));
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        if ($request->isMethod("GET")) {
-            return view("dashboard.category.create");
-        }
+        return view('dashboard.category.create');
+    }
 
+    public function store(Request $request)
+    {
         $validated = $request->validate([
-            'name' => 'required|string|max:150',
+            'name' => 'required|string|max:255|unique:categories,name',
             'description' => 'required|string|max:500',
         ], [
             'name.required' => 'Nama kategori wajib diisi.',
             'name.string' => 'Nama kategori harus berupa teks.',
-            'name.max' => 'Nama kategori maksimal 150 karakter.',
+            'name.max' => 'Nama kategori maksimal 255 karakter.',
+            'name.unique' => 'Nama kategori sudah digunakan, silakan pilih nama lain.',
             'description.required' => 'Deskripsi wajib diisi.',
             'description.string' => 'Deskripsi harus berupa teks.',
             'description.max' => 'Deskripsi maksimal 500 karakter.',
@@ -35,51 +35,40 @@ class CategoryController extends Controller
 
         Category::create($validated);
 
-        return redirect('/dashboard/category')->with('message-success', 'Category berhasil ditambahkan!');
+        return redirect()->route('categories.index')
+            ->with('message-success', 'Category created successfully.');
     }
 
-    public function update(Request $request, $categoryId)
+    public function edit(Category $category)
     {
-        $category = Category::find($categoryId);
+        return view('dashboard.category.edit', compact('category'));
+    }
 
-        if (!$category) {
-            return redirect('/dashboard/category')->with('message-error', 'Category tidak ditemukan!');
-        }
-
-        if ($request->isMethod("GET")) {
-            return view("dashboard.category.update", [
-                "category" => $category
-            ]);
-        }
-
+    public function update(Request $request, Category $category)
+    {
         $validated = $request->validate([
-            'name' => 'required|string|max:150',
-            'description' => 'required|string|max:500',
+            'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
+            'description' => 'required|string',
         ], [
             'name.required' => 'Nama kategori wajib diisi.',
             'name.string' => 'Nama kategori harus berupa teks.',
-            'name.max' => 'Nama kategori maksimal 150 karakter.',
+            'name.max' => 'Nama kategori maksimal 255 karakter.',
+            'name.unique' => 'Nama kategori sudah digunakan, silakan pilih nama lain.',
             'description.required' => 'Deskripsi wajib diisi.',
             'description.string' => 'Deskripsi harus berupa teks.',
-            'description.max' => 'Deskripsi maksimal 500 karakter.',
         ]);
 
         $category->update($validated);
 
-        return redirect('/dashboard/category')->with('message-success', 'Category berhasil diperbarui!');
+        return redirect()->route('categories.index')
+            ->with('message-success', 'Category updated successfully.');
     }
 
-
-    public function delete($categoryId)
+    public function destroy(Category $category)
     {
-        $category = Category::find($categoryId);
-
-        if (!$category) {
-            return redirect('/dashboard/category')->with('message-error', 'Category tidak ditemukan!');
-        }
-
         $category->delete();
 
-        return redirect('/dashboard/category')->with('message-success', 'Category berhasil dihapus!');
+        return redirect()->route('categories.index')
+            ->with('message-success', 'Category deleted successfully.');
     }
 }

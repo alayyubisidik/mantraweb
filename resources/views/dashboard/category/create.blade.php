@@ -14,7 +14,7 @@
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('category.index') }}">Category</a>
+                            <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Category</a>
                             </li>
                             <li class="breadcrumb-item active">Form</li>
                         </ol>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="card-body pt-0">
-                        <form action="{{ route('category.create') }}" method="POST">
+                        <form action="{{ route('categories.store') }}" method="POST" novalidate>
                             @csrf
 
                             <div class="mb-3 row">
@@ -63,7 +63,7 @@
                             <div class="row">
                                 <div class="col-sm-9 ms-auto">
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                    <a href="{{ route('category.index') }}" class="btn btn-danger">Cancel</a>
+                                    <a href="{{ route('categories.index') }}" class="btn btn-danger">Cancel</a>
                                 </div>
                             </div>
                         </form>
