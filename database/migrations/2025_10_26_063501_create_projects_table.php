@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("title")->nullable();
             $table->string("slug")->unique()->nullable();
             $table->text("description")->nullable();
-            $table->string("thumbnail_url")->nullable()->default("/defaults/thumbnail.png");
+            $table->string("thumbnail_url")->nullable();
             $table->string("project_url")->nullable();
             $table->dateTime("start_date");
             $table->dateTime("end_date")->nullable();

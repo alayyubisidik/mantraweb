@@ -1,57 +1,121 @@
 @extends('layouts.app')
 
-@section('title', 'Team - Mantraweb')
+@section('title', 'Product - Mantraweb')
 
 @section('content')
     <main>
 
         <!-- breadcrumb-area-start -->
-        <div class="breadcrumb__area breadcrumb-height-2 breadcrumb-overlay p-relative fix"
-            data-background="{{ asset('landing/img/breadcrumb/breadcrumb-background.jpg') }}">
-            <div class="breadcrumb__shape-2 z-index-4">
-                <img src="{{ asset('landing/img/breadcrumb/breadcrumb-shape-3.png') }}" alt="">
+        <div class="breadcrumb__area breadcrumb-height-3 breadcrumb-overlay p-relative fix"
+            data-background="assets/img/project/project-brdcrmb-bg.jpg">
+            <div class="breadcrumb__shape-1">
+                <img src="{{ asset('landing/img/breadcrumb/breadcrumb-shape-1.png') }}" alt="">
             </div>
-            <div class="breadcrumb__shape-3 z-index-4">
-                <img src="{{ asset('landing/img/breadcrumb/breadcrumb-shape-4.png') }}" alt="">
+            <div class="breadcrumb__shape-2">
+                <img src="{{ asset('landing/img/breadcrumb/breadcrumb-shape-2.png') }}" alt="">
             </div>
-            <div class="breadcrumb__shape-4 z-index-4">
-                <img src="{{ asset('landing/img/breadcrumb/breadcrumb-shape-5.png') }}" alt="">
-            </div>
+        </div>
+        <!-- breadcrumb-area-end -->
+
+        <!-- project-img-area-start -->
+        <div class="pd-thumb-area">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="breadcrumb__content z-index-3 text-center">
-                            <h3 class="breadcrumb__title tp-char-animation text-black">Perapal di Balik Layar</h3>
-                            <div class="breadcrumb__text wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
-                                <p>Di balik setiap desain dan kode, ada tim yang penuh semangat menciptakan sesuatu
-                                    <br> melalui kreativitas dan teknologi.
-                                </p>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="pd-thumb">
+                            <img class="w-100"
+                                src="{{ $product->thumbnail_url
+                                    ? asset($product->thumbnail_url)
+                                    : asset('landing/img/project-thumbnail/thumbnail-default.png') }}"
+                                alt="{{ $product->name }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="career-details-area pt-100 pb-100">
+            <div class="container">
+                <div class="row align-content-start">
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="career-details-wrapper">
+                            <div class="career-details-title-box">
+                                @foreach ($product->categories as $category)
+                                    <span>{{ $category->name }}
+                                    </span>
+                                @endforeach
+                                {{-- <span>Web App, Landing Page</span> --}}
+                                <h4 class="career-details-title">{{ $product->name }}</h4>
+                            </div>
+                            <div class="career-details-location-box">
+                                <span>
+                                    Rp{{ number_format($product->price_start, 0, ',', '.') }}
+                                    -
+                                    Rp{{ number_format($product->price_max, 0, ',', '.') }}
+                                </span>
+                            </div>
+                            <div class="career-details-job-responsiblity mb-45">
+                                <h4 class="career-details-title-sm">Deskripsi Produk</h4>
+                                <p>{{ $product->description }}</p>
+                            </div>
+                            <div class="career-details-job-responsiblity mb-45">
+                                <h4 class="career-details-title-sm">Layout Produk</h4>
+                                <p class="pb-15">Now, the paradigm has shifted. The question is not why you should include
+                                    a content marketing strategy.</p>
+                                <div class="career-details-job-list">
+                                    <ul>
+                                        @foreach ($product->sections as $section)
+                                            <li>
+                                                <i class="fal fa-long-arrow-right"></i>
+                                                {{ $section->name }}
+                                            </li>
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="career-details-job-responsiblity mb-45">
+                                <h4 class="career-details-title-sm">Fitur Produk</h4>
+                                <p class="pb-15">Now, the paradigm has shifted. The question is not why you should include
+                                    a content marketing strategy.</p>
+                                <div class="career-details-job-list">
+                                    <ul>
+                                        @foreach ($product->features as $feature)
+                                            <li>
+                                                <i class="fal fa-long-arrow-right"></i>
+                                                {{ $feature->name }}
+                                            </li>
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 career-details-pin">
+                        <div class="col-xxl-12">
+                            <a href="{{ route('pages.order', $product->slug) }}" class="submit-btn mb-50 w-100">
+                                <span>Mulai Proyek</span>
+                                <b></b>
+                            </a>
+                        </div>
+                        <div class="col-xxl-12">
+                            <div class="career-details-social-box mb-20">
+                                <a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="twitter" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="instagram p-relative" href="#">
+                                    <div class="insta-bg"></div>
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="career-details-bottom-text text-center">
+                                <a href="{{ route('pages.contact') }}">Ada Pertanyaan?</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- breadcrumb-area-end -->
-
-        <!-- tp-team-area-start -->
-        <div class="row justify-content-center">
-            <div class="card m-2" style="width: 18rem;">
-                <img src="{{ asset($product->thumbnail_url) }}" class="card-img-top" alt="{{ $product->name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $product->name }}</h5>
-                    @foreach ($product->categories as $category)
-                        <span class="badge text-bg-primary">{{ $category->name }}</span>
-                    @endforeach
-                    <p>Rp. {{ $product->price_start }} - Rp. {{ $product->price_max }}</p>
-                    <p class="card-text">{{ $product->description }}</p>
-                    <a href="{{ route('pages.order', $product->slug) }}" class="btn btn-primary">Pesan</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- tp-team-area-end -->
-
-
     </main>
 @endsection

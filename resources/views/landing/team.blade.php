@@ -43,7 +43,7 @@
                             <div class="tp-team-item text-center tp-team-inner-title-color z-index">
                                 <div class="tp-team-img">
                                     <img src="{{ $team->profile_url
-                                        ? asset('storage/' . $team->profile_url)
+                                        ? asset($team->profile_url)
                                         : asset('landing/img/profile-picture/profile-default.png') }}"
                                         alt="{{ $team->name }}">
 

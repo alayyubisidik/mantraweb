@@ -413,7 +413,7 @@
                                                         class="tp-blog-author-info-box blog-grid-avata-box d-flex align-items-center">
                                                         <div class="tp-blog-avata">
                                                             <img src="{{ $testimonial->image_url
-                                                                ? asset('storage/' . $testimonial->image_url)
+                                                                ? asset($testimonial->image_url)
                                                                 : asset('landing/img/avatar/avatar-default.png') }}"
                                                                 alt="{{ $testimonial->client->name }}">
                                                         </div>
@@ -455,7 +455,7 @@
                             <div class="tp-team-item text-center tp-team-inner-title-color z-index">
                                 <div class="tp-team-img">
                                     <img src="{{ $team->profile_url
-                                        ? asset('storage/' . $team->profile_url)
+                                        ? asset($team->profile_url)
                                         : asset('landing/img/profile-picture/profile-default.png') }}"
                                         alt="{{ $team->name }}">
                                 </div>

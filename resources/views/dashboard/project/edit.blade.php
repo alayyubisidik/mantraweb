@@ -37,9 +37,24 @@
                         <form action="{{ route('projects.update', $project) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            @method("PUT")
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-lg-6">
+                                    <div class="mb-3 row">
+                                        <label for="client_name" class="col-sm-3 col-form-label">Client Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="client_name" class="form-control"
+                                                value="{{ $project->client->name }}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="product_name" class="col-sm-3 col-form-label">Product Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="product_name" class="form-control"
+                                                value="{{ $project->product->name }}" readonly>
+                                        </div>
+                                    </div>
+
                                     {{-- Title --}}
                                     <div class="mb-3 row">
                                         <label for="title" class="col-sm-3 col-form-label">Project Title</label>
@@ -57,14 +72,25 @@
                                     <div class="mb-3 row">
                                         <label for="description" class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
+                                            <textarea id="editor" name="description" class="form-control @error('description') is-invalid @enderror">{{ old('description', $project->description) }}</textarea>
+                                            @error('description')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        {{-- <div class="col-sm-9">
                                             <textarea id="description" name="description" rows="5"
                                                 class="form-control @error('description') is-invalid @enderror">{{ old('description', $project->description) }}</textarea>
                                             @error('description')
                                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                     </div>
 
+
+
+                                </div>
+
+                                <div class="col-lg-6">
                                     {{-- Start Date --}}
                                     <div class="mb-3 row">
                                         <label for="start_date" class="col-sm-3 col-form-label">Start Date</label>
@@ -90,10 +116,6 @@
                                             @enderror
                                         </div>
                                     </div>
-
-                                </div>
-
-                                <div class="col-lg-6">
 
                                     {{-- Project URL --}}
                                     <div class="mb-3 row">
@@ -122,8 +144,8 @@
 
                                             {{-- Thumbnail Lama --}}
                                             @if ($project->thumbnail_url)
-                                                <img src="{{ asset( $project->thumbnail_url) }}"
-                                                    alt="Old Thumbnail" class="img-thumbnail img-fluid mt-2 w-50">
+                                                <img src="{{ asset($project->thumbnail_url) }}" alt="Old Thumbnail"
+                                                    class="img-thumbnail img-fluid mt-2 w-50">
                                             @endif
 
                                             {{-- Preview Baru --}}

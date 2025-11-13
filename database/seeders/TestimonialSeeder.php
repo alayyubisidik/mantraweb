@@ -42,6 +42,48 @@ class TestimonialSeeder extends Seeder
                 'rating' => 5,
                 'image_url' => null,
             ],
+            [
+                'client_id' => 4,
+                'message' => 'Kolaborasi untuk website VisualWorks Studio berjalan sangat lancar. Tim tidak hanya cepat tanggap terhadap setiap revisi, tapi juga memberi banyak masukan kreatif yang meningkatkan kualitas tampilan secara keseluruhan. Sangat puas dengan hasil akhir yang modern dan dinamis!',
+                'rating' => 5,
+                'image_url' => null,
+            ],
+            [
+                'client_id' => 5,
+                'message' => 'BuildMax Construction kini memiliki website company profile yang benar-benar mencerminkan profesionalisme perusahaan kami. Navigasi mudah, tampilan elegan, dan struktur halaman yang rapi membuat calon klien lebih mudah mengenal layanan kami.',
+                'rating' => 5,
+                'image_url' => null,
+            ],
+            [
+                'client_id' => 6,
+                'message' => 'Kami memesan website e-commerce sederhana untuk FreshMart dan hasilnya luar biasa! Proses transaksi berjalan mulus, tampilan menarik, dan performa cepat bahkan di perangkat mobile. Terima kasih atas dukungan dan respons cepat selama proses pengembangan.',
+                'rating' => 4,
+                'image_url' => null,
+            ],
+            [
+                'client_id' => 7,
+                'message' => 'Website InsightData Analytics tampil profesional dan informatif berkat tim yang sangat komunikatif dan fokus pada detail. Integrasi dashboard analitik juga bekerja dengan sempurna. Sangat direkomendasikan untuk proyek data-driven!',
+                'rating' => 5,
+                'image_url' => null,
+            ],
+            [
+                'client_id' => 8,
+                'message' => 'HelpDesk Plus kini memiliki portal pelanggan yang memudahkan komunikasi dengan klien. Desainnya bersih dan fungsional, serta mudah diakses dari berbagai perangkat. Tim developer sangat terbuka dengan masukan dan cepat menindaklanjuti setiap feedback.',
+                'rating' => 4,
+                'image_url' => null,
+            ],
+            [
+                'client_id' => 9,
+                'message' => 'Website FinaCorp Indonesia tampil jauh lebih profesional dibanding sebelumnya. Dashboard laporan keuangan yang interaktif menjadi nilai tambah besar bagi kami. Terima kasih atas kerja keras dan hasil yang memuaskan!',
+                'rating' => 5,
+                'image_url' => null,
+            ],
+            [
+                'client_id' => 10,
+                'message' => 'CreativeLab Studio akhirnya memiliki portfolio website yang benar-benar mencerminkan identitas brand kami — clean, modern, dan interaktif. Proses pengembangan cepat, komunikatif, dan hasil akhir sempurna!',
+                'rating' => 5,
+                'image_url' => null,
+            ],
         ];
 
         foreach ($testimonials as $data) {

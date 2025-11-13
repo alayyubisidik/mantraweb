@@ -51,7 +51,7 @@ class TeamController extends Controller
 
 
         if ($request->hasFile("profile_url")) {
-            $filepath = $this->uploadFile($request->file("profile_url"), null, "profile-picture");
+            $filepath = $this->uploadFile($request->file("profile_url"), null, "images/team-profiles");
             $validated["profile_url"] = $filepath;
         }
 
@@ -95,7 +95,7 @@ class TeamController extends Controller
         ]);
 
         if ($request->hasFile("profile_url")) {
-            $filepath = $this->uploadFile($request->file("profile_url"), $request->profile_url, "profile-picture");
+            $filepath = $this->uploadFile($request->file("profile_url"), $request->profile_url, "images/team-profiles");
             $validated["profile_url"] = $filepath;
         }
 
@@ -109,7 +109,7 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        if ($team->profile_url != "/defaults/profile.png") {
+        if ($team->profile_url != "images/defaults/avatar-profile.png") {
             File::delete(public_path($team->profile_url));
         }
 

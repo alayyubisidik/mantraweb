@@ -36,7 +36,7 @@
                     <div class="card-body pt-0">
                         <form action="{{ route('categories.update', $category) }}" method="POST" novalidate>
                             @csrf
-                            @method("put")
+                            @method('put')
 
                             <div class="mb-3 row">
                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
@@ -53,12 +53,18 @@
                             <div class="mb-3 row">
                                 <label for="description" class="col-sm-3 col-form-label">Description</label>
                                 <div class="col-sm-9">
+                                    <textarea id="editor" name="description" class="form-control @error('description') is-invalid @enderror">{{ old('description', $category->description) }}</textarea>
+                                    @error('description')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                {{-- <div class="col-sm-9">
                                     <textarea id="description" name="description" rows="5"
                                         class="form-control @error('description') is-invalid @enderror">{{ old('description', $category->description) }}</textarea>
                                     @error('description')
                                         <div class="invalid-feedback d-block">{{ $message }}</div>
                                     @enderror
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="row">

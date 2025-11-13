@@ -78,7 +78,7 @@ class ClientController extends Controller
         // Jika ada file logo baru
         if ($request->hasFile('company_logo_url')) {
             // Contoh helper upload (hapus lama dan simpan baru)
-            $logoPath = $this->uploadFile($request->file('company_logo_url'), $client->company_logo_url, 'company-logo');
+            $logoPath = $this->uploadFile($request->file('company_logo_url'), $client->company_logo_url, 'images/company-logos');
             $client->company_logo_url = $logoPath;
         }
 

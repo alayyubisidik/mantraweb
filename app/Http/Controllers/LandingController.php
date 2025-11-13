@@ -23,7 +23,7 @@ class LandingController extends Controller
             'teams' => Team::limit(5)->get(),
             'testimonials' => Testimonial::with('client')
                 ->latest()
-                ->limit(3)
+                ->limit(5)
                 ->get(),
         ];
 
@@ -51,14 +51,23 @@ class LandingController extends Controller
 
     public function project()
     {
-        $projects = Project::all();
+        // Ambil project beserta relasi product (yang punya relasi ke category) dan client
+        $projects = Project::with(['product.categories', 'client'])
+            ->where('status', 'published')
+            ->get();
 
-        return view('landing.project')->with('projects', $projects);
+        // Ambil semua kategori dari produk untuk filter di view
+        $categories = Category::all();
+
+        return view('landing.project', compact('projects', 'categories'));
     }
+
+
+
     public function projectDetail($slug)
     {
         // Ambil project berdasarkan slug
-        $project = Project::with(['client', 'categories'])
+        $project = Project::with('client', 'product', 'product.categories')
             ->where('slug', $slug)
             ->firstOrFail();
 
@@ -73,30 +82,24 @@ class LandingController extends Controller
 
     public function products(Request $request)
     {
+        $categoryId = $request->query('category'); // kalau mau filter per kategori
         $categories = Category::all();
 
-        $categoryId = $request->query('category');
-
-        if ($categoryId) {
-            $products = Product::whereHas('categories', function ($query) use ($categoryId) {
-                $query->where('categories.id', $categoryId);
-            })->get();
-        } else {
-            $products = Product::all();
-        }
+        $products = Product::with('categories')->get();
 
         return view('landing.product', compact('products', 'categories', 'categoryId'));
     }
 
+
     public function productDetail($slug)
     {
-        // Cari product berdasarkan slug
         $product = Product::where('slug', $slug)
-            ->with(['categories', 'features', 'sections']) // eager load relasi bila perlu
+            ->with(['categories', 'features', 'sections'])
             ->firstOrFail();
 
         return view('landing.product-detail', compact('product'));
     }
+
 
     public function order($slug)
     {
@@ -113,7 +116,20 @@ class LandingController extends Controller
             'phone' => 'required|numeric|digits_between:8,15',
             'address' => 'required|string',
             'company' => 'required|string|max:150',
-            'company_logo' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'name.max' => 'Nama tidak boleh lebih dari 100 karakter.',
+            'job_title.required' => 'Jabatan wajib diisi.',
+            'job_title.max' => 'Jabatan tidak boleh lebih dari 100 karakter.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.max' => 'Email tidak boleh lebih dari 150 karakter.',
+            'phone.required' => 'Nomor telepon wajib diisi.',
+            'phone.numeric' => 'Nomor telepon hanya boleh berisi angka.',
+            'phone.digits_between' => 'Nomor telepon harus terdiri dari 8 hingga 15 digit.',
+            'address.required' => 'Alamat wajib diisi.',
+            'company.required' => 'Nama perusahaan wajib diisi.',
+            'company.max' => 'Nama perusahaan tidak boleh lebih dari 150 karakter.',
         ]);
 
         // 🔍 1. Cek apakah client sudah ada berdasarkan email
@@ -139,11 +155,6 @@ class LandingController extends Controller
             $client->phone = $request->phone;
             $client->address = $request->address;
             $client->company = $request->company;
-
-            if ($request->hasFile('company_logo')) {
-                $filepath = $this->uploadFile($request->file('company_logo'), null, 'company-logo');
-                $client->company_logo_url = $filepath;
-            }
 
             $client->save();
         }

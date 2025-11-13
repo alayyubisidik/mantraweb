@@ -13,9 +13,6 @@ class ClientSeeder extends Seeder
      */
     public function run(): void
     {
-        // Data client dari factories
-        // Client::factory(5)->create();
-
         $clients = [
             [
                 'name' => 'Andika Pratama',

@@ -19,8 +19,9 @@
                         <div class="col-xl-12">
                             <div class="breadcrumb__content z-index-3 mb-60">
                                 <div class="breadcrumb__text wow tpfadeIn" data-wow-duration=".9s" data-wow-delay=".6s">
-                                    @foreach ($project->categories as $category)
-                                        <span>{{ $category->name }}@if (!$loop->last)
+                                    {{-- <span>{{ $project->product->name ?? '-' }}</span> --}}
+                                    @foreach ($project->product->categories as $category)
+                                        <span>{{ $category->name ?? '-' }}@if (!$loop->last)
                                                 ,
                                             @endif
                                         </span>
@@ -33,29 +34,30 @@
                     <div class="row g-0 z-index-3">
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
                             <div class="breadcrumb__client-info space-left-1">
-                                <span>Client</span>
+                                <span>Klien</span>
                                 <p>{{ $project->client->name }}, <br>
                                     {{ $project->client->company }}</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
                             <div class="breadcrumb__client-info space-left-2">
-                                <span>Services</span>
-                                @foreach ($project->categories as $category)
+                                <span>Nama Produk</span>
+                                <p>{{ $project->product->name ?? '-' }}</p>
+                                {{-- @foreach ($project->product->categories as $category)
                                     <p>{{ $category->name }}</p>
-                                @endforeach
+                                @endforeach --}}
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
                             <div class="breadcrumb__client-info space-left-3">
-                                <span>Project Date</span>
-                                <p>{{ \Carbon\Carbon::parse($project->start_date)->format('F jS, Y') }}<br>
-                                    Release Started</p>
+                                <span>Periode Proyek</span>
+                                <p>{{ \Carbon\Carbon::parse($project->start_date)->translatedFormat('j F Y') }}<br> -
+                                    {{ \Carbon\Carbon::parse($project->end_date)->translatedFormat('j F Y') }}</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 mb-40 pd-border-right">
                             <div class="breadcrumb__client-info space-left-4">
-                                <span>Project Date</span>
+                                <span>Kunjungi Proyek</span>
                                 <div class="breadcrumb__live-btn">
                                     <a class="tp-btn-inner-border" href="{{ $project->project_url }}" target="_blank">See
                                         live <i class="fal fa-arrow-up"></i></a>
@@ -76,7 +78,7 @@
                         <div class="pd-thumb">
                             <img class="w-100"
                                 src="{{ $project->thumbnail_url
-                                    ? asset('storage/' . $project->thumbnail_url)
+                                    ? asset($project->thumbnail_url)
                                     : asset('landing/img/project-thumbnail/thumbnail-default.png') }}"
                                 alt="{{ $project->title }}">
                         </div>
@@ -106,11 +108,11 @@
                     <div class="col-xl-10 col-lg-10 ">
                         <div class="pd-details-wrapper">
                             <div class="pd-details-info">
-                                <h4 class="pd-details-title">Project Description</h4>
+                                <h4 class="pd-details-title">Deskripsi Proyek</h4>
                                 <p>{{ $project->description }}</p>
                             </div>
                             <div class="pd-details-overview">
-                                <h4 class="pd-details-title">Overview</h4>
+                                <h4 class="pd-details-title">Ringkasan</h4>
                                 <ul>
                                     <li>Buat dan simpan catatan atau ide proyek dengan dukungan multi-media.</li>
                                     <li>Kolaborasi lebih efisien dengan editor lengkap dan fitur canggih.</li>
@@ -122,7 +124,7 @@
                                     skalabilitas sistem.</p>
                             </div>
                             <div class="pd-details-info">
-                                <h4 class="pd-details-title">Solution & Result</h4>
+                                <h4 class="pd-details-title">Solusi dan Hasil</h4>
                                 <p>Kami menyelesaikan proyek ini dengan menggabungkan sistem desain yang kuat dan praktik
                                     pengembangan modern. Solusi yang diterapkan berfokus pada peningkatan interaksi
                                     pengguna, penyederhanaan alur kerja, serta performa yang responsif di berbagai

@@ -95,7 +95,7 @@ class ProductController extends Controller
         ]);
 
 
-        $filepath = $this->uploadFile($request->file("thumbnail_url"), null, "product-thumbnail");
+        $filepath = $this->uploadFile($request->file("thumbnail_url"), null, "images/product-thumbnails");
         $validated["thumbnail_url"] = $filepath;
 
         $validated["slug"] = Str::slug($validated["name"]);
@@ -107,7 +107,7 @@ class ProductController extends Controller
         $product->categories()->sync($validated['categories']);
 
         // 5. Redirect dengan pesan sukses
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dibuat.');
+        return redirect()->route('products.index')->with('message-success', 'Produk berhasil dibuat.');
     }
 
 
@@ -178,7 +178,7 @@ class ProductController extends Controller
         // 3️⃣ Cek jika ada file thumbnail baru
         if ($request->hasFile('thumbnail_url')) {
             // misalnya kamu punya helper upload file seperti ini:
-            $thumbnailPath = $this->uploadFile($request->file('thumbnail_url'), $product->thumbnail_url, 'product-thumbnail');
+            $thumbnailPath = $this->uploadFile($request->file('thumbnail_url'), $product->thumbnail_url, 'images/product-thumbnails');
             $product->thumbnail_url = $thumbnailPath;
         }
  

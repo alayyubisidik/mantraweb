@@ -83,6 +83,10 @@
                                             class="{{ request()->routeIs('pages.about') ? 'active' : '' }}">About</a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('pages.products') }}"
+                                            class="{{ request()->routeIs('pages.product*') ? 'active' : '' }}">Products</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('pages.team') }}"
                                             class="{{ request()->routeIs('pages.team') ? 'active' : '' }}">Team</a>
                                     </li>

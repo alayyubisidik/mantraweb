@@ -22,7 +22,7 @@
     <link href="{{ asset('dashboard/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
 
-    <script src="{{ asset("assets/dist/js/tinymce/tinymce.min.js") }}"></script>
+    <script src="{{ asset('assets/dist/js/tinymce/tinymce.min.js') }}"></script>
 
     <script>
         tinymce.init({
@@ -291,19 +291,43 @@
     <script src="{{ asset('dashboard/js/pages/sweet-alert.init.js') }}"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (document.querySelector("#clientId")) new Selectr("#clientId");
-            if (document.querySelector("#status")) new Selectr("#status");
-            if (document.querySelector("#rating")) new Selectr("#rating");
-            if (document.querySelector("#multiSelect")) {
-                new Selectr("#multiSelect", {
-                    multiple: true,
-                    placeholder: "Select one or more categories",
-                    searchable: true
-                });
-            }
+        document.addEventListener("DOMContentLoaded", function() {
+            // Daftar ID select yang multiple
+            const multiSelects = [
+                "#categories",
+                "#features",
+                "#sections"
+            ];
+
+            // Inisialisasi Selectr untuk setiap multiple select
+            multiSelects.forEach(id => {
+                if (document.querySelector(id)) {
+                    new Selectr(id, {
+                        multiple: true,
+                        searchable: true,
+                        placeholder: "Pilih Satu Atau Lebih"
+                    });
+                }
+            });
+
+            // Inisialisasi select biasa (kalau ada)
+            const singleSelects = [
+                "#clientId",
+                "#status",
+                "#rating"
+            ];
+
+            singleSelects.forEach(id => {
+                if (document.querySelector(id)) {
+                    new Selectr(id, {
+                        searchable: true,
+                        placeholder: "Select an option"
+                    });
+                }
+            });
         });
     </script>
+
 
     <script>
         function previewImage(event) {
@@ -314,7 +338,7 @@
 
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     preview.src = e.target.result;
                     preview.classList.remove('d-none');
                     preview.classList.add('d-block');
@@ -358,30 +382,30 @@
             });
         @endif
 
-            @if (session('message-error'))
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    background: '#f8d7da',
-                    color: '#842029',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                });
+        @if (session('message-error'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                background: '#f8d7da',
+                color: '#842029',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
 
-                Toast.fire({
-                    icon: 'error',
-                    title: '{{ session('message-error') }}'
-                });
-            @endif
+            Toast.fire({
+                icon: 'error',
+                title: '{{ session('message-error') }}'
+            });
+        @endif
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.delete-btn');
 
             deleteButtons.forEach(btn => {
-                btn.addEventListener('click', function (e) {
+                btn.addEventListener('click', function(e) {
                     e.preventDefault();
 
                     const form = this.closest('form'); // ambil form terdekat

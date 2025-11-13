@@ -41,8 +41,8 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>Name</th>
+                                        <th>Job Title</th>
                                         <th>Email</th>
-                                        {{-- <th>Phone</th> --}}
                                         {{-- <th>Address</th> --}}
                                         <th>Company</th>
                                         <th>Company Logo</th>
@@ -61,14 +61,14 @@
                                                 </div>
                                             </td>
                                             <td>
+                                                <p class="d-inline-block align-middle mb-0 text-body">
+                                                    {{ $client->job_title }}
+                                                </p>
+                                            </td>
+                                            <td>
                                                 <a href="#"
                                                     class="text-body text-decoration-underline">{{ $client->email }}</a>
                                             </td>
-                                            {{-- <td>
-                                                <p class="d-inline-block align-middle mb-0 text-body">
-                                                    {{ $client->phone }}
-                                                </p>
-                                            </td> --}}
                                             {{-- <td>
                                                 <p class="d-inline-block align-middle mb-0 text-body">
                                                     {{ $client->address }}

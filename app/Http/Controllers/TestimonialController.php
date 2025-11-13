@@ -56,7 +56,7 @@ class TestimonialController extends Controller
 
         if ($request->hasFile('image_url')) {
             // Contoh helper upload (hapus lama dan simpan baru)
-            $imagePath = $this->uploadFile($request->file('image_url'), $request->image_url, 'rating-image');
+            $imagePath = $this->uploadFile($request->file('image_url'), $request->image_url, 'images/testimonial-profile');
             $validated["image_url"] = $imagePath;
         }
 
@@ -107,7 +107,7 @@ class TestimonialController extends Controller
          // Jika ada file logo baru
         if ($request->hasFile('image_url')) {
             // Contoh helper upload (hapus lama dan simpan baru)
-            $imagePath = $this->uploadFile($request->file('image_url'), $testimonial->image_url, 'rating-image');
+            $imagePath = $this->uploadFile($request->file('image_url'), $testimonial->image_url, 'images/testimonial-profile');
             $testimonial->image_url = $imagePath;
         }
 

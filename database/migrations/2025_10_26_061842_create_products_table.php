@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description'); // description
             $table->integer('price_start'); // price_start
             $table->integer('price_max'); // price_max
-            $table->string('thumbnail_url'); // thumbnail_url
+            $table->string('thumbnail_url')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active'); // status
             $table->timestamps(); // created_at & updated_at
         });

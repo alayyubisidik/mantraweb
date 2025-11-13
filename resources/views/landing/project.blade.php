@@ -40,43 +40,57 @@
                     <div class="col-xl-12">
                         <div class="portfolio-filter masonary-menu text-center mb-35">
                             <button data-filter="*" class="active"><span>All</span></button>
-                            <button data-filter=".Landing"><span>Landing Page</span></button>
-                            <button data-filter=".Web"><span>Web App</span></button>
-                            <button data-filter=".E-Commerce"><span>E-Commerce</span></button>
-                            <button data-filter=".Portfolio"><span>Portfolio</span></button>
-                            <button data-filter=".Government"><span>Government</span></button>
+                            @foreach ($categories as $category)
+                                @php
+                                    // Ambil kata pertama dari nama kategori untuk class filter
+                                    $firstWord = Str::of($category->name)->explode(' ')->first();
+                                @endphp
+                                <button data-filter=".{{ $firstWord }}">
+                                    <span>{{ $category->name }}</span>
+                                </button>
+                            @endforeach
                         </div>
                     </div>
                 </div>
+
                 <div class="row grid">
                     @foreach ($projects as $project)
-                        <div
-                            class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item
-                            @foreach ($project->categories as $category) {{ $category->name }} @endforeach ">
+                        @php
+                            // Ambil semua kategori produk project
+                            $categoryClasses = $project->product->categories
+                                ->map(fn($c) => Str::of($c->name)->explode(' ')->first())
+                                ->implode(' ');
+                        @endphp
+
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 grid-item {{ $categoryClasses }}">
                             <div class="inner-project-item mb-30">
                                 <div class="inner-project-img fix p-relative">
                                     <img class="w-100"
                                         src="{{ $project->thumbnail_url
-                                            ? asset('storage/' . $project->thumbnail_url)
+                                            ? asset($project->thumbnail_url)
                                             : asset('landing/img/project-thumbnail/thumbnail-default.png') }}"
                                         alt="{{ $project->title }}">
                                     <div class="inner-project-brand">
                                         <img src="{{ $project->client->company_logo_url
-                                            ? asset('storage/' . $project->client->company_logo_url)
+                                            ? asset($project->client->company_logo_url)
                                             : asset('landing/img/company-logo/company-default.png') }}"
                                             alt="{{ $project->client->company }}">
                                     </div>
                                 </div>
+
                                 <div class="inner-project-content">
-                                    @foreach ($project->categories as $category)
-                                        <span class="inner-project-category-title">{{ $category->name }}@if (!$loop->last)
+                                    <span class="inner-project-category-title">
+                                        @foreach ($project->product->categories as $category)
+                                            {{ $category->name }}@if (!$loop->last)
                                                 ,
                                             @endif
-                                        </span>
-                                    @endforeach
+                                        @endforeach
                                     </span>
-                                    <h4 class="inner-project-title"><a
-                                            href="{{ route('pages.project.detail', $project->slug) }}">{{ $project->title }}</a>
+
+                                    <h4 class="inner-project-title">
+                                        <a href="{{ route('pages.project.detail', $project->slug) }}">
+                                            {{ $project->title }}
+                                        </a>
                                     </h4>
                                     <p>{{ Str::limit($project->description, 70) }}</p>
                                 </div>
@@ -87,6 +101,7 @@
             </div>
         </div>
         <!--Portfolio End-->
+
 
     </main>
 @endsection

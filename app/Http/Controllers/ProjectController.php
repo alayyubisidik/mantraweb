@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Product;
 use App\Models\Project;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
@@ -27,7 +28,6 @@ class ProjectController extends Controller
     {
         return view('dashboard.project.edit', [
             'project' => $project,
-            'clients' => Client::all(),
         ]);
     }
 
@@ -65,7 +65,7 @@ class ProjectController extends Controller
 
         if ($request->hasFile('thumbnail_url')) {
             // misalnya kamu punya helper upload file seperti ini:
-            $logoPath = $this->uploadFile($request->file('thumbnail_url'), $project->thumbnail_url, 'project-thumbnail');
+            $logoPath = $this->uploadFile($request->file('thumbnail_url'), $project->thumbnail_url, 'images/project-thumbnails');
             $project->thumbnail_url = $logoPath;
         }
 
