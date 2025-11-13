@@ -56,12 +56,11 @@
                             </div>
                             <div class="career-details-job-responsiblity mb-45">
                                 <h4 class="career-details-title-sm">Deskripsi Produk</h4>
-                                <p>{{ $product->description }}</p>
+                                <p>{{ strip_tags($product->description) }}</p>
                             </div>
                             <div class="career-details-job-responsiblity mb-45">
                                 <h4 class="career-details-title-sm">Layout Produk</h4>
-                                <p class="pb-15">Now, the paradigm has shifted. The question is not why you should include
-                                    a content marketing strategy.</p>
+                                <p class="pb-15">Berikut adalah daftar modul yang tersedia dalam template layout produk untuk membangun halaman yang efektif</p>
                                 <div class="career-details-job-list">
                                     <ul>
                                         @foreach ($product->sections as $section)
@@ -76,8 +75,7 @@
                             </div>
                             <div class="career-details-job-responsiblity mb-45">
                                 <h4 class="career-details-title-sm">Fitur Produk</h4>
-                                <p class="pb-15">Now, the paradigm has shifted. The question is not why you should include
-                                    a content marketing strategy.</p>
+                                <p class="pb-15">Nikmati berbagai fitur canggih yang dirancang untuk meningkatkan efisiensi dan pengalaman pengguna.</p>
                                 <div class="career-details-job-list">
                                     <ul>
                                         @foreach ($product->features as $feature)

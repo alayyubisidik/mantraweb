@@ -109,7 +109,7 @@
                         <div class="pd-details-wrapper">
                             <div class="pd-details-info">
                                 <h4 class="pd-details-title">Deskripsi Proyek</h4>
-                                <p>{{ $project->description }}</p>
+                                <p>{{ strip_tags($project->description) }}</p>
                             </div>
                             <div class="pd-details-overview">
                                 <h4 class="pd-details-title">Ringkasan</h4>

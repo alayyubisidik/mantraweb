@@ -92,7 +92,7 @@
                                             {{ $project->title }}
                                         </a>
                                     </h4>
-                                    <p>{{ Str::limit($project->description, 70) }}</p>
+                                    <p>{{ Str::limit(strip_tags($project->description), 70) }}</p>
                                 </div>
                             </div>
                         </div>
